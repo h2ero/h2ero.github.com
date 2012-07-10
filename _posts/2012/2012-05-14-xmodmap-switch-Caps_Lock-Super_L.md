@@ -1,9 +1,9 @@
-`---
+---
 layout: post
 title: linux xmodmap修改键盘映射Caps_Lock和Super_L互换
 tags: awesom Ubuntu xev xmodmap
 categories: linux
----`
+---
 
 换awesome窗口管理器去了。由于ubuntu的unity还是不太稳定。偶尔卡住半天，受不了果断会曾经的awesome。话说用Win/Super的时候太多了。琢磨了半天还是不太习惯，想着还是把Caps lock和super给换一下。
 
