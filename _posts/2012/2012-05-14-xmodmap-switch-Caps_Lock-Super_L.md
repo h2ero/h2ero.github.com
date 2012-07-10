@@ -9,18 +9,23 @@ categories: linux
 
 用`~$ xev |grep keycode` 按要互换的两个键的到以下信息：
 
-+ `state 0×50, keycode 133 (keysym 0xffeb, Super_L), same_screen YES,`
-+ `state 0×10, keycode  66(keysym 0xffe5, Caps_Lock), same_screen YES,`
+{% highlight bash linenos %}
+state 0×50, keycode 133 (keysym 0xffeb, Super_L), same_screen YES,
+state 0×10, keycode  66(keysym 0xffe5, Caps_Lock), same_screen YES,
+{% endhighlight %}
 
 然后建立 .Xmodmap 输入以下内容
 
-+ `clear mod4`
-+ `clear lock`
-+ `keycode 133 = Caps_Lock NoSymbol Caps_Lock NoSymbol Caps_Lock`
-+ `keycode 66 = Super_L NoSymbol Super_L NoSymbol Super_L`
-+ `add mod4 = Super_L`
-+ `add lock = Caps_Lock`
+{% highlight bash linenos %}
+clear mod4
+clear lock
+keycode 133 = Caps_Lock NoSymbol Caps_Lock NoSymbol Caps_Lock
+keycode 66 = Super_L NoSymbol Super_L NoSymbol Super_L
+add mod4 = Super_L
+add lock = Caps_Lock
+{% endhighlight %}
 
 最后执行 `xmodmap .xmodmap && exec awesome`即可生效。
+
 
 
