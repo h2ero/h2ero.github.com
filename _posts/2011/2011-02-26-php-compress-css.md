@@ -3,7 +3,7 @@ layout: post
 title: php对css格式化和压缩
 tags: 
 - css compression
-categories: 
+categories: php
 ---
 今天在csdn看到有人问这个问题，于是答了下，结果发现答错了，囧~，下来自己写了下，不知不觉就花了3个小时才解决，
 哎谁叫俺还是个新手拉，不过学到了很多东西，
