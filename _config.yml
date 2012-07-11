@@ -9,7 +9,7 @@ author:  h2ero
 
 
 markdown:    rdiscount
-permalink: /:categories/:month-:day-:year/:title.html
+permalink: /:categories/:title.html
 pygments: true
 paginate: 16
 
