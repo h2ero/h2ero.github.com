@@ -4,7 +4,7 @@ title: CSS3 transform rotate实现文字围绕圆形旋转
 tags: CSS3 transform jQuery
 categories: web
 ---
-最近看到[HITCON 2012](http://hitcon.org/2012/)这个网站上文字围绕圆形旋转的效果，想看看怎么弄的结果是`<img src="images/hack.svg" alt="" style="width: 1348px; height: 1348px;">` 囧，果断放弃。以为是CSS3实现的。于是折腾了下CSS3的实现。这个[csswarp][0]网站上已经实现的很不错了,不过是静态的效果。实现上主要参考了下它的实现过程。
+最近看到[HITCON 2012](http://hitcon.org/2012/)这个网站上文字围绕圆形旋转的效果，想看看怎么弄的结果是`<img src="images/hack.svg">` 囧，果断放弃。以为是CSS3实现的。于是折腾了下CSS3的实现。这个[csswarp][0]网站上已经实现的很不错了,不过是静态的效果。实现上主要参考了下它的实现过程。
 
 ###CSS3 transform rotate知识点###
 
@@ -93,7 +93,7 @@ $(function() {
         }
         return [x,y];
     }
-    var str="h2ero lover you if you love too";
+    var str="h2ero love you if you love too";
     var html='';
     str=str.split(' ');
     var deg=[];
