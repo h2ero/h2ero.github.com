@@ -1,6 +1,6 @@
 ---
 layout: post
-title: MySQL like %word% 全文搜索建立fulltext索引优化
+title: MySQL like %word% 全文搜索建立FULLTEXT索引优化
 tags: MySQL 索引 SQL fulltext
 categories: SQL
 ---
