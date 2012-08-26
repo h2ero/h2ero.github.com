@@ -45,6 +45,13 @@ $bash>mysqld --verbose --help | grep ft
 #ft-max-word-len                                   84
 #ft-min-word-len                                   2
 #ft-query-expansion-limit                          20
+#或者
+$bash>mysqladmin variables | grep ft
+| ft_boolean_syntax                                 | + -><()~*:""&|                                                                                                         |
+| ft_max_word_len                                   | 84                                                                                                                     |
+| ft_min_word_len                                   | 2                                                                                                                      |
+| ft_query_expansion_limit                          | 20                                                                                                                     |
+| ft_stopword_file                                  | (built-in)                                                                                                             |
 #或者在MySQL中执行
 mysql>SHOW VARIABLES
 {% endhighlight %}
