@@ -20,8 +20,8 @@ echo $query;
 {% endhighlight %}
 复制上面代码保存为tag.php,然后在bash中运行`php tag.php > tag.sql`然后再在MySQL中导入
 {% highlight bash linenos %}
-use weimei
-source tag.sql
+mysql>use weimei
+mysql>source tag.sql
 {% endhighlight %}
 ###建立FULLTEXT索引###
 {% highlight sql linenos %}
