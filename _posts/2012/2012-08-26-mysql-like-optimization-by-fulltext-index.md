@@ -5,7 +5,7 @@ tags: MySQL 索引 SQL fulltext
 categories: SQL
 ---
 
-回家了一段时间，回学校了，没有啥子心思耍。今天想优化下TAG数据库,总担心效率问题。表结构Tag(id,tagName,targetId,sum)。targetId里面是文章图片的id，分别用p,a做前缀逗号隔开。这样搜索Tag很快，不过找单张图片id慢很多。关于TAG数据库设计可以看这儿列出的三种方法[Tags Database schemas][1]
+回家了一段时间，回学校了，没有啥子心思耍。今天想优化下TAG数据库,总担心效率问题。表结构Tag(id,tagName,targetId,sum)。targetId里面是文章图片的id，分别用p,a做前缀逗号隔开。这样搜索Tag很快，不过找单张图片%id%就会慢很多。对于keyword%和%keyword的情况可以参考这篇文章[索引与优化like查询][0]。关于TAG数据库设计可以看这儿列出的三种方法[Tags Database schemas][1]
 ###数据准备:生成一百万条数据###
 {% highlight php linenos %}
 <?php
@@ -68,10 +68,10 @@ ft-boolean-syntax='+ -><(),~*:""&|'
 1. [MySQL CREATE INDEX Syntax][4]
 2. [MySQL Full-Text Search Functions][5]
 3. [MySQL SET Syntax][6]
+[0]:http://rdc.taobao.com/team/jm/archives/1530 "索引与优化like查询"
 [1]:http://www.pui.ch/phred/archives/2005/04/tags-database-schemas.html     "Tags: Database schemas"
 [2]:http://dev.mysql.com/doc/refman/5.0/en/using-system-variables.html     "MySQL System Variables"
 [3]:http://devzone.zend.com/26/using-mysql-full-text-searching/    "Using MySQL Full-text Searching"
 [4]:http://dev.mysql.com/doc/refman/5.0/en/create-index.html   "MySQL CREATE INDEX Syntax"
 [5]:http://dev.mysql.com/doc/refman/5.5/en/fulltext-search.html  "MySQL Full-Text Search Functions"
 [6]:http://dev.mysql.com/doc/refman/5.0/en/set-statement.html   "MySQL SET Syntax"
-
