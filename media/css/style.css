@@ -143,7 +143,6 @@ list-style: none outside none;
 padding: 25px;
 position: fixed;
 right: 0;
--moz-transition:all 2s ease;
 }
 #listTitle:hover{
 }

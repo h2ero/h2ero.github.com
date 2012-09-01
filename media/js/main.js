@@ -7,12 +7,12 @@ $(function(){
         });
         var width=-$('#listTitle').css('width').split('px')[0]+20
         setTimeout(function(){
-            $('#listTitle').css({'right':width+'px'});
+            $('#listTitle').stop().animate({right:width},300);
         },2000);
         $('#listTitle').hover(function(){
-            $(this).css({'right':'0px'});
+            $(this).animate({right:0},300)//css({'right':'0px'});
         },function(){
-            $(this).css({'right':width+'px'});
+            $(this).stop().animate({right:width},300);
         });
         //http://css-tricks.com/examples/SmoothPageScroll/#
         function filterPath(string) {
