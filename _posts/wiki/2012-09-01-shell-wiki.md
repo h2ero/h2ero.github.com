@@ -49,7 +49,7 @@ eg:lightdm:x:104:111:Light Display Manager:/var/lib/lightdm:/bin/false
 + `bash script.sh`
 + `sh script.sh`
 + `. script.sh`
-+ `source script.sh`
++ `source .bashrc` 直接使配置生效
 + . source 都会让script.sh在父Shell中执行`echo $SHLVL` `ps axf`查看层级
 
 ###调试
