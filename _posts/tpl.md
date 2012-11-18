@@ -6,6 +6,7 @@ categories:
 ---
 {% highlight bash linenos %}
 {% endhighlight %}
+
 First Header | Second Header | Third Header
 :----------- | :-----------: | -----------:
 Left         | Center        | Right
