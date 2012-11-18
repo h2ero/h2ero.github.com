@@ -1,10 +1,10 @@
-time
 ---
 layout: post
 title: MySQL
 tags: mysql
-categories:mysql 
+categories: mysql 
 ---
+
 1. `set @now=(DATE_FORMAT(NOW(),'%Y-%m-%d %H:%i:%s'));`
 2. `INSERT INTO test VALUES ('',uid, @now) ON DUPLICATE KEY  update date_added=@now;` 当出现uid相同的列时候执行后面的语句。
 3. `set @i=0;select (@i:=@i+1)   as   i  from games limit 20；`选择1-20
