@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ssh 不同域名或ip用不同private key
+title: ssh 不同域用不同private key
 tags: ssh id_rsa.pub scp
 categories: linux
 ---
