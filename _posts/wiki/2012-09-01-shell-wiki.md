@@ -127,6 +127,18 @@ eg:lightdm:x:104:111:Light Display Manager:/var/lib/lightdm:/bin/false
 	+ `tee file`存在清空，不存在输入然后<kbd>Ctrl</kbd>+<kbd>D</kbd>
 18. `script log`记录接下来命令的执行过程及结果,直到`exit`退出
 19. top <kby>z</kby>切换彩色显示
+20. 关机命令
+	+ sync&&shutdown -h now/+30/20:00
+	+ init 0
+		+ 0 关机
+		+ 3 纯文本
+		+ 5 图形界面
+		+ 6 重新启动
+	+ poweroff -f
+21. chown root:root file
+22. chmod 
+	+ chmod u=rwx,g=rw file
+	+ chmod a-x file
 
 ###文件操作
 20. touch file 建立新文件等同于 > file :>file
