@@ -151,6 +151,11 @@ eg:lightdm:x:104:111:Light Display Manager:/var/lib/lightdm:/bin/false
 	+ stat -f "%a" 单独查看分区相关属性输出 
 26. chattr +attr =attr -attr AaiD 为文件设置文件取用时间不变/只能转向开启文件进行写入/不能修改文件/不需要dump 特殊属性 
 27. lsattr file 查看文件特殊属性
+28. gzip 
+	* gzip -d 解压
+	* gzip -c 压缩
+        * zcat
+
 
 ###历史命令
 + fc
