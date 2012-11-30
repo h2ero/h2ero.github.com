@@ -5,6 +5,7 @@ comments: yes
 ---
 
 + [huxos](http://blog.huxos.org/)
++ [fancy](http://fancycedar.info/)
 + [AshIn's Site](http://ashin.sinaapp.com/)
 + [alien的博客](http://alienblog.net/)
 + [更新迷](http://www.54luren.com/)
