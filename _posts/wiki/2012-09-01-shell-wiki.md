@@ -401,6 +401,19 @@ eg:lightdm:x:104:111:Light Display Manager:/var/lib/lightdm:/bin/false
 
 ##用户管理
 + 建立帐号
-	- adduser h2ero
-	- useradd -D 显示创建用户时候的默认配置，/etc/default/useradd
-	- deluser/userdle username ~目录保存 
+		
+		adduser h2ero
+		useradd -D 显示创建用户时候的默认配置，/etc/default/useradd
+		deluser/userdle username ~目录保存 
+
+##其他
+1. 添加字符集
+		
+		cat /usr/share/i18n/SUPPORTED
+		vim /var/lib/locales/supported.d/local
+		dpkg-reconfigure --force locales
+2. 目录转换
+		
+		export LANG=en_US
+		xdg-user-dirs-gtk-update
+		export LANG=zh_CN
