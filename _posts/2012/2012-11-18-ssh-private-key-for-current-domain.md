@@ -25,5 +25,6 @@ categories: linux
 	Host github github.com
 	Hostname github.com
 	IdentityFile|~/.ssh/h2ero`
-###用scp复制文件
+###登陆执行命令
+	ssh root@root.com uname
 
