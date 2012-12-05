@@ -23,7 +23,7 @@ ol,ul{list-style-position:inside;}
 ol ul, ul ol, ul ul, ol ol {margin-left:1em;}
 .highlight pre{padding:10px 0;padding: 10px 5px;box-shadow: 5px 5px 15px #000000;}
 pre code{border:none !important; padding: 2px; font-family:Simsun,monospace; font-size: 14px; line-height: 14px; margin:1em 0;display:block;overflow:auto;}
-code{border: 1px solid #CCCCCC;padding: 2px;}
+code{border: 1px solid #CCCCCC;padding: 2px;background:none repeat scroll 0 0 #272822;color:#FFFFFF;}
 blockquote{display:block;text-align:justify;border-left:4px solid #eeeeee;}
 blockquote{margin:1em 0em;padding-left:1.5em;}
 blockquote p{margin:0;padding:.5em 0;}
