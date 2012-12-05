@@ -9,7 +9,7 @@ categories: mysql
 2. `INSERT INTO test VALUES ('',uid, @now) ON DUPLICATE KEY  update date_added=@now;` 当出现uid相同的列时候执行后面的语句。
 3. `set @i=0;select (@i:=@i+1)   as   i  from games limit 20；`选择1-20
 4. join
-   1. 笛卡尔积(交叉连接),join,cross join,,
+   1. 笛卡尔积(交叉连接),join,cross join
    
    			SELECT * FROM table1 CROSS JOIN table2
 			SELECT * FROM table1 JOIN table2
