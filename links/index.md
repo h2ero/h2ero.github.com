@@ -4,7 +4,7 @@ layout: page
 comments: yes
 ---
 
-+ [huxos](http://blog.huxos.org/)
++ [huxos](http://huxos.me/)
 + [墨迹-fancy](http://fancycedar.info/)
 + [AshIn's Site](http://ashin.sinaapp.com/)
 + [alien的博客](http://alienblog.net/)
