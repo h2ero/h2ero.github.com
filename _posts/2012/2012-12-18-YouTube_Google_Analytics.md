@@ -9,19 +9,32 @@ Google Analytics太过于强大，才发现国内的什么CNZZ,51la,百度统计
 
 {% highlight javascript linenos %}
 //先在页面添加div#player
-var tag = document.createElement('script'); 
-tag.src = "http://www.youtube.com/player_api"; 
-var firstScriptTag = document.getElementsByTagName('script')[0]; 
+var tag = document.createElement('script');
+tag.src = "http://www.youtube.com/player_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-function onPlayerStateChange(event) { 
-	if (event.data ==YT.PlayerState.PLAYING){
-		_gaq.push(['_trackEvent', 'Videos', 'Play', player.getVideoUrl() ]); 
-	} 
-	if (event.data ==YT.PlayerState.ENDED){
-		_gaq.push(['_trackEvent', 'Videos', 'Watch to End',player.getVideoUrl() ]); 
-	}
+
+var player;
+function onYouTubePlayerAPIReady() {
+    player = new YT.Player('player', {
+        height: '390',
+        width: '640',
+        videoId: 'zLQFkztsozw',
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        }
+    });
 }
-tag.onload=onYouTubePlayerAPIReady(); 
+function onPlayerStateChange(event) {
+    if(event.data == YT.PlayerState.PLAYING) {
+        _gaq.push(['_trackEvent', 'Videos', 'Play', player.getVideoUrl()]);
+    }
+    if(event.data == YT.PlayerState.ENDED) {
+        _gaq.push(['_trackEvent', 'Videos', 'Watch to End', player.getVideoUrl()]);
+    }
+}
+tag.onload = onYouTubePlayerAPIReady();
 {% endhighlight %}
 
 然后就可以在Google Analytics里面看到。
