@@ -6,7 +6,6 @@ categories: PHP
 ---
 标题仅仅是为了SEO凑合着，这1天半都在折腾这个东西了，感觉PHP就是这些好。
 ##freetds
-###freetds简介
 [freeTDS][2]全名叫 free [Tabular Data Stream][1],TDS是应用层的协议，最早由Sybase Inc开发，用在自家的数据库，后来被Micrososoft用于MS Server。freeTDS则是TDS的一个开源版本实现。python,ruby,php,perl都能够使用。有一个java实现的版本[jTDS][3],freeTDS自身也包含有[ODBC][4]库。
 ###安装
 ubuntu debain系，sudo apt-get install freetds。mac brew install freetds。或者编译安装。
