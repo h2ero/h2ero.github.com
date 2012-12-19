@@ -76,7 +76,6 @@ exec sp_helpdb master;
 
 
 
-[Installing the MSSQL module for Mac OS X][0]
 [0]:http://blog.benjaminwalters.net/?p=10
 [1]:[]
 [2]:[http://freetds.schemamania.org/]
