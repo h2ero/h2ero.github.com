@@ -76,12 +76,12 @@ exec sp_helpdb master;
 
 
 [0]:http://blog.benjaminwalters.net/?p=10
-[1]:[]
-[2]:[http://freetds.schemamania.org/]
-[3]:[http://jtds.sourceforge.net/] "jTDS project"
-[4]:[http://en.wikipedia.org/wiki/ODBC] "ODBC"
-[5]:[http://linux.die.net/man/1/tsql] "tsql"
-[6]:[http://php.net/manual/en/mssql.constants.php] "Predefined Constants"
+[1]:
+[2]:http://freetds.schemamania.org/
+[3]:http://jtds.sourceforge.net/ "jTDS project"
+[4]:http://en.wikipedia.org/wiki/ODBC "ODBC"
+[5]:http://linux.die.net/man/1/tsql "tsql"
+[6]:http://php.net/manual/en/mssql.constants.php "Predefined Constants"
 
 <i class="os_date">
 System Version: OS X 10.8 (12A269) Kernel Version: Darwin 12.0.0
