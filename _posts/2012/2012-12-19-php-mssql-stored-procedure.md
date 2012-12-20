@@ -1,12 +1,12 @@
 ---
 layout: post
 title: PHP连接SQL Server 并使用存储过程
-tags: PHP mssql 存储过程 
+tags: PHP MSSQL 存储过程 
 categories: PHP
 ---
 标题仅仅是为了SEO凑合着，这1天半都在折腾这个东西了，感觉PHP就是这些好。
 ##freetds
-[freeTDS][2]全名叫 free [Tabular Data Stream][1],TDS是应用层的协议，最早由Sybase Inc开发，用在自家的数据库，后来被Micrososoft用于MS Server。freeTDS则是TDS的一个开源版本实现。python,ruby,php,perl都能够使用。有一个java实现的版本[jTDS][3],freeTDS自身也包含有[ODBC][4]库。
+[freeTDS][2]全名叫 free [Tabular Data Stream][1],TDS是应用层的协议，最早由Sybase Inc开发，用在自家的数据库，后来被Micrososoft用于MS Server。freeTDS则是TDS的一个开源版本实现。Python,Ruby,PHP,Perl都能够使用。有一个java实现的版本[jTDS][3],freeTDS自身也包含有[ODBC][4]库。
 ###安装
 ubuntu debain系，sudo apt-get install freetds。mac brew install freetds。或者编译安装。
 ###配置
@@ -37,7 +37,7 @@ echo $row[0];
 mssql_free_result($version);
 
 {% endhighlight %}
-###php 使用mssql存储过程
+###php 使用MSSQL存储过程
 
 {% highlight php linenos %}
 $dbconn = mssql_connect('MMS', $User, $Pass) or die("Couldn't connect to SQL Server on $Server");
@@ -47,7 +47,7 @@ mssql_bind($stmt,'@id',$user['id'],SQLINT1,false,false,3);
 $res=mssql_execute($stmt);
 mssql_free_statement($stmt);
 {% endhighlight %}
-需要注意mssql_connnect的第一个参数使用的是freeTDS里面的配置名。
+需要注意mssql_connnect的第一个参数使用的是freeTDS里面的配置名。SQLINT1详细到这儿查看[MSSQL Predefined Constants][6]
 ###几条MSSQL
 {% highlight sql linenos %}
 #查看所有表
@@ -81,6 +81,7 @@ exec sp_helpdb master;
 [3]:[http://jtds.sourceforge.net/] "jTDS project"
 [4]:[http://en.wikipedia.org/wiki/ODBC] "ODBC"
 [5]:[http://linux.die.net/man/1/tsql] "tsql"
+[6]:[http://php.net/manual/en/mssql.constants.php] "Predefined Constants"
 
 <i class="os_date">
 System Version: OS X 10.8 (12A269) Kernel Version: Darwin 12.0.0
