@@ -26,3 +26,7 @@ categories: mysql
 		mysql>show variables like 'max_allowed_packet';
 		mysql>show variables like 'net_buffer_length';
 		$>mysqldump -uroot -p  matchmove_reports -e --max_allowed_packet=1048576 --net_buffer_length=2048 > ~/Downloads/matchmove_reports.sql
+10. 两张表不同列导出同一日期数据
+		
+		# User,Download
+		select date,sum(Download) Download,sum(SignUp) SignUp from ( select  *  from (SELECT DATE(date_added) date, COUNT(id) 'SignUp',0 'Download' FROM users GROUP BY date) s union (SELECT DATE(date_added) date, 0 'SignUp',COUNT(id) 'Download' FROM `tracks` GROUP BY date) ) r group by date;
