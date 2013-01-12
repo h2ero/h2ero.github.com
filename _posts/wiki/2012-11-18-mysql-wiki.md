@@ -32,9 +32,12 @@ categories: mysql
 		select date,sum(Download) Download,sum(SignUp) SignUp from ( select  *  from (SELECT DATE(date_added) date, COUNT(id) 'SignUp',0 'Download' FROM users GROUP BY date) s union (SELECT DATE(date_added) date, 0 'SignUp',COUNT(id) 'Download' FROM `tracks` GROUP BY date) ) r group by date;
 11.  新建用户
 
-    //创建用户
-    mysql> insert into mysql.user(Host,User,Password) values('localhost','phplamp',password('1234'));
-    //刷新系统权限表
-    mysql>flush privileges;
-    mysql>exit;
+        //创建用户
+        mysql> insert into mysql.user(Host,User,Password) values('localhost','phplamp',password('1234'));
+        //刷新系统权限表
+        mysql>flush privileges;
+        mysql>exit;
+11. 授权
+
+        grant select, insert, update, delete on weimei2.* to h2ero@localhost;
 
