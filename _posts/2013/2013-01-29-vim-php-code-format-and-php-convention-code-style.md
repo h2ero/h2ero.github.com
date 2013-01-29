@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Vim PHP 代码格式化
-tags: vim vimL vimscript PHP
+title: PHP编码规范及Vim PHP 代码格式化实现
+tags: vim vimL vimscript PHP convention 
 categories: vim
 ---
 最近对Vim进行各种折腾，现在又上了一层。敲PHP总是有很多地方要空格隔开。所以按照[Kohana文档中的编程规范][0]来写了个脚本。写这个脚本把Vim的正则表达式用的非常熟了。功能简单就是加最简单的空格。主要还是用在自己敲代码的时候。基本上的类型就是下面这些了。
