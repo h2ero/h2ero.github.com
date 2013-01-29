@@ -5,6 +5,7 @@ tags: vim vimL vimscript PHP convention
 categories: vim
 ---
 最近对Vim进行各种折腾，现在又上了一层。敲PHP总是有很多地方要空格隔开。所以按照[Kohana文档中的编程规范][0]来写了个脚本。写这个脚本把Vim的正则表达式用的非常熟了。功能简单就是加最简单的空格。主要还是用在自己敲代码的时候。基本上的类型就是下面这些了。
+
 ###格式化类型
 {% highlight php linenos %}
 <?php 
@@ -159,6 +160,53 @@ endfunc
 au FileType php inoremap <CR> <Esc>:call PHP_space()<CR>
 {% endhighlight %}
 
+###PHP编程规范
+整理来着网上和kohana，zend framework框架的编程约定代码规范。
+{% highlight php linenos %}
+<?php
+//一般变量 形容词_名词,变量范围正则[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*
+$new_payment
+
+//函数/方法 动词+名词，函数方法空行隔开
+get_username()
+
+//多参数加空格
+get_message($id, $count, $date)
+
+//语法关键字后加空格
+if ($foo)
+
+//函数括号后不加空格
+strlen('h2ero')
+
+//花括号
+if ($foo)
+{
+	
+}
+//SQL关键词大写
+$sql = "h2ero"
+
+//类型转换空格
+$foo = (string) $foo;
+
+
+//变量在前，真假在后
+if ($foo !== FALSE)
+
+//使用AND，OR代替&& ||
+if (($foo AND $bar) OR ($b AND $c))
+
+//实例化
+$db = new Database;
+//而不是,除了有构造方法的情况。
+$db = new Database();
+
+//其他情况
+if ( ! $foo)
+
+
+{% endhighlight %}
 
 [0]:http://kohanaframework.org/3.0/guide/kohana/conventions   "kohana"
 <i class="os_date">
