@@ -21,8 +21,8 @@ if (!$foo)
 if ( ! $foo)
 
 //三元加其他运算符
-$foo=(($bar>5)?($bar+$foo):strlen($bar))?$foo%5:$bar%7;
-$foo = (($bar>5) ? ($bar + $foo) : strlen($bar)) ? $foo % 5 : $bar % 7;
+$foo=(($bar>5)?($bar+$foo):strlen($bar))?Help::$foo%5:$bar%7;
+$foo = (($bar>5) ? ($bar + $foo) : strlen($bar)) ? Hleper::$foo % 5 : $bar % 7;
 
 //强制转换
 $foo=(string)$bar;
@@ -47,6 +47,10 @@ $arr = array('key' => array('key' => 'value' + 'value2'))
 //运算符
 $a+=$b/$c-$d;
 $a += $b / $c - $d;
+
+//逻辑英文操作符
+if(1and2or3xor4)
+if (1 AND 2 OR 3 XOR 4) 
 
 {% endhighlight %}
 ###难点
