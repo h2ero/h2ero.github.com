@@ -1,0 +1,455 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MySQL like %word% 全文搜索建立FULLTEXT索引优化 | h2ero</title>
+  <meta name="author" content="h2ero">
+  
+  <meta name="description" content="回家了一段时间，回学校了，没有啥子心思耍。今天想优化下TAG数据库,总担心效率问题。表结构Tag(id,tagName,targetId,sum)。targetId里面是文章图片的id，分别用p,a做前缀逗号隔开。这样搜索Tag很快，不过找单张图片%id%就会慢很多。对于keyword%和%keyw">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="MySQL like %word% 全文搜索建立FULLTEXT索引优化"/>
+  <meta property="og:site_name" content="h2ero"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="h2ero" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">h2ero</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+      <li><a href="/link">Link</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-08-25T16:00:00.000Z"><a href="/2012/08/26/2012/2012-08-26-mysql-like-optimization-by-fulltext-index/">Aug 26 2012</a></time>
+      
+      
+  
+    <h1 class="title">MySQL like %word% 全文搜索建立FULLTEXT索引优化</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>回家了一段时间，回学校了，没有啥子心思耍。今天想优化下TAG数据库,总担心效率问题。表结构Tag(id,tagName,targetId,sum)。targetId里面是文章图片的id，分别用p,a做前缀逗号隔开。这样搜索Tag很快，不过找单张图片%id%就会慢很多。对于keyword%和%keyword的情况可以参考这篇文章<a href="http://rdc.taobao.com/team/jm/archives/1530" title="索引与优化like查询" target="_blank">索引与优化like查询</a>。关于TAG数据库设计可以看这儿列出的三种方法<a href="http://www.pui.ch/phred/archives/2005/04/tags-database-schemas.html" title="Tags: Database schemas" target="_blank">Tags Database schemas</a></p>
+<h3 id="数据准备:生成一百万条数据">数据准备:生成一百万条数据</h3>
+<figure class="highlight php"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="preprocessor">&lt;?php</span>
+<span class="keyword">for</span> (<span class="variable">$i</span>=<span class="number">0</span>;<span class="variable">$i</span>&lt;<span class="number">1000000</span>;<span class="variable">$i</span>++){
+		<span class="variable">$t1</span>=iconv(<span class="string">"GB2312"</span>,<span class="string">"UTF-8"</span>,chr(mt_rand(<span class="number">176</span>,<span class="number">215</span>)).chr(mt_rand(<span class="number">161</span>,<span class="number">249</span>)));
+		<span class="variable">$t2</span>=iconv(<span class="string">"GB2312"</span>,<span class="string">"UTF-8"</span>,chr(mt_rand(<span class="number">176</span>,<span class="number">215</span>)).chr(mt_rand(<span class="number">161</span>,<span class="number">249</span>)));
+		<span class="variable">$t3</span>=iconv(<span class="string">"GB2312"</span>,<span class="string">"UTF-8"</span>,chr(mt_rand(<span class="number">176</span>,<span class="number">215</span>)).chr(mt_rand(<span class="number">161</span>,<span class="number">249</span>)));
+		<span class="variable">$query</span>.= <span class="string">"INSERT INTO `tag`(`id`, `name`, `targetId`, `sum`) VALUES ('','"</span>.<span class="variable">$t1</span>.<span class="variable">$t2</span>.<span class="variable">$t3</span>.<span class="string">"','p"</span>.rand(<span class="number">0</span>,<span class="number">20000</span>).<span class="string">"','"</span>.rand(<span class="number">2</span>,<span class="number">100</span>).<span class="string">"');"</span>;
+}
+<span class="keyword">echo</span> <span class="variable">$query</span>;
+<span class="preprocessor">?&gt;</span>
+</pre></td></tr></table></figure>
+
+<p>复制上面代码保存为tag.php,然后在bash中运行<code>php tag.php &gt; tag.sql</code>然后再在MySQL中导入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>mysql&gt;use weimei
+mysql&gt;<span class="built_in">source</span> tag.sql
+</pre></td></tr></table></figure>
+
+<h3 id="建立FULLTEXT索引">建立FULLTEXT索引</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="operator"><span class="keyword">CREATE</span> FULLTEXT INDEX tag <span class="keyword">ON</span> tag(targetId)</span>
+</pre></td></tr></table></figure>
+
+<h3 id="性能对比">性能对比</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="comment">--FULLTEXT查询</span>
+<span class="comment">--4 total, Query took 0.0005 sec</span>
+<span class="operator"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="string">`tag`</span> <span class="keyword">where</span>  <span class="keyword">MATCH</span>(targetId) AGAINST(<span class="string">"a3"</span>)
+--未建立索引前<span class="keyword">like</span>查询
+--<span class="number">4</span> total, Query took <span class="number">0.6314</span> sec
+<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="string">`tag`</span> <span class="keyword">where</span>  targetId <span class="keyword">like</span> <span class="string">'%a3,%'</span></span>
+</pre></td></tr></table></figure>
+
+<h3 id="出现的问题">出现的问题</h3>
+<ol>
+<li>换做FULLTEXT索引后不再需要,因为建立索引时候是以词建立的。</li>
+<li>可能出现较短或较长的词不能搜索的情况，只是因为受到一下几个(MySQL System Variables)<a href="http://dev.mysql.com/doc/refman/5.0/en/using-system-variables.html" title="MySQL System Variables" target="_blank">2</a>的影响，执行以下命令查看。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="char">$b</span>ash&gt;mysqld --verbose --help | grep ft
+<span class="symbol">#ft</span>-boolean-syntax                                 + -&gt;&lt;()~*:<span class="comment">""</span>&|
+<span class="symbol">#ft</span>-max-word-len                                   <span class="number">84</span>
+<span class="symbol">#ft</span>-min-word-len                                   <span class="number">2</span>
+<span class="symbol">#ft</span>-query-expansion-limit                          <span class="number">20</span>
+#或者
+<span class="char">$b</span>ash&gt;mysqladmin variables | grep ft
+<span class="localvars">| ft_boolean_syntax                                 |</span> + -&gt;&lt;()~*:<span class="comment">""</span>&|                                                                                                         |
+<span class="localvars">| ft_max_word_len                                   |</span> <span class="number">84</span>                                                                                                                     |
+<span class="localvars">| ft_min_word_len                                   |</span> <span class="number">2</span>                                                                                                                      |
+<span class="localvars">| ft_query_expansion_limit                          |</span> <span class="number">20</span>                                                                                                                     |
+<span class="localvars">| ft_stopword_file                                  |</span> (built-in)                                                                                                             |
+#或者在<span class="class">MySQL</span>中执行
+mysql&gt;<span class="class">SHOW</span> <span class="class">VARIABLES</span>
+</pre></td></tr></table></figure>
+
+<p>在<code>/etc/mysql/my.cnf</code>(在我的Ubuntu 12.04下是这个，没有的话<code>locate my.cnf</code>即可找到)添加以下配置重启下Apache<code>sudo apache2ctl restart</code>即可生效，不过要记得再建立下索引。</p>
+<figure class="highlight dosini"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="title">[mysqld]</span>
+<span class="setting">ft_min_word_len = <span class="value"><span class="number">2</span></span></span>
+<span class="setting">ft-query-expansion-limit=<span class="value"><span class="number">30</span></span></span>
+<span class="setting">ft-boolean-syntax=<span class="value">'+ -&gt;&lt;(),~*:<span class="string">""</span>&|'</span></span>
+</pre></td></tr></table></figure>
+
+<p>关于更多和PHP和FULLTEXT相关的使用前往这儿<a href="http://devzone.zend.com/26/using-mysql-full-text-searching/" title="Using MySQL Full-text Searching" target="_blank">Using MySQL Full-text Searching</a>查看。</p>
+<p>参考文档:</p>
+<ol>
+<li><a href="http://dev.mysql.com/doc/refman/5.0/en/create-index.html" title="MySQL CREATE INDEX Syntax" target="_blank">MySQL CREATE INDEX Syntax</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/5.5/en/fulltext-search.html" title="MySQL Full-Text Search Functions" target="_blank">MySQL Full-Text Search Functions</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/5.0/en/set-statement.html" title="MySQL SET Syntax" target="_blank">MySQL SET Syntax</a></li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/SQL/">SQL</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/MySQL/">MySQL</a>, <a href="/tags/索引/">索引</a>, <a href="/tags/SQL/">SQL</a>, <a href="/tags/fulltext/">fulltext</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:blog.h2ero.cn">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/PHP/">PHP</a><small>1</small></li>
+  
+    <li><a href="/categories/SQL/">SQL</a><small>1</small></li>
+  
+    <li><a href="/categories/hack/">hack</a><small>1</small></li>
+  
+    <li><a href="/categories/linux/">linux</a><small>9</small></li>
+  
+    <li><a href="/categories/mac/">mac</a><small>1</small></li>
+  
+    <li><a href="/categories/mysql/">mysql</a><small>1</small></li>
+  
+    <li><a href="/categories/note/">note</a><small>1</small></li>
+  
+    <li><a href="/categories/php/">php</a><small>8</small></li>
+  
+    <li><a href="/categories/plugin/">plugin</a><small>1</small></li>
+  
+    <li><a href="/categories/self/">self</a><small>3</small></li>
+  
+    <li><a href="/categories/tip/">tip</a><small>1</small></li>
+  
+    <li><a href="/categories/vim/">vim</a><small>1</small></li>
+  
+    <li><a href="/categories/web/">web</a><small>5</small></li>
+  
+    <li><a href="/categories/wiki/">wiki</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/CSS3/">CSS3</a><small>1</small></li>
+  
+    <li><a href="/tags/Godaddy/">Godaddy</a><small>1</small></li>
+  
+    <li><a href="/tags/GoogleAnalytics/">GoogleAnalytics</a><small>1</small></li>
+  
+    <li><a href="/tags/IE6/">IE6</a><small>1</small></li>
+  
+    <li><a href="/tags/MSSQL/">MSSQL</a><small>1</small></li>
+  
+    <li><a href="/tags/Mac/">Mac</a><small>1</small></li>
+  
+    <li><a href="/tags/MySQL/">MySQL</a><small>1</small></li>
+  
+    <li><a href="/tags/PHP/">PHP</a><small>2</small></li>
+  
+    <li><a href="/tags/Postfix/">Postfix</a><small>1</small></li>
+  
+    <li><a href="/tags/SMTP/">SMTP</a><small>1</small></li>
+  
+    <li><a href="/tags/SQL/">SQL</a><small>1</small></li>
+  
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>1</small></li>
+  
+    <li><a href="/tags/Vim/">Vim</a><small>1</small></li>
+  
+    <li><a href="/tags/Youtube/">Youtube</a><small>1</small></li>
+  
+    <li><a href="/tags/Zend Studio/">Zend Studio</a><small>1</small></li>
+  
+    <li><a href="/tags/algin/">algin</a><small>1</small></li>
+  
+    <li><a href="/tags/apache/">apache</a><small>1</small></li>
+  
+    <li><a href="/tags/aptana/">aptana</a><small>1</small></li>
+  
+    <li><a href="/tags/awesom/">awesom</a><small>1</small></li>
+  
+    <li><a href="/tags/awesome/">awesome</a><small>1</small></li>
+  
+    <li><a href="/tags/codeigniter/">codeigniter</a><small>3</small></li>
+  
+    <li><a href="/tags/compression/">compression</a><small>1</small></li>
+  
+    <li><a href="/tags/convention/">convention</a><small>1</small></li>
+  
+    <li><a href="/tags/css/">css</a><small>2</small></li>
+  
+    <li><a href="/tags/dedecms/">dedecms</a><small>1</small></li>
+  
+    <li><a href="/tags/eclipse/">eclipse</a><small>1</small></li>
+  
+    <li><a href="/tags/firefox/">firefox</a><small>1</small></li>
+  
+    <li><a href="/tags/firegestures script/">firegestures script</a><small>1</small></li>
+  
+    <li><a href="/tags/framework/">framework</a><small>1</small></li>
+  
+    <li><a href="/tags/ftp/">ftp</a><small>1</small></li>
+  
+    <li><a href="/tags/fuelphp/">fuelphp</a><small>1</small></li>
+  
+    <li><a href="/tags/fulltext/">fulltext</a><small>1</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>1</small></li>
+  
+    <li><a href="/tags/greasemonkey/">greasemonkey</a><small>1</small></li>
+  
+    <li><a href="/tags/h2ero/">h2ero</a><small>2</small></li>
+  
+    <li><a href="/tags/id_rsa.pub/">id_rsa.pub</a><small>1</small></li>
+  
+    <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
+  
+    <li><a href="/tags/jVi/">jVi</a><small>1</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>3</small></li>
+  
+    <li><a href="/tags/love/">love</a><small>1</small></li>
+  
+    <li><a href="/tags/loveYou/">loveYou</a><small>1</small></li>
+  
+    <li><a href="/tags/mac/">mac</a><small>1</small></li>
+  
+    <li><a href="/tags/markdown/">markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/mysql/">mysql</a><small>1</small></li>
+  
+    <li><a href="/tags/netbens/">netbens</a><small>1</small></li>
+  
+    <li><a href="/tags/newBlog/">newBlog</a><small>1</small></li>
+  
+    <li><a href="/tags/newLift/">newLift</a><small>1</small></li>
+  
+    <li><a href="/tags/php/">php</a><small>2</small></li>
+  
+    <li><a href="/tags/plugin/">plugin</a><small>1</small></li>
+  
+    <li><a href="/tags/scp/">scp</a><small>1</small></li>
+  
+    <li><a href="/tags/search/">search</a><small>1</small></li>
+  
+    <li><a href="/tags/shell/">shell</a><small>1</small></li>
+  
+    <li><a href="/tags/ssh/">ssh</a><small>1</small></li>
+  
+    <li><a href="/tags/terminator/">terminator</a><small>1</small></li>
+  
+    <li><a href="/tags/transform/">transform</a><small>1</small></li>
+  
+    <li><a href="/tags/ubuntu/">ubuntu</a><small>2</small></li>
+  
+    <li><a href="/tags/uploadify/">uploadify</a><small>1</small></li>
+  
+    <li><a href="/tags/url rewrite/">url rewrite</a><small>1</small></li>
+  
+    <li><a href="/tags/vim/">vim</a><small>4</small></li>
+  
+    <li><a href="/tags/vimL/">vimL</a><small>1</small></li>
+  
+    <li><a href="/tags/vimscript/">vimscript</a><small>1</small></li>
+  
+    <li><a href="/tags/virtulhost/">virtulhost</a><small>1</small></li>
+  
+    <li><a href="/tags/vrapper/">vrapper</a><small>1</small></li>
+  
+    <li><a href="/tags/vsftpd/">vsftpd</a><small>1</small></li>
+  
+    <li><a href="/tags/wine/">wine</a><small>1</small></li>
+  
+    <li><a href="/tags/xev/">xev</a><small>1</small></li>
+  
+    <li><a href="/tags/xfce/">xfce</a><small>1</small></li>
+  
+    <li><a href="/tags/xmodmap/">xmodmap</a><small>1</small></li>
+  
+    <li><a href="/tags/you/">you</a><small>1</small></li>
+  
+    <li><a href="/tags/存储过程/">存储过程</a><small>1</small></li>
+  
+    <li><a href="/tags/油猴子/">油猴子</a><small>1</small></li>
+  
+    <li><a href="/tags/索引/">索引</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 h2ero
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'h2ero';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

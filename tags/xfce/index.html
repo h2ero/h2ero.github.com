@@ -1,0 +1,338 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>xfce | h2ero</title>
+  <meta name="author" content="h2ero">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="h2ero"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="h2ero" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">h2ero</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+      <li><a href="/link">Link</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title tag">xfce</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2011-11-07T16:00:00.000Z"><a href="/2011/11/08/2011/2011-11-08-xfce-run-application-when-start/">Nov 8 2011</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2011/11/08/2011/2011-11-08-xfce-run-application-when-start/">xfce 设置开机启动</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>实在受不了ubuntu11.10 unity的卡，就连在gnome3下面也卡，呜呜，不喜欢这两个窗口管理器，转到了xfce下面去了。以前用过，现在为了速度只好留在这上面了，Linus也是用的这个，说不喜欢Gnome3,其实Gnome2真的很好。</p>
+<p>设置开机启动其实方法很多，可以在家目录的.bash .bashrc .profile 等中添加，也可以在/bin/bash 只是运行的用户不同而已，换了xfce后想添加几个程序，不过又不想在unity中添加，来自askubuntu上的答案，最近好多问题都是在这个上面找到的。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="shebang">#!/bin/bash</span>
+<span class="keyword">if</span> [ <span class="string">"<span class="variable">$DESKTOP_SESSION</span>"</span> = <span class="string">"xfce"</span> ]; <span class="keyword">then</span>
+    launch_app
+<span class="keyword">fi</span>
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:blog.h2ero.cn">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/PHP/">PHP</a><small>1</small></li>
+  
+    <li><a href="/categories/SQL/">SQL</a><small>1</small></li>
+  
+    <li><a href="/categories/hack/">hack</a><small>1</small></li>
+  
+    <li><a href="/categories/linux/">linux</a><small>9</small></li>
+  
+    <li><a href="/categories/mac/">mac</a><small>1</small></li>
+  
+    <li><a href="/categories/mysql/">mysql</a><small>1</small></li>
+  
+    <li><a href="/categories/note/">note</a><small>1</small></li>
+  
+    <li><a href="/categories/php/">php</a><small>8</small></li>
+  
+    <li><a href="/categories/plugin/">plugin</a><small>1</small></li>
+  
+    <li><a href="/categories/self/">self</a><small>3</small></li>
+  
+    <li><a href="/categories/tip/">tip</a><small>1</small></li>
+  
+    <li><a href="/categories/vim/">vim</a><small>1</small></li>
+  
+    <li><a href="/categories/web/">web</a><small>5</small></li>
+  
+    <li><a href="/categories/wiki/">wiki</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/CSS3/">CSS3</a><small>1</small></li>
+  
+    <li><a href="/tags/Godaddy/">Godaddy</a><small>1</small></li>
+  
+    <li><a href="/tags/GoogleAnalytics/">GoogleAnalytics</a><small>1</small></li>
+  
+    <li><a href="/tags/IE6/">IE6</a><small>1</small></li>
+  
+    <li><a href="/tags/MSSQL/">MSSQL</a><small>1</small></li>
+  
+    <li><a href="/tags/Mac/">Mac</a><small>1</small></li>
+  
+    <li><a href="/tags/MySQL/">MySQL</a><small>1</small></li>
+  
+    <li><a href="/tags/PHP/">PHP</a><small>2</small></li>
+  
+    <li><a href="/tags/Postfix/">Postfix</a><small>1</small></li>
+  
+    <li><a href="/tags/SMTP/">SMTP</a><small>1</small></li>
+  
+    <li><a href="/tags/SQL/">SQL</a><small>1</small></li>
+  
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>1</small></li>
+  
+    <li><a href="/tags/Vim/">Vim</a><small>1</small></li>
+  
+    <li><a href="/tags/Youtube/">Youtube</a><small>1</small></li>
+  
+    <li><a href="/tags/Zend Studio/">Zend Studio</a><small>1</small></li>
+  
+    <li><a href="/tags/algin/">algin</a><small>1</small></li>
+  
+    <li><a href="/tags/apache/">apache</a><small>1</small></li>
+  
+    <li><a href="/tags/aptana/">aptana</a><small>1</small></li>
+  
+    <li><a href="/tags/awesom/">awesom</a><small>1</small></li>
+  
+    <li><a href="/tags/awesome/">awesome</a><small>1</small></li>
+  
+    <li><a href="/tags/codeigniter/">codeigniter</a><small>3</small></li>
+  
+    <li><a href="/tags/compression/">compression</a><small>1</small></li>
+  
+    <li><a href="/tags/convention/">convention</a><small>1</small></li>
+  
+    <li><a href="/tags/css/">css</a><small>2</small></li>
+  
+    <li><a href="/tags/dedecms/">dedecms</a><small>1</small></li>
+  
+    <li><a href="/tags/eclipse/">eclipse</a><small>1</small></li>
+  
+    <li><a href="/tags/firefox/">firefox</a><small>1</small></li>
+  
+    <li><a href="/tags/firegestures script/">firegestures script</a><small>1</small></li>
+  
+    <li><a href="/tags/framework/">framework</a><small>1</small></li>
+  
+    <li><a href="/tags/ftp/">ftp</a><small>1</small></li>
+  
+    <li><a href="/tags/fuelphp/">fuelphp</a><small>1</small></li>
+  
+    <li><a href="/tags/fulltext/">fulltext</a><small>1</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>1</small></li>
+  
+    <li><a href="/tags/greasemonkey/">greasemonkey</a><small>1</small></li>
+  
+    <li><a href="/tags/h2ero/">h2ero</a><small>2</small></li>
+  
+    <li><a href="/tags/id_rsa.pub/">id_rsa.pub</a><small>1</small></li>
+  
+    <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
+  
+    <li><a href="/tags/jVi/">jVi</a><small>1</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>3</small></li>
+  
+    <li><a href="/tags/love/">love</a><small>1</small></li>
+  
+    <li><a href="/tags/loveYou/">loveYou</a><small>1</small></li>
+  
+    <li><a href="/tags/mac/">mac</a><small>1</small></li>
+  
+    <li><a href="/tags/markdown/">markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/mysql/">mysql</a><small>1</small></li>
+  
+    <li><a href="/tags/netbens/">netbens</a><small>1</small></li>
+  
+    <li><a href="/tags/newBlog/">newBlog</a><small>1</small></li>
+  
+    <li><a href="/tags/newLift/">newLift</a><small>1</small></li>
+  
+    <li><a href="/tags/php/">php</a><small>2</small></li>
+  
+    <li><a href="/tags/plugin/">plugin</a><small>1</small></li>
+  
+    <li><a href="/tags/scp/">scp</a><small>1</small></li>
+  
+    <li><a href="/tags/search/">search</a><small>1</small></li>
+  
+    <li><a href="/tags/shell/">shell</a><small>1</small></li>
+  
+    <li><a href="/tags/ssh/">ssh</a><small>1</small></li>
+  
+    <li><a href="/tags/terminator/">terminator</a><small>1</small></li>
+  
+    <li><a href="/tags/transform/">transform</a><small>1</small></li>
+  
+    <li><a href="/tags/ubuntu/">ubuntu</a><small>2</small></li>
+  
+    <li><a href="/tags/uploadify/">uploadify</a><small>1</small></li>
+  
+    <li><a href="/tags/url rewrite/">url rewrite</a><small>1</small></li>
+  
+    <li><a href="/tags/vim/">vim</a><small>4</small></li>
+  
+    <li><a href="/tags/vimL/">vimL</a><small>1</small></li>
+  
+    <li><a href="/tags/vimscript/">vimscript</a><small>1</small></li>
+  
+    <li><a href="/tags/virtulhost/">virtulhost</a><small>1</small></li>
+  
+    <li><a href="/tags/vrapper/">vrapper</a><small>1</small></li>
+  
+    <li><a href="/tags/vsftpd/">vsftpd</a><small>1</small></li>
+  
+    <li><a href="/tags/wine/">wine</a><small>1</small></li>
+  
+    <li><a href="/tags/xev/">xev</a><small>1</small></li>
+  
+    <li><a href="/tags/xfce/">xfce</a><small>1</small></li>
+  
+    <li><a href="/tags/xmodmap/">xmodmap</a><small>1</small></li>
+  
+    <li><a href="/tags/you/">you</a><small>1</small></li>
+  
+    <li><a href="/tags/存储过程/">存储过程</a><small>1</small></li>
+  
+    <li><a href="/tags/油猴子/">油猴子</a><small>1</small></li>
+  
+    <li><a href="/tags/索引/">索引</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 h2ero
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'h2ero';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

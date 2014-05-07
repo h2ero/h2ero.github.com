@@ -1,0 +1,862 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>php | h2ero</title>
+  <meta name="author" content="h2ero">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="h2ero"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="h2ero" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">h2ero</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+      <li><a href="/link">Link</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title category">php</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-11-24T16:00:00.000Z"><a href="/2012/11/25/2012/2012-11-25-fuelphp-multisit/">Nov 25 2012</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/11/25/2012/2012-11-25-fuelphp-multisit/">fuelphp 备忘</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>来不起了，不过还是记一下。不然就忘了。FuelPHP主要和Kohana,CodeIgniter相关。很多东西都类似。支持HMVC,<a href="http://kohanaframework.org/3.3/guide/kohana/files" title="Cascading Filesystem" target="_blank">Cascading Filesystem</a>,namespace。这些也许就是选他的原因了，如果什么时候kohana支持namespace了一定还是用kohana。不过暂时还不支持，fuelphp看起来还不错，不过很多都不完善，比如Cascading File System就是个悲剧。也有可能是自己没有搞懂，最近都在折腾Kohana和Fuelphp，Kohana中如果有用到module是可以直接通过路由访问的。而且不用设置路由，基于CFS直接冲module里面找。省很多东西，配置文件来说Kohana是merge，而Fuelphp是rewrite，所以有要多弄很多东西。不过各有各的好处。</p>
+<ol>
+<li>module直接访问，如果一个Module继承自另外一个Module，相同的Controller/action下，kohana不用再设置,不过带来的坏处就是不需要是的时候需要通过设置url router去屏蔽，其实这样是不可控制的。而Fuelphp需要设置Url router去控制，其实对于一站点或者一module来说就那么点点Controller这样可控制性更强。</li>
+<li>Controller_Template，kohana和fuelphp都可以设置$template，不过对于继承的kohana可以通过CFS找到，Fuelphp只能设置的时候添加’NS::template/default’来找到，总是觉得<a href="http://kohanaframework.org/3.3/guide/kohana/files" title="Cascading Filesystem" target="_blank">Cascading Filesystem</a>在Fuelphp里面没有体现出来。悲剧，不过实现起来还是比较简单，修改下源码即可实现。</li>
+<li>Config合并和覆盖看个人喜欢，比较不喜欢kohana的合并。</li>
+<li>Fuelphp的namespace。</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-07-28T16:00:00.000Z"><a href="/2012/07/29/2012/2012-07-29-php-tip/">Jul 29 2012</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/07/29/2012/2012-07-29-php-tip/">拾遗</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ul>
+<li>strip_tags除了用于过滤不要的标签也可用于截取html后过滤掉未闭合的tag</li>
+<li>javascript html_strip <a href="http://stackoverflow.com/questions/822452/strip-html-from-text-javascript" target="_blank">这样</a>实现</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">strip</span><span class="params">(html)</span>
+{</span>
+   <span class="keyword">var</span> tmp = document.createElement(<span class="string">"DIV"</span>);
+   tmp.innerHTML = html;
+   <span class="keyword">return</span> tmp.textContent||tmp.innerText;
+}
+</pre></td></tr></table></figure>
+
+<ul>
+<li>匹配url正则表达式 <a href="http://regexpal.com/" target="_blank">在线正则表达式测试工具</a></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>(https?|ftp|telnet):\/\/((?:[a-z0-<span class="number">9</span><span class="variable">@:</span>.-]|<span class="variable">%[</span><span class="number">0</span>-<span class="number">9</span>A-F]{<span class="number">2</span>}){<span class="number">3</span>,})(?::(\d+))?((?:\/(?:[a-z0-<span class="number">9</span>-._~!<span class="variable">$&</span><span class="string">'()*+,;=:@]|%[0-9A-F]{2})*)*)(?:\?((?:[a-z0-9-._~!$&'</span>()<span class="variable">*+</span>,;=:\/?<span class="variable">@]</span>|<span class="variable">%[</span><span class="number">0</span>-<span class="number">9</span>A-F]{<span class="number">2</span>})<span class="variable">*)</span>)?(?:#((?:[a-z0-<span class="number">9</span>-._~!<span class="variable">$&</span><span class="string">'()*+,;=:\/?@]|%[0-9A-F]{2})*))?</span>
+</pre></td></tr></table></figure>
+
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="preprocessor">&lt;?php</span>
+	<span class="comment">//带www和http的生成链接</span>
+	<span class="function"><span class="keyword">function</span> <span class="title">text2url</span><span class="params">(<span class="variable">$text</span>)</span>{</span>
+				<span class="variable">$pattern</span>=<span class="string">"/((?:https?):\/\/)?((?:[a-z0-9@:.-]|%[0-9A-F]{2}){3,})(?::(\d+))?((?:\/(?:[a-z0-9-._~!$&'()*+,;=:@]|%[0-9A-F]{2})*)*)(?:\?((?:[a-z0-9-._~!$&'()*+,;=:\/?@]|%[0-9A-F]{2})*))?(?:#((?:[a-z0-9-._~!$&'()*+,;=:\/?@]|%[0-9A-F]{2})*))?/iS"</span>;
+				preg_match_all(<span class="variable">$pattern</span>, <span class="variable">$text</span>, <span class="variable">$matches</span>);
+				<span class="keyword">foreach</span> (<span class="variable">$matches</span>[<span class="number">0</span>] <span class="keyword">as</span> <span class="variable">$url</span>){
+					<span class="keyword">if</span>(<span class="variable">$url</span>){
+						<span class="variable">$search</span>[]=<span class="variable">$url</span>;
+						<span class="variable">$replace</span>[]=<span class="string">'&lt;a target="_blank" href=http://'</span>.str_replace(<span class="string">'http://'</span>,<span class="string">''</span>,<span class="variable">$url</span>).<span class="string">'&gt;'</span>.<span class="variable">$url</span>.<span class="string">'&lt;/a&gt;'</span>;
+					}
+				}
+				<span class="keyword">return</span> str_replace(<span class="variable">$search</span>, <span class="variable">$replace</span>, <span class="variable">$text</span>);
+			}
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2011-12-16T16:00:00.000Z"><a href="/2011/12/17/2011/2011-12-17-codeigniter-get-domain/">Dec 17 2011</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2011/12/17/2011/2011-12-17-codeigniter-get-domain/">codeigniter 获取域名</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>人懒直接找的网上的，设置cookie的时候需要用到，添加下面的函数到url_helper.php中即可</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="preprocessor">&lt;?php</span>
+<span class="comment">/**
+ * Get domain
+ *
+ * Return the domain name only based on the "base_url" item from your config file.
+ *
+ *<span class="phpdoc"> @access</span>    public
+ *<span class="phpdoc"> @return</span>    string
+ */</span>    
+
+<span class="function"><span class="keyword">function</span> <span class="title">getDomain</span><span class="params">()</span>
+{</span>
+    <span class="variable">$CI</span> =& get_instance();
+    <span class="keyword">return</span> preg_replace(<span class="string">"/^[\w]{2,6}:\/\/([\w\d\.\-]+).*$/"</span>,<span class="string">"$1"</span>, <span class="variable">$CI</span>-&gt;config-&gt;slash_item(<span class="string">'base_url'</span>));
+}
+<span class="preprocessor">?&gt;</span>
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2011-10-20T16:00:00.000Z"><a href="/2011/10/21/2011/2011-10-21-codeigniter-image_lib-resize-crop-optimization/">Oct 21 2011</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2011/10/21/2011/2011-10-21-codeigniter-image_lib-resize-crop-optimization/">codeigniter Image_lib修改优化resize和crop</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>修改原因：Codeigniter提供有默认的图形处理类，可以很好的支持三个主流的图像库：GD/GD2, NetPBM, and ImageMagick.用到的resize修改图片大小的时候有个问题，当设置指定的width和height时，并且设置master_dim的值的时候，比如：上传的图片大小为500＊334，设置width=270,height=200,master_dim=auto,这个时候改变后的图片大小会变为270＊181，高度小于了我们设置的高度，而当设置master_dim=height的时候，上传一张宽度较小的图片可能宽度又会小于200.要实现当master_dim=auto的时候改变后的高度和宽度都不能小于我们设置的值，</p>
+<p>解决方法:修改Image_lib.php,第1301行，添加下面代码，因为master_dim=auto的时候其实就是设置为master_dim=width所以就在其的基础上修改，</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="preprocessor">&lt;?php</span>
+<span class="keyword">if</span> ((<span class="variable">$this</span>-&gt;width != <span class="variable">$new_width</span>) <span class="keyword">and</span> (<span class="variable">$this</span>-&gt;height != <span class="variable">$new_height</span>)) {
+            <span class="keyword">if</span> (<span class="variable">$this</span>-&gt;master_dim == <span class="string">'auto'</span>) {
+                <span class="keyword">if</span> (<span class="variable">$new_height</span> &lt; <span class="variable">$this</span>-&gt;height) {
+                    <span class="variable">$this</span>-&gt;width = <span class="variable">$new_width</span>;
+                } <span class="keyword">else</span> {
+                    <span class="variable">$this</span>-&gt;height = <span class="variable">$new_height</span>;
+                }
+            } <span class="keyword">elseif</span> (<span class="variable">$this</span>-&gt;master_dim == <span class="string">'height'</span>) {
+                <span class="variable">$this</span>-&gt;width = <span class="variable">$new_width</span>;
+            } <span class="keyword">elseif</span> (<span class="variable">$this</span>-&gt;master_dim == <span class="string">'width'</span>) {
+                <span class="variable">$this</span>-&gt;height = <span class="variable">$new_height</span>;
+            }
+        }
+<span class="preprocessor">?&gt;</span>
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2011-10-09T16:00:00.000Z"><a href="/2011/10/10/2011/2011-10-10-codeigniter-uploadify-multifile-upload/">Oct 10 2011</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2011/10/10/2011/2011-10-10-codeigniter-uploadify-multifile-upload/">Codeigniter使用Uploadify实现多文件上传</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Codeigniter使用Uploadify实现多文件上传的时候因为其上传文件的mime类型是application/octet-stream所以要修改config目录下的mimes.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="preprocessor">&lt;?php</span>
+<span class="string">'gif'</span>   =&gt;  <span class="keyword">array</span>(<span class="string">'image/gif'</span>, <span class="string">'application/octet-stream'</span> ),
+<span class="string">'jpeg'</span>  =&gt;  <span class="keyword">array</span>(<span class="string">'image/jpeg'</span>, <span class="string">'image/pjpeg'</span>, <span class="string">'application/octet-stream'</span>),
+<span class="string">'jpg'</span>   =&gt;  <span class="keyword">array</span>(<span class="string">'image/jpeg'</span>, <span class="string">'image/pjpeg'</span>, <span class="string">'application/octet-stream'</span>),
+<span class="string">'jpe'</span>   =&gt;  <span class="keyword">array</span>(<span class="string">'image/jpeg'</span>, <span class="string">'image/pjpeg'</span>, <span class="string">'application/octet-stream'</span>),
+<span class="string">'png'</span>   =&gt;  <span class="keyword">array</span>(<span class="string">'image/png'</span>,  <span class="string">'image/x-png'</span>, <span class="string">'application/octet-stream'</span>)
+<span class="preprocessor">?&gt;</span>
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2011-07-24T16:00:00.000Z"><a href="/2011/07/25/2011/2011-07-25-linux-php-develop-tool-environment/">Jul 25 2011</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2011/07/25/2011/2011-07-25-linux-php-develop-tool-environment/">在Linux下搭建PHPeclipse开发环境</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>在Linux开发PHP，一般可以通过一下几个途径：</p>
+<ol>
+<li>vim+taglist，这个大家可以参照网上的方法。<br>下面两种方法是基于eclipse的，都安装一个vrapper插件，该插件提供一些Vim的操作，提高效率。<br>eclipse插件的安装：<ul>
+<li>一般是通过help-Install New Software , 然后点击Add输入对应插件的地址然后Next到最后即可。</li>
+<li>第二种是通过直接下载插件的压缩包,解压后直接覆盖对应的elipse下的目录即可。<br>下面插件的安装提供URL，按照第一种方法安装。</li>
+</ul>
+</li>
+<li>eclipse+phpeclipse+vrapper<ul>
+<li>phpeclipse – <a href="http://phpeclipse.sourceforge.net/update/stable/1.2.x/" target="_blank">http://phpeclipse.sourceforge.net/update/stable/1.2.x/</a></li>
+<li>vrappe – <a href="http://vrapper.sourceforge.net/update-site/stable" target="_blank">http://vrapper.sourceforge.net/update-site/stable</a> <br><br>相关设置：<br>代码实时预览：<br>安装完成插件后点击Windows-Preference-PHPeclipse-Browser Preview Defaults 将前两个选项给勾选上分别是Refresh PHP browser view when opening editor 和 Show PHP browser view when opening editor.然后新建一PHP项目，点击File-New-Project-PHP-PHP Project 。建好项目之后在右侧Project Explore导航里面右击选择最后一个Properties- PHP Project Settings Use project settings.如果在打开Eclipse的时候你选择的workspace为www目录，那么该处在URL后面加上项目名称即可,比如我建立了一个share目录，那么对应的Project URL即为：<a href="http://localshost/share，结果这样设置后即可在打开项目中的PHP文件即可看到代码执行后的结果了。" target="_blank">http://localshost/share，结果这样设置后即可在打开项目中的PHP文件即可看到代码执行后的结果了。</a></li>
+</ul>
+</li>
+<li>eclipse+aptana+vrapper<ul>
+<li>aptana – <a href="http://download.aptana.com/studio3/plugin/install" target="_blank">http://download.aptana.com/studio3/plugin/install</a> <br><br>aptana写UI的，不过新版本支持PHP，和PHPeclipse插件的不同是不提供实时预览，不过代码提示上提示所有版本是否支持。</li>
+</ul>
+</li>
+<li>Zend Studio + vrapper<br>这个其实才是标准的配置，<br>下载地址：<a href="http://www.zend.com/en/products/studio/downloads" target="_blank">http://www.zend.com/en/products/studio/downloads</a></li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2011-04-22T16:00:00.000Z"><a href="/2011/04/23/2011/2011-04-23-DedeCMS-Run-PHP/">Apr 23 2011</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2011/04/23/2011/2011-04-23-DedeCMS-Run-PHP/">dedecms模板标签中运行php代码</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>大清早爬起来看了看《松药店的儿子们》，然后想弄弄网站，把头像网站给升级为dedecms5.7去了，图片集多了一个描述的编辑框，以前都没有用那个，都是在摘要里面写的描述，现在有了就想用，可是有个问题就是摘要和描述要同时判断下然后在输出，无奈，找了半天的资料终于给解决了。</p>
+<p>dedecms使用php：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="preprocessor">&lt;?php</span>
+{dede:field name=<span class="string">'array'</span> runphp=<span class="string">'yes'</span>}
+<span class="keyword">if</span> (@me[<span class="string">'body'</span>]==<span class="string">''</span>)
+@me=@me[<span class="string">'description'</span>];
+<span class="keyword">else</span> @me=@me[<span class="string">'body'</span>];
+{/dede:field}
+<span class="comment">//其中的＠me为输出的内容，不能直接echo，比如判断有短标题输出短标题，没有则输出完整的标题，</span>
+{dede:field name=<span class="string">'array'</span> runphp=<span class="string">'yes'</span>}
+<span class="keyword">if</span> (@me[<span class="string">'shorttitle'</span>]==<span class="string">''</span>)
+@me=@me[<span class="string">'title'</span>];
+<span class="keyword">else</span> @me=@me[<span class="string">'shorttitle'</span>];
+{/dede:field}
+
+<span class="preprocessor">?&gt;</span>
+</pre></td></tr></table></figure>
+
+<p>一看就能明白，找这例子写就行了，</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2011-02-25T16:00:00.000Z"><a href="/2011/02/26/2011/2011-02-26-php-compress-css/">Feb 26 2011</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2011/02/26/2011/2011-02-26-php-compress-css/">php对css格式化和压缩</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>今天在csdn看到有人问这个问题，于是答了下，结果发现答错了，囧~，下来自己写了下，不知不觉就花了3个小时才解决，<br>哎谁叫俺还是个新手拉，不过学到了很多东西，<br>大致格式化为这样</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="tag">body</span><span class="rules">{<span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">12</span>px</span></span>;<span class="rule"><span class="attribute">font-weight</span>:<span class="value">bold</span></span>;<span class="rule">}</span></span>
+<span class="class">.nav</span> <span class="tag">ul</span><span class="class">.user</span><span class="rules">{<span class="rule"><span class="attribute">float</span>:<span class="value">right</span></span>;<span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">15</span>px <span class="number">5</span>px <span class="number">0</span> <span class="number">0</span></span></span>;<span class="rule"><span class="attribute">font-weight</span>:<span class="value">bold</span></span>;<span class="rule">}</span></span>
+<span class="class">.nav</span> <span class="tag">ul</span><span class="class">.user</span> <span class="tag">li</span><span class="rules">{<span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#000</span></span></span>;<span class="rule"><span class="attribute">font-weight</span>:<span class="value">normal</span></span>;<span class="rule">}</span></span>
+<span class="class">.nav</span> <span class="tag">ul</span><span class="class">.user</span> <span class="tag">li</span> <span class="tag">a</span><span class="rules">{<span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#000</span></span></span>;<span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">0</span> <span class="number">6</span>px</span></span>;<span class="rule">}</span></span>
+<span class="class">.nav</span> <span class="tag">ul</span><span class="class">.user</span> <span class="id">#vName</span><span class="rules">{<span class="rule"><span class="attribute">font-weight</span>:<span class="value">bold</span></span>;<span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#000</span></span></span>;<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+</pre></td><td class="code"><pre><span class="preprocessor">&lt;?php</span>
+<span class="comment">/*
+* 思路：
+* {}里面的进行替换
+* 再对外边的进行替换
+*<span class="phpdoc"> @Date</span> 2011-2-26
+*<span class="phpdoc"> @Author</span> h2ero
+* Email 122750707@qq.com
+* Blog blog.h2ero.cn
+*/</span>
+<span class="variable">$str</span>=&lt;&lt;body{
+font-size:<span class="number">12</span>px;
+font-weight:bold;
+}
+.nav ul.user{float:right;margin:
+<span class="number">15</span>px <span class="number">5</span>px <span class="number">0</span> <span class="number">0</span>;font-weight:
+bold;}
+
+.nav ul.user li{color:<span class="comment">#000;</span>
+font-weight:normal;}
+
+.nav ul.user li a{color:<span class="comment">#000;</span>
+padding:<span class="number">0</span> <span class="number">6</span>px;}
+.nav ul.user <span class="comment">#vName{font-weight:bold;color:#000;}</span>
+.nav ul.user input.btn{margin:<span class="number">0</span> <span class="number">3</span>px -<span class="number">5</span>px <span class="number">0</span>;}
+eof;
+
+<span class="function"><span class="keyword">function</span> <span class="title">replaceblank</span><span class="params">(<span class="variable">$s</span>)</span>{</span>
+<span class="variable">$s</span>=<span class="variable">$s</span>[<span class="number">1</span>];
+<span class="variable">$search</span>=<span class="keyword">array</span>(<span class="string">'/([\r\n])[\s]+/'</span>);
+<span class="variable">$replace</span>=<span class="keyword">array</span>(<span class="string">''</span>);
+<span class="variable">$result</span>=preg_replace(<span class="variable">$search</span>,<span class="variable">$replace</span>,<span class="variable">$s</span>);
+<span class="variable">$result</span>=<span class="string">"{"</span>.<span class="string">"$result"</span>.<span class="string">"}"</span>;
+<span class="keyword">return</span> <span class="variable">$result</span>;
+}
+
+<span class="variable">$pattern</span>=<span class="string">'/\{(.*?)\}/is'</span>;
+<span class="variable">$str</span>=preg_replace_callback(<span class="variable">$pattern</span>,replaceblank,<span class="variable">$str</span>);<span class="comment">//先删除{}的空格和换行</span>
+<span class="variable">$str</span>=preg_replace(<span class="string">'/\r\n/'</span>,<span class="string">'\\1'</span>,<span class="variable">$str</span>);<span class="comment">//去除{}外边的换行,因为可能有多个所以删了再添加下</span>
+<span class="variable">$replace</span>=<span class="string">"\\1}"</span>.chr(<span class="number">13</span>);
+<span class="variable">$str</span>=preg_replace(<span class="string">'/}/'</span>,<span class="variable">$replace</span>,<span class="variable">$str</span>);<span class="comment">//在}后添加换行</span>
+<span class="variable">$pattern</span>=<span class="string">'/(.*?)[\r\n]/is'</span>;
+preg_match_all(<span class="variable">$pattern</span>,<span class="variable">$str</span>,<span class="variable">$result</span>);<span class="comment">//逐行读出在去掉空格换行</span>
+<span class="keyword">for</span>(<span class="variable">$i</span>=<span class="number">0</span>;<span class="variable">$i</span> {
+<span class="variable">$result</span>[<span class="number">0</span>][<span class="variable">$i</span>]=trim(<span class="variable">$result</span>[<span class="number">0</span>][<span class="variable">$i</span>]);
+<span class="variable">$resultstring</span>.=<span class="variable">$result</span>[<span class="number">0</span>][<span class="variable">$i</span>].chr(<span class="number">13</span>);<span class="comment">//再添加换行这儿不添加换行就等于压缩了</span>
+}
+print_r(<span class="variable">$resultstring</span>);
+<span class="preprocessor">?&gt;</span>
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:blog.h2ero.cn">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/PHP/">PHP</a><small>1</small></li>
+  
+    <li><a href="/categories/SQL/">SQL</a><small>1</small></li>
+  
+    <li><a href="/categories/hack/">hack</a><small>1</small></li>
+  
+    <li><a href="/categories/linux/">linux</a><small>9</small></li>
+  
+    <li><a href="/categories/mac/">mac</a><small>1</small></li>
+  
+    <li><a href="/categories/mysql/">mysql</a><small>1</small></li>
+  
+    <li><a href="/categories/note/">note</a><small>1</small></li>
+  
+    <li><a href="/categories/php/">php</a><small>8</small></li>
+  
+    <li><a href="/categories/plugin/">plugin</a><small>1</small></li>
+  
+    <li><a href="/categories/self/">self</a><small>3</small></li>
+  
+    <li><a href="/categories/tip/">tip</a><small>1</small></li>
+  
+    <li><a href="/categories/vim/">vim</a><small>1</small></li>
+  
+    <li><a href="/categories/web/">web</a><small>5</small></li>
+  
+    <li><a href="/categories/wiki/">wiki</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/CSS3/">CSS3</a><small>1</small></li>
+  
+    <li><a href="/tags/Godaddy/">Godaddy</a><small>1</small></li>
+  
+    <li><a href="/tags/GoogleAnalytics/">GoogleAnalytics</a><small>1</small></li>
+  
+    <li><a href="/tags/IE6/">IE6</a><small>1</small></li>
+  
+    <li><a href="/tags/MSSQL/">MSSQL</a><small>1</small></li>
+  
+    <li><a href="/tags/Mac/">Mac</a><small>1</small></li>
+  
+    <li><a href="/tags/MySQL/">MySQL</a><small>1</small></li>
+  
+    <li><a href="/tags/PHP/">PHP</a><small>2</small></li>
+  
+    <li><a href="/tags/Postfix/">Postfix</a><small>1</small></li>
+  
+    <li><a href="/tags/SMTP/">SMTP</a><small>1</small></li>
+  
+    <li><a href="/tags/SQL/">SQL</a><small>1</small></li>
+  
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>1</small></li>
+  
+    <li><a href="/tags/Vim/">Vim</a><small>1</small></li>
+  
+    <li><a href="/tags/Youtube/">Youtube</a><small>1</small></li>
+  
+    <li><a href="/tags/Zend Studio/">Zend Studio</a><small>1</small></li>
+  
+    <li><a href="/tags/algin/">algin</a><small>1</small></li>
+  
+    <li><a href="/tags/apache/">apache</a><small>1</small></li>
+  
+    <li><a href="/tags/aptana/">aptana</a><small>1</small></li>
+  
+    <li><a href="/tags/awesom/">awesom</a><small>1</small></li>
+  
+    <li><a href="/tags/awesome/">awesome</a><small>1</small></li>
+  
+    <li><a href="/tags/codeigniter/">codeigniter</a><small>3</small></li>
+  
+    <li><a href="/tags/compression/">compression</a><small>1</small></li>
+  
+    <li><a href="/tags/convention/">convention</a><small>1</small></li>
+  
+    <li><a href="/tags/css/">css</a><small>2</small></li>
+  
+    <li><a href="/tags/dedecms/">dedecms</a><small>1</small></li>
+  
+    <li><a href="/tags/eclipse/">eclipse</a><small>1</small></li>
+  
+    <li><a href="/tags/firefox/">firefox</a><small>1</small></li>
+  
+    <li><a href="/tags/firegestures script/">firegestures script</a><small>1</small></li>
+  
+    <li><a href="/tags/framework/">framework</a><small>1</small></li>
+  
+    <li><a href="/tags/ftp/">ftp</a><small>1</small></li>
+  
+    <li><a href="/tags/fuelphp/">fuelphp</a><small>1</small></li>
+  
+    <li><a href="/tags/fulltext/">fulltext</a><small>1</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>1</small></li>
+  
+    <li><a href="/tags/greasemonkey/">greasemonkey</a><small>1</small></li>
+  
+    <li><a href="/tags/h2ero/">h2ero</a><small>2</small></li>
+  
+    <li><a href="/tags/id_rsa.pub/">id_rsa.pub</a><small>1</small></li>
+  
+    <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
+  
+    <li><a href="/tags/jVi/">jVi</a><small>1</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>3</small></li>
+  
+    <li><a href="/tags/love/">love</a><small>1</small></li>
+  
+    <li><a href="/tags/loveYou/">loveYou</a><small>1</small></li>
+  
+    <li><a href="/tags/mac/">mac</a><small>1</small></li>
+  
+    <li><a href="/tags/markdown/">markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/mysql/">mysql</a><small>1</small></li>
+  
+    <li><a href="/tags/netbens/">netbens</a><small>1</small></li>
+  
+    <li><a href="/tags/newBlog/">newBlog</a><small>1</small></li>
+  
+    <li><a href="/tags/newLift/">newLift</a><small>1</small></li>
+  
+    <li><a href="/tags/php/">php</a><small>2</small></li>
+  
+    <li><a href="/tags/plugin/">plugin</a><small>1</small></li>
+  
+    <li><a href="/tags/scp/">scp</a><small>1</small></li>
+  
+    <li><a href="/tags/search/">search</a><small>1</small></li>
+  
+    <li><a href="/tags/shell/">shell</a><small>1</small></li>
+  
+    <li><a href="/tags/ssh/">ssh</a><small>1</small></li>
+  
+    <li><a href="/tags/terminator/">terminator</a><small>1</small></li>
+  
+    <li><a href="/tags/transform/">transform</a><small>1</small></li>
+  
+    <li><a href="/tags/ubuntu/">ubuntu</a><small>2</small></li>
+  
+    <li><a href="/tags/uploadify/">uploadify</a><small>1</small></li>
+  
+    <li><a href="/tags/url rewrite/">url rewrite</a><small>1</small></li>
+  
+    <li><a href="/tags/vim/">vim</a><small>4</small></li>
+  
+    <li><a href="/tags/vimL/">vimL</a><small>1</small></li>
+  
+    <li><a href="/tags/vimscript/">vimscript</a><small>1</small></li>
+  
+    <li><a href="/tags/virtulhost/">virtulhost</a><small>1</small></li>
+  
+    <li><a href="/tags/vrapper/">vrapper</a><small>1</small></li>
+  
+    <li><a href="/tags/vsftpd/">vsftpd</a><small>1</small></li>
+  
+    <li><a href="/tags/wine/">wine</a><small>1</small></li>
+  
+    <li><a href="/tags/xev/">xev</a><small>1</small></li>
+  
+    <li><a href="/tags/xfce/">xfce</a><small>1</small></li>
+  
+    <li><a href="/tags/xmodmap/">xmodmap</a><small>1</small></li>
+  
+    <li><a href="/tags/you/">you</a><small>1</small></li>
+  
+    <li><a href="/tags/存储过程/">存储过程</a><small>1</small></li>
+  
+    <li><a href="/tags/油猴子/">油猴子</a><small>1</small></li>
+  
+    <li><a href="/tags/索引/">索引</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 h2ero
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'h2ero';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

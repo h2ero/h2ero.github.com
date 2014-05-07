@@ -1,0 +1,958 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Page 4 | Archives | h2ero</title>
+  <meta name="author" content="h2ero">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="h2ero"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="h2ero" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">h2ero</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+      <li><a href="/link">Link</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">Archives</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2011-10-20T16:00:00.000Z"><a href="/2011/10/21/2011/2011-10-21-codeigniter-image_lib-resize-crop-optimization/">Oct 21 2011</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2011/10/21/2011/2011-10-21-codeigniter-image_lib-resize-crop-optimization/">codeigniter Image_lib修改优化resize和crop</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>修改原因：Codeigniter提供有默认的图形处理类，可以很好的支持三个主流的图像库：GD/GD2, NetPBM, and ImageMagick.用到的resize修改图片大小的时候有个问题，当设置指定的width和height时，并且设置master_dim的值的时候，比如：上传的图片大小为500＊334，设置width=270,height=200,master_dim=auto,这个时候改变后的图片大小会变为270＊181，高度小于了我们设置的高度，而当设置master_dim=height的时候，上传一张宽度较小的图片可能宽度又会小于200.要实现当master_dim=auto的时候改变后的高度和宽度都不能小于我们设置的值，</p>
+<p>解决方法:修改Image_lib.php,第1301行，添加下面代码，因为master_dim=auto的时候其实就是设置为master_dim=width所以就在其的基础上修改，</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="preprocessor">&lt;?php</span>
+<span class="keyword">if</span> ((<span class="variable">$this</span>-&gt;width != <span class="variable">$new_width</span>) <span class="keyword">and</span> (<span class="variable">$this</span>-&gt;height != <span class="variable">$new_height</span>)) {
+            <span class="keyword">if</span> (<span class="variable">$this</span>-&gt;master_dim == <span class="string">'auto'</span>) {
+                <span class="keyword">if</span> (<span class="variable">$new_height</span> &lt; <span class="variable">$this</span>-&gt;height) {
+                    <span class="variable">$this</span>-&gt;width = <span class="variable">$new_width</span>;
+                } <span class="keyword">else</span> {
+                    <span class="variable">$this</span>-&gt;height = <span class="variable">$new_height</span>;
+                }
+            } <span class="keyword">elseif</span> (<span class="variable">$this</span>-&gt;master_dim == <span class="string">'height'</span>) {
+                <span class="variable">$this</span>-&gt;width = <span class="variable">$new_width</span>;
+            } <span class="keyword">elseif</span> (<span class="variable">$this</span>-&gt;master_dim == <span class="string">'width'</span>) {
+                <span class="variable">$this</span>-&gt;height = <span class="variable">$new_height</span>;
+            }
+        }
+<span class="preprocessor">?&gt;</span>
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2011-10-18T16:00:00.000Z"><a href="/2011/10/19/2011/2011-10-19-wine-recovery-deleted-menu/">Oct 19 2011</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2011/10/19/2011/2011-10-19-wine-recovery-deleted-menu/">wine删除菜单，重装后没有找回方法</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>重装了下Ubuntu把wine给删了，然后己悲剧了，重装多次都没有找回菜单，只能在控制台输入，实在受不了，找了下，来自官方的文档。<br><code>～$vim ~/.config/menus/applications.menu</code> 删除<Deleted/>的即可</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">Menu</span>&gt;</span>
+	<span class="tag">&lt;<span class="title">Name</span>&gt;</span>wine-wine<span class="tag">&lt;/<span class="title">Name</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">Menu</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">Name</span>&gt;</span>wine-Programs<span class="tag">&lt;/<span class="title">Name</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">Menu</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">Name</span>&gt;</span>wine-Programs-AutoHotkey<span class="tag">&lt;/<span class="title">Name</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">DirectoryDir</span>&gt;</span>/home/user/.local/share/desktop-directories<span class="tag">&lt;/<span class="title">DirectoryDir</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">Menu</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">Menu</span>&gt;</span>
+	<span class="tag">&lt;<span class="title">Deleted</span>/&gt;</span>
+<span class="tag">&lt;/<span class="title">Menu</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+<p>来源：<a href="http://wiki.winehq.org/FAQ" target="_blank">http://wiki.winehq.org/FAQ</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2011-10-09T16:00:00.000Z"><a href="/2011/10/10/2011/2011-10-10-codeigniter-uploadify-multifile-upload/">Oct 10 2011</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2011/10/10/2011/2011-10-10-codeigniter-uploadify-multifile-upload/">Codeigniter使用Uploadify实现多文件上传</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Codeigniter使用Uploadify实现多文件上传的时候因为其上传文件的mime类型是application/octet-stream所以要修改config目录下的mimes.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="preprocessor">&lt;?php</span>
+<span class="string">'gif'</span>   =&gt;  <span class="keyword">array</span>(<span class="string">'image/gif'</span>, <span class="string">'application/octet-stream'</span> ),
+<span class="string">'jpeg'</span>  =&gt;  <span class="keyword">array</span>(<span class="string">'image/jpeg'</span>, <span class="string">'image/pjpeg'</span>, <span class="string">'application/octet-stream'</span>),
+<span class="string">'jpg'</span>   =&gt;  <span class="keyword">array</span>(<span class="string">'image/jpeg'</span>, <span class="string">'image/pjpeg'</span>, <span class="string">'application/octet-stream'</span>),
+<span class="string">'jpe'</span>   =&gt;  <span class="keyword">array</span>(<span class="string">'image/jpeg'</span>, <span class="string">'image/pjpeg'</span>, <span class="string">'application/octet-stream'</span>),
+<span class="string">'png'</span>   =&gt;  <span class="keyword">array</span>(<span class="string">'image/png'</span>,  <span class="string">'image/x-png'</span>, <span class="string">'application/octet-stream'</span>)
+<span class="preprocessor">?&gt;</span>
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2011-07-24T16:00:00.000Z"><a href="/2011/07/25/2011/2011-07-25-linux-php-develop-tool-environment/">Jul 25 2011</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2011/07/25/2011/2011-07-25-linux-php-develop-tool-environment/">在Linux下搭建PHPeclipse开发环境</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>在Linux开发PHP，一般可以通过一下几个途径：</p>
+<ol>
+<li>vim+taglist，这个大家可以参照网上的方法。<br>下面两种方法是基于eclipse的，都安装一个vrapper插件，该插件提供一些Vim的操作，提高效率。<br>eclipse插件的安装：<ul>
+<li>一般是通过help-Install New Software , 然后点击Add输入对应插件的地址然后Next到最后即可。</li>
+<li>第二种是通过直接下载插件的压缩包,解压后直接覆盖对应的elipse下的目录即可。<br>下面插件的安装提供URL，按照第一种方法安装。</li>
+</ul>
+</li>
+<li>eclipse+phpeclipse+vrapper<ul>
+<li>phpeclipse – <a href="http://phpeclipse.sourceforge.net/update/stable/1.2.x/" target="_blank">http://phpeclipse.sourceforge.net/update/stable/1.2.x/</a></li>
+<li>vrappe – <a href="http://vrapper.sourceforge.net/update-site/stable" target="_blank">http://vrapper.sourceforge.net/update-site/stable</a> <br><br>相关设置：<br>代码实时预览：<br>安装完成插件后点击Windows-Preference-PHPeclipse-Browser Preview Defaults 将前两个选项给勾选上分别是Refresh PHP browser view when opening editor 和 Show PHP browser view when opening editor.然后新建一PHP项目，点击File-New-Project-PHP-PHP Project 。建好项目之后在右侧Project Explore导航里面右击选择最后一个Properties- PHP Project Settings Use project settings.如果在打开Eclipse的时候你选择的workspace为www目录，那么该处在URL后面加上项目名称即可,比如我建立了一个share目录，那么对应的Project URL即为：<a href="http://localshost/share，结果这样设置后即可在打开项目中的PHP文件即可看到代码执行后的结果了。" target="_blank">http://localshost/share，结果这样设置后即可在打开项目中的PHP文件即可看到代码执行后的结果了。</a></li>
+</ul>
+</li>
+<li>eclipse+aptana+vrapper<ul>
+<li>aptana – <a href="http://download.aptana.com/studio3/plugin/install" target="_blank">http://download.aptana.com/studio3/plugin/install</a> <br><br>aptana写UI的，不过新版本支持PHP，和PHPeclipse插件的不同是不提供实时预览，不过代码提示上提示所有版本是否支持。</li>
+</ul>
+</li>
+<li>Zend Studio + vrapper<br>这个其实才是标准的配置，<br>下载地址：<a href="http://www.zend.com/en/products/studio/downloads" target="_blank">http://www.zend.com/en/products/studio/downloads</a></li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2011-07-14T16:00:00.000Z"><a href="/2011/07/15/2011/2011-07-15-ie-png-opacity/">Jul 15 2011</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2011/07/15/2011/2011-07-15-ie-png-opacity/">IE6下PNG背景图片透明</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre>#h1{
+    width: 500px;
+    height: 250px;
+    background: url(“images/oa.png”);
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=’style/images/oa.png’); /* IE6 */
+    _ background-image: none; /* IE6 */
+}
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2011-06-23T16:00:00.000Z"><a href="/2011/06/24/2011/2011-06-24-Godaddy-USA-Region-Not-AP-Region/">Jun 24 2011</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2011/06/24/2011/2011-06-24-Godaddy-USA-Region-Not-AP-Region/">Godaddy美国主机购买链接非新加坡数据中心</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>很久前的事情了，第一次买Godaddy的无限性Ultimate的主机，结果购买后就是新加坡（Asia Pacific data center）的数据中心，慢死人了，后来和客服沟通后的到一下回复：</p>
+<p>Hosting accounts for our Asia Pacific data center will appear as AP Region.</p>
+<p>I can do one of two things with the canceled hosting. We can refund it or credit move the time to the new hosting plan you purchase. Please reply and let us know.</p>
+<p>the link to go to in order to add a US hosting plan is: <a href="http://www.godaddy.com/Hosting/web-hosting.aspx?ci=8971&amp;adc=us" target="_blank">http://www.godaddy.com/Hosting/web-hosting.aspx?ci=8971&amp;adc=us</a></p>
+<p>今天晚上遇到庄兄，他说又给买了个新加坡的，于是才给翻了出来，美国的速度很棒，300MS左右，</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2011-04-22T16:00:00.000Z"><a href="/2011/04/23/2011/2011-04-23-DedeCMS-Run-PHP/">Apr 23 2011</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2011/04/23/2011/2011-04-23-DedeCMS-Run-PHP/">dedecms模板标签中运行php代码</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>大清早爬起来看了看《松药店的儿子们》，然后想弄弄网站，把头像网站给升级为dedecms5.7去了，图片集多了一个描述的编辑框，以前都没有用那个，都是在摘要里面写的描述，现在有了就想用，可是有个问题就是摘要和描述要同时判断下然后在输出，无奈，找了半天的资料终于给解决了。</p>
+<p>dedecms使用php：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="preprocessor">&lt;?php</span>
+{dede:field name=<span class="string">'array'</span> runphp=<span class="string">'yes'</span>}
+<span class="keyword">if</span> (@me[<span class="string">'body'</span>]==<span class="string">''</span>)
+@me=@me[<span class="string">'description'</span>];
+<span class="keyword">else</span> @me=@me[<span class="string">'body'</span>];
+{/dede:field}
+<span class="comment">//其中的＠me为输出的内容，不能直接echo，比如判断有短标题输出短标题，没有则输出完整的标题，</span>
+{dede:field name=<span class="string">'array'</span> runphp=<span class="string">'yes'</span>}
+<span class="keyword">if</span> (@me[<span class="string">'shorttitle'</span>]==<span class="string">''</span>)
+@me=@me[<span class="string">'title'</span>];
+<span class="keyword">else</span> @me=@me[<span class="string">'shorttitle'</span>];
+{/dede:field}
+
+<span class="preprocessor">?&gt;</span>
+</pre></td></tr></table></figure>
+
+<p>一看就能明白，找这例子写就行了，</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2011-04-12T16:00:00.000Z"><a href="/2011/04/13/2011/2011-04-13-ubuntu-grub-rescue/">Apr 13 2011</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2011/04/13/2011/2011-04-13-ubuntu-grub-rescue/">grub rescue Ubuntu开机问题</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>昨天晚上格式化了两个分区，今天早晨起来然后Ubuntu1就罢工了，直接显示grub rescue看到grub就知道是引导出错了，拿出刻录的Ubuntu的cd在网上查了半天，基本都给解决了，不过以前哪个开机启动画面的分辨率又给恢复为以前的样子了，郁闷。</p>
+<p>原因：格式化分区后，分区的h0,x x变了，找不到引导文件</p>
+<p>解决方法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre>grub <span class="keyword">rescue</span>&gt;ls
+<span class="comment">#先list出所有的分区 如hd(0,7)等</span>
+grub <span class="keyword">rescue</span>&gt;ls hd(<span class="number">0</span>,<span class="number">7</span>)/boot/grub
+<span class="comment">#在循环查看/grub所在的分区</span>
+grub <span class="keyword">rescue</span>&gt;set root=hd(<span class="number">0</span>,<span class="number">7</span>)
+<span class="comment">#hd(0,7)为你ls grub是能查看到目录里面的文件是的hd(x,x)</span>
+grub <span class="keyword">rescue</span>&gt;set prefix=hd(<span class="number">0</span>,<span class="number">7</span>)/boot/grub
+grub <span class="keyword">rescue</span>&gt;insmod  /boot/grub/normal.mod
+grub <span class="keyword">rescue</span>&gt;normal
+<span class="comment">#然后就进入系统了</span>
+<span class="comment">#Alt+Ctrl+t 调出终端</span>
+<span class="variable">$update</span>-grub
+<span class="variable">$grub</span>-install /dev/sda6
+<span class="comment">#sda6是你grub所在的分区可以在系统管理-磁盘工具 里面查看</span>
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2011-04-11T16:00:00.000Z"><a href="/2011/04/12/2011/2011-04-12-vim-tip/">Apr 12 2011</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2011/04/12/2011/2011-04-12-vim-tip/">vim命令拾遗</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+</pre></td><td class="code"><pre>H M L 移动光标到屏幕的上<span class="regexp">/中/</span>下
+* 读取光标处的字符串 移动到再次出现的地方 <span class="comment"># 为反向</span>
+| 移动列
++<span class="regexp">/- 移动到下/</span>上N行非空白字符前
+(<span class="regexp">/）移动到上/</span>下一个句子
+Ctrl+u/d 上下翻页 相当于pagedown pageup
+Ctrl+f/b 下上一屏
+
+Ctrl+i<span class="regexp">/o 跳转到较早/</span>较晚的地方，
+:marks  列出所有的标记
+m{a-zA-Z}	用标记 {a-zA-Z} 记录当前位置
+`<span class="javascript">{a-z}		至当前文件中的标记 {a-z}
+</span>`{A-Z}		至任何文件中的标记 {A-Z}
+`<span class="javascript">{<span class="number">0</span>-<span class="number">9</span>}		至 Vim 上次退出的位置
+</span>``<span class="javascript">			至上次跳转之前的位置
+</span>`<span class="string">"			至上次编辑此文件的位置
+`[			至上次被操作或放置的文本的开始
+`]			至上次被操作或放置的文本的结尾
+`&lt;			至 (前次) 可视区域的开始
+`&gt;			至 (前次) 可视区域的结尾
+`.			至当前文件最后被改动的位置
+
+d 删除 dd dw de(不包括空格) d$ d^ d2as  “aw”一个单词（a word）、”as”一个句子（a sentence）、”ap”一个段落（a paragraph）
+i 插入  6if esc 插入6个f，css中常用
+U 撤销所有
+Ctrl+R 撤销撤销的
+cw 改变单词部分或者全部c$/^改变行尾或行首
+% 匹配(){}[]等等
+: (%这个文件替换)s/replaced/replaced（/g全行替换/c询问用户替换）
+:#,#s/old/new/g (两行中间替换)
+Ctrl+N/P 关键词自动补全 前提输入过的
+Ctrl+g 显示文件所在位置，和光标所在位置
+w 保存 #,#w filename 保存部分行
+r 读取文件进来
+set xxx 设置 xxx 选项 如 set ic /set hls is
+q/ q? 显示搜索命令历史的窗口
+C-z fg或者:sh exit 切换到shell
+guw 将光标所在的单词变为小写
+guw 将光标所在的单词变为小写
+gUw 将光标所在的单词变为大写
+guu 光标所在的行所有字符变为小写
+gUU 光标所在的行所有字符变为大写
+g~~ 光标所在的行所有字符大小写反向转换
+:1,$!sort 将文件内的所有内容排序
+ga 显示光标所在字符的内码（包括十进制码，十六进制码以及八进制码）
+Shift-k 查找光标所在命令或函数的 man 帮助
+q: 显示命令行命令历史的窗口
+:help 帮助
+gR gr 替换保持布局
+&lt;&lt; &gt;&gt; 左右移动
+&gt;3j 下面三行右移动
+V以行开始高亮
+gv高亮上次高亮的</span>
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2011-04-04T16:00:00.000Z"><a href="/2011/04/05/2011/2011-04-05-linux-directory/">Apr 5 2011</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2011/04/05/2011/2011-04-05-linux-directory/">Ubuntu等Linux系统文件目录作用</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="code"><pre>/bin 二进制可执行命令
+/dev 设备特殊文件
+/etc 系统管理和配置文件
+/etc/rc.d 启动的配置文件和脚本
+/home 用户主目录的基点，比如用户user的主目录就是/home/user，可以用~user表示
+/lib 标准程序设计库，又叫动态链接共享库，作用类似windows里的.dll文件
+/sbin 系统管理命令，这里存放的是系统管理员使用的管理程序
+/tmp 公用的临时文件存储点
+/root 系统管理员的主目录（呵呵，特权阶级）
+/mnt 系统提供这个目录是让用户临时挂载其他的文件系统。
+/lost+found 这个目录平时是空的，系统非正常关机而留下“无家可归”的文件（windows下叫什么.chk）就在这里
+/proc 虚拟的目录，是系统内存的映射。可直接访问这个目录来获取系统信息。
+/var 某些大文件的溢出区，比方说各种服务的日志文件
+/usr 最庞大的目录，要用到的应用程序和文件几乎都在这个目录。其中包含：
+/usr/X11R6 存放X window的目录
+/usr/bin 众多的应用程序
+/usr/sbin 超级用户的一些管理程序
+/usr/doc linux文档
+/usr/<span class="built_in">include</span> linux下开发和编译应用程序所需要的头文件
+/usr/lib 常用的动态链接库和软件包的配置文件
+/usr/man 帮助文档
+/usr/src 源代码，linux内核的源代码就放在/usr/src/linux里
+/usr/<span class="built_in">local</span>/bin 本地增加的命令
+/usr/<span class="built_in">local</span>/lib 本地增加的库
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+    <a href="/archives/page/3/" class="alignleft prev">Prev</a>
+  
+  
+    <a href="/archives/page/5/" class="alignright next">Next</a>
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:blog.h2ero.cn">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/PHP/">PHP</a><small>1</small></li>
+  
+    <li><a href="/categories/SQL/">SQL</a><small>1</small></li>
+  
+    <li><a href="/categories/hack/">hack</a><small>1</small></li>
+  
+    <li><a href="/categories/linux/">linux</a><small>9</small></li>
+  
+    <li><a href="/categories/mac/">mac</a><small>1</small></li>
+  
+    <li><a href="/categories/mysql/">mysql</a><small>1</small></li>
+  
+    <li><a href="/categories/note/">note</a><small>1</small></li>
+  
+    <li><a href="/categories/php/">php</a><small>8</small></li>
+  
+    <li><a href="/categories/plugin/">plugin</a><small>1</small></li>
+  
+    <li><a href="/categories/self/">self</a><small>3</small></li>
+  
+    <li><a href="/categories/tip/">tip</a><small>1</small></li>
+  
+    <li><a href="/categories/vim/">vim</a><small>1</small></li>
+  
+    <li><a href="/categories/web/">web</a><small>5</small></li>
+  
+    <li><a href="/categories/wiki/">wiki</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/CSS3/">CSS3</a><small>1</small></li>
+  
+    <li><a href="/tags/Godaddy/">Godaddy</a><small>1</small></li>
+  
+    <li><a href="/tags/GoogleAnalytics/">GoogleAnalytics</a><small>1</small></li>
+  
+    <li><a href="/tags/IE6/">IE6</a><small>1</small></li>
+  
+    <li><a href="/tags/MSSQL/">MSSQL</a><small>1</small></li>
+  
+    <li><a href="/tags/Mac/">Mac</a><small>1</small></li>
+  
+    <li><a href="/tags/MySQL/">MySQL</a><small>1</small></li>
+  
+    <li><a href="/tags/PHP/">PHP</a><small>2</small></li>
+  
+    <li><a href="/tags/Postfix/">Postfix</a><small>1</small></li>
+  
+    <li><a href="/tags/SMTP/">SMTP</a><small>1</small></li>
+  
+    <li><a href="/tags/SQL/">SQL</a><small>1</small></li>
+  
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>1</small></li>
+  
+    <li><a href="/tags/Vim/">Vim</a><small>1</small></li>
+  
+    <li><a href="/tags/Youtube/">Youtube</a><small>1</small></li>
+  
+    <li><a href="/tags/Zend Studio/">Zend Studio</a><small>1</small></li>
+  
+    <li><a href="/tags/algin/">algin</a><small>1</small></li>
+  
+    <li><a href="/tags/apache/">apache</a><small>1</small></li>
+  
+    <li><a href="/tags/aptana/">aptana</a><small>1</small></li>
+  
+    <li><a href="/tags/awesom/">awesom</a><small>1</small></li>
+  
+    <li><a href="/tags/awesome/">awesome</a><small>1</small></li>
+  
+    <li><a href="/tags/codeigniter/">codeigniter</a><small>3</small></li>
+  
+    <li><a href="/tags/compression/">compression</a><small>1</small></li>
+  
+    <li><a href="/tags/convention/">convention</a><small>1</small></li>
+  
+    <li><a href="/tags/css/">css</a><small>2</small></li>
+  
+    <li><a href="/tags/dedecms/">dedecms</a><small>1</small></li>
+  
+    <li><a href="/tags/eclipse/">eclipse</a><small>1</small></li>
+  
+    <li><a href="/tags/firefox/">firefox</a><small>1</small></li>
+  
+    <li><a href="/tags/firegestures script/">firegestures script</a><small>1</small></li>
+  
+    <li><a href="/tags/framework/">framework</a><small>1</small></li>
+  
+    <li><a href="/tags/ftp/">ftp</a><small>1</small></li>
+  
+    <li><a href="/tags/fuelphp/">fuelphp</a><small>1</small></li>
+  
+    <li><a href="/tags/fulltext/">fulltext</a><small>1</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>1</small></li>
+  
+    <li><a href="/tags/greasemonkey/">greasemonkey</a><small>1</small></li>
+  
+    <li><a href="/tags/h2ero/">h2ero</a><small>2</small></li>
+  
+    <li><a href="/tags/id_rsa.pub/">id_rsa.pub</a><small>1</small></li>
+  
+    <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
+  
+    <li><a href="/tags/jVi/">jVi</a><small>1</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>3</small></li>
+  
+    <li><a href="/tags/love/">love</a><small>1</small></li>
+  
+    <li><a href="/tags/loveYou/">loveYou</a><small>1</small></li>
+  
+    <li><a href="/tags/mac/">mac</a><small>1</small></li>
+  
+    <li><a href="/tags/markdown/">markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/mysql/">mysql</a><small>1</small></li>
+  
+    <li><a href="/tags/netbens/">netbens</a><small>1</small></li>
+  
+    <li><a href="/tags/newBlog/">newBlog</a><small>1</small></li>
+  
+    <li><a href="/tags/newLift/">newLift</a><small>1</small></li>
+  
+    <li><a href="/tags/php/">php</a><small>2</small></li>
+  
+    <li><a href="/tags/plugin/">plugin</a><small>1</small></li>
+  
+    <li><a href="/tags/scp/">scp</a><small>1</small></li>
+  
+    <li><a href="/tags/search/">search</a><small>1</small></li>
+  
+    <li><a href="/tags/shell/">shell</a><small>1</small></li>
+  
+    <li><a href="/tags/ssh/">ssh</a><small>1</small></li>
+  
+    <li><a href="/tags/terminator/">terminator</a><small>1</small></li>
+  
+    <li><a href="/tags/transform/">transform</a><small>1</small></li>
+  
+    <li><a href="/tags/ubuntu/">ubuntu</a><small>2</small></li>
+  
+    <li><a href="/tags/uploadify/">uploadify</a><small>1</small></li>
+  
+    <li><a href="/tags/url rewrite/">url rewrite</a><small>1</small></li>
+  
+    <li><a href="/tags/vim/">vim</a><small>4</small></li>
+  
+    <li><a href="/tags/vimL/">vimL</a><small>1</small></li>
+  
+    <li><a href="/tags/vimscript/">vimscript</a><small>1</small></li>
+  
+    <li><a href="/tags/virtulhost/">virtulhost</a><small>1</small></li>
+  
+    <li><a href="/tags/vrapper/">vrapper</a><small>1</small></li>
+  
+    <li><a href="/tags/vsftpd/">vsftpd</a><small>1</small></li>
+  
+    <li><a href="/tags/wine/">wine</a><small>1</small></li>
+  
+    <li><a href="/tags/xev/">xev</a><small>1</small></li>
+  
+    <li><a href="/tags/xfce/">xfce</a><small>1</small></li>
+  
+    <li><a href="/tags/xmodmap/">xmodmap</a><small>1</small></li>
+  
+    <li><a href="/tags/you/">you</a><small>1</small></li>
+  
+    <li><a href="/tags/存储过程/">存储过程</a><small>1</small></li>
+  
+    <li><a href="/tags/油猴子/">油猴子</a><small>1</small></li>
+  
+    <li><a href="/tags/索引/">索引</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 h2ero
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'h2ero';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

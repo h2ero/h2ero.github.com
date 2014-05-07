@@ -1,0 +1,808 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>shell | h2ero</title>
+  <meta name="author" content="h2ero">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="h2ero"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="h2ero" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">h2ero</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+      <li><a href="/link">Link</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title tag">shell</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-08-31T16:00:00.000Z"><a href="/2012/09/01/wiki/2012-09-01-shell-wiki/">Sep 1 2012</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/09/01/wiki/2012-09-01-shell-wiki/">SHELL</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="基础知识">基础知识</h2>
+<h3 id="linux文件分类">linux文件分类</h3>
+<ul>
+<li>-  一般文件</li>
+<li>d  目录</li>
+<li>l  符号链接文件</li>
+<li>b  磁盘设备文件</li>
+<li>c  字符设备文件</li>
+<li>s  Socket文件</li>
+<li>p  连接文件</li>
+</ul>
+<p>判断方式ls -l,file filename</p>
+<h3 id="文件权限">文件权限</h3>
+<ul>
+<li>三种身份 u g o</li>
+<li>四种权限 r(read)4 w(write)2 x(execute)1 s(set user/group id|sticky bit) <ul>
+<li>set user id 执行者变为文件的拥有者4755</li>
+<li>set group id 执行者变为用户组 2755</li>
+<li>sticky bit 只有文件拥有者才可以删除 1777</li>
+</ul>
+</li>
+</ul>
+<h3 id="Login_Shell">Login Shell</h3>
+<p>/etc/passwd字段含义:帐号:x:UID:GID:用户信息:主目录:login shell<br>eg:lightdm:x:104:111:Light Display Manager:/var/lib/lightdm:/bin/false</p>
+<h3 id="配置文件">配置文件</h3>
+<ul>
+<li>登录执行脚本及顺序<ol>
+<li>/etc/profile</li>
+<li>.bash_profile</li>
+<li>.bash_login</li>
+<li>.profile</li>
+</ol>
+</li>
+<li>注销<ol>
+<li>.bash_logout</li>
+</ol>
+</li>
+<li>执行新Shell<ol>
+<li>交互模式(interactive) .bashrc</li>
+<li>非交互模式 /bin/bash 检查BASH_ENV /bin/sh不检查任何文件</li>
+</ol>
+</li>
+</ul>
+<h3 id="括号匹配">括号匹配</h3>
+<ul>
+<li>echo l{i,o}ve</li>
+<li>cp file{,.bak} 备份文件</li>
+<li>mkdir {1,2}/{3,4}</li>
+</ul>
+<h2 id="Shell_Script">Shell Script</h2>
+<h3 id="执行">执行</h3>
+<ul>
+<li><code>bash script.sh</code></li>
+<li><code>sh script.sh</code></li>
+<li><code>. script.sh</code></li>
+<li><code>source .bashrc</code> 直接使配置生效</li>
+<li>. source 都会让script.sh在父Shell中执行<code>echo $SHLVL</code> <code>ps axf</code>查看层级</li>
+</ul>
+<h3 id="调试">调试</h3>
+<ul>
+<li>检测语法 <code>bash -v script.sh</code></li>
+<li>不执行查看程序代码 <code>bash -n script.sh</code></li>
+<li>追踪脚本执行 <code>bash -x</code></li>
+</ul>
+<h2 id="命令">命令</h2>
+<h3 id="内置命令">内置命令</h3>
+<ol>
+<li><code>type bg</code>  bg is a shell builtin 判断内置命令</li>
+<li><code>help -s</code> 显示命令语法 eg: <code>help -s alias</code>  alias: alias [-p] [name[=value] … ]</li>
+<li><code>echo</code> -n 不换行 -e \n等解释</li>
+<li><code>cd -</code> 返回先前目录</li>
+<li><code>:</code> 传回真值</li>
+<li><code>alias ll=&#39;ls -l&#39;</code> 重命名命令,取消<code>alias ll=&#39;ll&#39;</code> 或者 <code>unalias ll</code> <code>unalias -a</code>取消所有别名</li>
+<li><code>umask</code> 显示文件权限屏蔽值 创建文件时候 文件权限值=系统默认权限-umask值</li>
+<li><code>set</code> 设置Bash Shell属性 <code>set -o vi</code>开启vi模式，<code>set +o vi</code> 关闭vi模式,<code>set -o noclobber</code>/<code>set -C</code>转向输出保护存在文件</li>
+<li><code>shopt</code> 设置Bash Shell行为模式</li>
+<li><code>time</code> 指令执行耗时统计 <code>time ls -la</code></li>
+<li>read 读取变量<ul>
+<li><code>read input</code> 如果没有input变量，默认为$REPLY</li>
+<li><code>read -p &quot;please input a word:&quot;</code></li>
+<li><code>read -a arr&lt;&lt;(echo 1,2,3,6,5,4)</code> 读取数组</li>
+<li><code>IFS=&quot;:&quot;;read f1 f2 f3 f4 &lt; datafile</code> 没有设置IFS则默认空格</li>
+<li><code>read -r raw</code> 不过滤\</li>
+</ul>
+</li>
+<li><code>exec</code> <code>eval</code> 执行命令</li>
+<li><code>man -k sort</code> 查找命令</li>
+</ol>
+<h3 id="命令行程序">命令行程序</h3>
+<p>执行时候需要到$PATH中寻找</p>
+<ol>
+<li><code>which top</code> 在PATH找寻第一top命令所在位置 -a 找寻全部</li>
+<li><code>locate my.conf</code> 在文件索引数据库中找寻my.conf文件</li>
+<li>date<ul>
+<li><code>date MMDDhhmmYY</code>调整时间 </li>
+<li><code>date + &quot;%d%h%m&quot;</code> 产生指定时间格式</li>
+<li><code>date -R</code> 产生与RFC-2822兼容的时间格式</li>
+</ul>
+</li>
+<li>ls<ul>
+<li><code>ls -A</code> 与 <code>ls -a</code>相同但不显示 .,..</li>
+<li><code>ls -F</code> 在结果中加入标识符(*可执行文件，@软链接文件，=socket文件，|管道文件,不加则表示普通文件)</li>
+</ul>
+</li>
+<li><code>cat &gt;file</code>输入内容<kbd>CTRL</kbd>+<kbd>D</kbd>编辑保存文件内容到file</li>
+<li><code>head -n 4</code>显示前4行内容，<code>head -c -20</code>不显示前面20bytes内容,<code>tail</code>类似</li>
+<li><code>wc</code> -c/w/l计算文件字符/单词/行</li>
+<li><code>finde . -name &quot;*.txt&quot; -ctime 2 --exec rm -f {} \;</code> 找寻2天内修改过的text文件删除</li>
+<li>tar<ul>
+<li><code>tar -zxvf backup.tgz -C www/public</code> 解压到指定目录</li>
+<li>tar tvf etc.tar 显示文件内容</li>
+<li>tar xzvf etc.tar 解压</li>
+<li>tar zcvf etc.tar 压缩</li>
+<li>tar rvf etc.tar re.add.file 添加</li>
+<li>tar uvf etc.tar add.file 更新</li>
+<li>tar Avf 1.tar 2.tar all.tar 合并</li>
+<li>tar vf etc.tar —delete etc/hosts 删除指定文件</li>
+</ul>
+</li>
+<li><code>basename /path/filename</code> 取filename</li>
+<li><code>dirname /path/filename</code> 取path </li>
+<li><code>sort -nr +2 -t: /etc/passwd</code> -t 分隔符 +2 跳过两列排序第三列 -nr 反序按数值排序(默认按ASCII)</li>
+<li><code>uniq file</code>删除文件中重复的行，-d找出重复行，-c 计算重复行出现的次数</li>
+<li>cut<ul>
+<li><code>cut -c2-3 file</code> 抽取第2-3个字符</li>
+<li><code>cut -c9- file</code> 抽取第9以后的</li>
+<li><code>cut -c1</code> 抽取第1个字符</li>
+<li><code>cut -c-3,22- file</code>抽取第1-3,和22以后的字符</li>
+<li><code>cut -d: -f3,1 /etc/passwd</code> 抽取paawd见3,1列</li>
+</ul>
+</li>
+<li>tr 转换或删除字符<ul>
+<li><code>tr &#39;[a-z]&#39; &#39;[A-Z]&#39; &lt; file</code> 转换大写</li>
+<li><code>tr -d k</code> 删除字符k</li>
+<li><code>tr -s &#39;[a-z]&#39; &#39;[a-z]&#39; &lt;file</code>压缩aaa为a</li>
+</ul>
+</li>
+<li>grep<ul>
+<li><code>grep -Rin &quot;word&quot; *</code>/<code>grep -Ril &quot;word&quot; *</code> 匹配所有word显示行号，不区分大小</li>
+<li><code>grep -v &quot;word&quot; *</code> 显示不包含word eg:<code>ps -ef | grep nautilus| grep -v &quot;grep nautilus&quot;</code></li>
+<li><code>grep -q &quot;word&quot; file</code> 返回1/0，并放到$?这个变量中</li>
+<li><code>grep -A 2 -e &#39;someone (love|like) you&#39; file</code> 找到h2..以后显示接下来的两行</li>
+</ul>
+</li>
+<li>tee<ul>
+<li><code>tee -a file</code>=<code>cat &gt;&gt;file</code>文件内容<kbd>Ctrl</kbd>+<kbd>D</kbd></li>
+<li><code>tee file</code>存在清空，不存在输入然后<kbd>Ctrl</kbd>+<kbd>D</kbd></li>
+</ul>
+</li>
+<li><code>script log</code>记录接下来命令的执行过程及结果,直到<code>exit</code>退出</li>
+<li>top <kby>z</kby>切换彩色显示</li>
+<li>关机命令<ul>
+<li>sync&amp;&amp;shutdown -h now/+30/20:00</li>
+<li>init 0<ul>
+<li>0 关机</li>
+<li>3 纯文本</li>
+<li>5 图形界面</li>
+<li>6 重新启动</li>
+</ul>
+</li>
+<li>poweroff -f</li>
+</ul>
+</li>
+<li>chown root:root file</li>
+<li>chmod <ul>
+<li>chmod u=rwx,g=rw file</li>
+<li>chmod a-x file</li>
+</ul>
+</li>
+</ol>
+<h3 id="文件操作">文件操作</h3>
+<ol>
+<li>touch file 建立新文件等同于 &gt; file :&gt;file</li>
+<li>mkdir -m 777 file</li>
+<li>mknod -m 666 file c/b/p n m 建立字符/区块/管道文件 主要设备代码n 次要设备代码m</li>
+<li>mkfifo file 建立管道文件 使用 echo “h2ero” &gt; file ,  cat &lt; file</li>
+<li>ln -sf file lnfile 删除ln再次建立</li>
+<li>stat file 查看文件的所有属性 <ul>
+<li>stat -c “%a%n” 单独查看文件相关属性输出 </li>
+<li>stat -f “%a” 单独查看分区相关属性输出 </li>
+</ul>
+</li>
+<li>chattr +attr =attr -attr AaiD 为文件设置文件取用时间不变/只能转向开启文件进行写入/不能修改文件/不需要dump 特殊属性 </li>
+<li>lsattr file 查看文件特殊属性</li>
+<li>gzip <ul>
+<li>gzip -d 解压</li>
+<li>gzip -c 压缩<ul>
+<li>zcat</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="历史命令">历史命令</h3>
+<ul>
+<li>fc<ul>
+<li>fc ssh 查找最近一个包含ssh</li>
+<li>fc -s ssh 查找最近一个包含ssh，并执行</li>
+</ul>
+</li>
+<li>历史命令扩展<ul>
+<li>!! 执行上一条 = !-1</li>
+<li>!historyline 执行编号为historyline的指令</li>
+<li>!-n 调用倒数第n条指令</li>
+<li>!ssh 调用最近含有ssh的命令</li>
+<li>!?home? 调用最近含有home的命令</li>
+<li>^var1^var2^ 将前一个历史命令中的var1替换为var2再执行</li>
+<li>!# 前面输入的所有字符。ls !# 相当于执行ls ls</li>
+<li>!!:$ 前一条命令的最后一个参数=$_</li>
+<li>!ls:1 找出最近一条以ls开头的命令的第一个参数=!ls:^</li>
+<li>!ls:* 找出最近一天以ls开头的所有参数</li>
+<li>!!:3-5 找出前一条3-5的参数</li>
+<li>!!:s/var/var1/替换前1条指令中的var 为 var1</li>
+<li>!!:h 删除后面的文件名</li>
+<li>!!:t 删除前面的目录</li>
+<li>!!:p 显示前一条命令但是不执行</li>
+</ul>
+</li>
+</ul>
+<h3 id="执行多条命令">执行多条命令</h3>
+<ol>
+<li>cmd1&amp;&amp;cmd2 cmd1执行成功cmd2才执行</li>
+<li>cmd1||cmd2 cmd1执行失败cmd2才执行</li>
+<li>(cmd1,cmd2,cmd3)子shell中执行</li>
+<li>{ cmd1,cmd2,cmd3 }在当前shell中执行</li>
+</ol>
+<h2 id="变量">变量</h2>
+<h3 id="数组">数组</h3>
+<ul>
+<li>语法${A[index]}}，声明arr=(1 2 3 4)</li>
+<li>所有元素<code>${A[@]}/${A[*]}</code></li>
+<li>长度<code>${#A[@]}/${#A[*]}</code></li>
+<li>赋值 <code>arr[${#arr[*]}]=2</code></li>
+</ul>
+<h3 id="取消变量">取消变量</h3>
+<ul>
+<li>unset -v variable unset -f function</li>
+</ul>
+<h3 id="环境变量">环境变量</h3>
+<ul>
+<li>export -p 显示全部环境变量</li>
+<li><code>declare -x LANG=&quot;en_US.UTF-8&quot;</code> 或者 <code>export LANG=&quot;en_US.UTF-8&quot;</code><h3 id="Bash_内置变量">Bash 内置变量</h3>
+</li>
+<li>$BASH bash完整路径</li>
+<li>$BASH_VERSION bash版本</li>
+<li>$CDPATH cd切换搜寻目录</li>
+<li>$HISCONTROL 控制指令是否存入历史，三个值ignorespace,ignoredups,ignoreboth，</li>
+<li>$HISTFILESIZE 行数</li>
+<li>$HISTIGNORE <code>export HISTIGNORE=ls:ps:cd:t*:\&amp;</code></li>
+<li>HISTTIMEFORMAT=’%F%T’ 时间格式</li>
+<li><code>locale</code> 语系</li>
+<li>$PATH 命令搜索目录</li>
+<li>RANDOM</li>
+<li>$* 所有参数一个字符串 “arg1 arg2 arg3”</li>
+<li>$n 第n个参数</li>
+<li>$@ 所有参数分开字符串 “arg1” “arg2” “arg3”</li>
+<li>$# 位置参数个数</li>
+<li>$? 上一条命令传回的值1/0 成功或者失败</li>
+<li>$$ 当前bash shell 进程标号 eg: kill $$</li>
+<li>$_ <ul>
+<li>script执行时候bash路径/bin/bash</li>
+<li>上一条命令最后一个参数值</li>
+<li>检查邮件时候,邮件文件名</li>
+</ul>
+</li>
+</ul>
+<h3 id="变量属性">变量属性</h3>
+<ul>
+<li>readonly<ul>
+<li>readonly -p 显示所有只读属性</li>
+<li>readonly -a/f 声明只读变量或者函数</li>
+</ul>
+</li>
+<li>declare <ul>
+<li>declare -p | grep x  显示x变量属性</li>
+<li>declare -p x 显示x变量属性</li>
+<li>declare -a/f/i/r/x 声明数组/函数/整数/只读/环境变量</li>
+<li>declare -F 显示所有的函数名称及属性</li>
+</ul>
+</li>
+</ul>
+<h3 id="HEREDOC">HEREDOC</h3>
+<ol>
+<li>重定向到msg文件<pre><code><span class="xml"> cat  <span class="tag">&lt;&lt;<span class="attribute">HEREDOC</span> &gt;</span>msg 
+ doc
+ HEREDOC</span>
+</code></pre></li>
+<li>直接输出<pre><code> cat &lt;&lt;HEREDOC 
+ <span class="variable">$USER</span> can be used
+ HEREDOC
+</code></pre></li>
+<li>直接输出不支持变量替换<pre><code> cat &lt;&lt;<span class="string">"HEREDOC"</span>
+ <span class="variable">$USER</span> can<span class="string">'t be used
+ HEREDOC</span>
+</code></pre></li>
+</ol>
+<h2 id="高级变量">高级变量</h2>
+<h3 id="分类">分类</h3>
+<ol>
+<li><p>${var} 变量扩展</p>
+<ul>
+<li><p>测试存在</p>
+<p> 条件式              | 目的                   | 判断条件       | 符合的处理方法<br> ——————————|————————————|————————|———————————————————-<br> ${待测变量-默认值}  | 给不存在变量赋值       | 不存在         | 赋值<br> ${待测变量:-默认值} | 给不存在或空值变量赋值 | 不存在或空值   | 赋值<br> ${待测变量:=默认值} | 给空值赋值             | 不存在或空值   | 赋值<br> ${待测变量:?默认值} | 检查变量是否完备       | 不存在或空值   | 显示变量名称:提示信息，停止执行后面的<br> ${待测变量:i默认值} | 判断是否为真           | 测试存在且非空 | 传回默认值                             </p>
+<p> 记忆</p>
+<p> | : | 空     | 测试值                   |<br> |—-|————|—————————————|<br> | - | 负向   | 测不存在                 |<br> | = | 设值   | 给空值变量设置一个默认值 |<br> | ? | 有问题 | 检查条件是否完备后再执行 |<br> | - | 正向   | 测试存在                 | </p>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>+ 取字符串
+
+   | <span class="char">${</span><span class="method">var:</span>start}     | 指定位置截取到最后       | 
+   |------------------|--------------------------|
+   | <span class="char">${</span><span class="method">var:</span><span class="method">start:</span>len} | 指定位置截取len个        | 
+   | <span class="char">${</span><span class="symbol">#var</span>}          | 变量字符长度             | 
+   | <span class="char">${</span><span class="symbol">#var</span>[@]}       | 数组元素个数             | 
+   | <span class="char">${</span><span class="symbol">#var</span>[\*]}      | 数组元素个数             | 
+   | <span class="char">${</span><span class="method">var:</span><span class="method">start:</span>len} | 指定位置截取len个        | 
+   | <span class="char">${</span>@:start}       | 指定位置截取到最后的参数 | 
+   | <span class="char">${</span>@:<span class="method">start:</span>count} | 指定位置截取到最后的参数 | 
+
++ 对比
+
+   | <span class="char">${</span>var<span class="symbol">#tpl</span>}  | 由前面对比删除最短 | 
+   |-------------|--------------------|
+   | <span class="char">${</span>var#<span class="symbol">#tpl</span>} | 由前面对比删除最长 | 
+   | <span class="char">${</span>var%tpl}  | 由后面对比删除最短 | 
+   | <span class="char">${</span>var%%tpl} | 由后面对比删除最长 | 
+
++ 修改 若不加/str则为删除，替换为空
+
+   | <span class="number">1</span> | <span class="char">${</span>var/tpl/str}  | 替换地一个符tpl的  |
+   |---|-----------------|--------------------|
+   | <span class="number">2</span> | <span class="char">${</span>var//tpl/str} | 替换地全部符合tpl的|
+   | <span class="number">3</span> | <span class="char">${</span>var<span class="symbol">#tpl</span>/str}  | 同<span class="number">1</span>，由开始替换    |
+   | <span class="number">4</span> | <span class="char">${</span>var<span class="symbol">#tpl</span>/str}  | 同<span class="number">2</span>，由开始替换    |
+
++ 取变量
+    <span class="number">1.</span> <span class="char">${</span>!var@} 或者 `<span class="char">${</span>!var*}` 去所有一var开头的变量名称
+    <span class="number">2.</span> <span class="char">${</span>!arr[@]} 或者 `<span class="char">${</span>!arr[*]}` 取所有数组索引
+</code></pre><ol>
+<li>$(cmd) 或者 <code>cmd</code> 命令扩展</li>
+<li>算术扩展<ol>
+<li>$((exp)) </li>
+<li><code>expr exp</code></li>
+<li>$[exp]</li>
+</ol>
+</li>
+</ol>
+<h2 id="流程控制">流程控制</h2>
+<ol>
+<li>if cmd1&amp;&amp;cmd2 也可当做if用<ol>
+<li>if-then<pre><code> <span class="keyword">if</span> condition;<span class="keyword">then</span>
+     cmd
+ <span class="keyword">fi</span>
+</code></pre></li>
+<li>if-then-else<pre><code> <span class="keyword">if</span> condition;<span class="keyword">then</span>
+     cmd
+ <span class="keyword">else</span>
+     cmd
+ <span class="keyword">fi</span>
+</code></pre></li>
+<li>if-then-elif-then-else<pre><code> <span class="keyword">if</span> condition;<span class="keyword">then</span>
+     cmd
+ <span class="keyword">elif</span> condition;<span class="keyword">then</span>
+ <span class="keyword">else</span>
+     cmd
+ <span class="keyword">fi</span>
+</code></pre></li>
+</ol>
+</li>
+<li>条件<ol>
+<li>执行命令返回的结果，eg: grep -q ^h2ero$ filename</li>
+<li>[[ ]] eg: [[ str &gt; xyz ]]</li>
+<li>test eg: test “str”>“xyz”</li>
+<li>[ ] eg:[ “str”>“xyz” ] , [ -f dir/file ]</li>
+</ol>
+</li>
+<li>case 如果shopt -s extglob 则开启高级样式<pre><code> <span class="keyword">case</span> testitem <span class="keyword">in</span>
+     j|k|l) cmd;;
+ <span class="keyword">esac</span>
+</code></pre></li>
+<li>for<pre><code> <span class="keyword">for</span> i <span class="keyword">in</span> arr
+ <span class="keyword">do</span>
+     cmd
+ <span class="keyword">done</span>
+ <span class="keyword">for</span> ((i=<span class="number">1</span>;i&lt;<span class="number">10</span>;i++))
+ <span class="keyword">do</span>
+     cmd
+ <span class="keyword">done</span>
+</code></pre></li>
+<li>while or until<pre><code> <span class="keyword">while</span> condition
+ <span class="keyword">do</span> 
+     cmd
+ <span class="keyword">done</span>
+ 死循环
+ <span class="keyword">while</span> ((<span class="number">1</span>))|<span class="literal">true</span>|:
+ <span class="keyword">for</span>(;<span class="number">1</span>;)
+ <span class="keyword">do</span>
+     cmd
+ <span class="keyword">done</span>
+</code></pre></li>
+<li>select <pre><code> <span class="keyword">select</span> s <span class="keyword">in</span> arr
+ <span class="keyword">do</span> 
+     <span class="variable">$REPLY</span> <span class="variable">$f</span>
+ done
+ eg:
+ <span class="keyword">select</span> i <span class="keyword">in</span> <span class="variable">$(</span><span class="keyword">ls</span> ../)
+ <span class="keyword">do</span>
+     <span class="keyword">if</span> [ <span class="variable">$REPLY</span>==<span class="string">'q'</span> ];then
+         kill -INT <span class="variable">$$</span>
+     fi
+ done
+</code></pre><h2 id="转向">转向</h2>
+<h3 id="默认文件代码(file_descriptor)">默认文件代码(file descriptor)</h3>
+</li>
+</ol>
+<ul>
+<li>stdin 0 stdout 1 stderr 2</li>
+</ul>
+<h3 id="文件代码操作">文件代码操作</h3>
+<ul>
+<li>fileDescriptor&lt;&gt;file 打开文件</li>
+<li>fileDescriptor&lt;&amp;- 关闭文件</li>
+<li>fileDescriptor&gt;&amp;- 关闭转向输出文件</li>
+<li>n&lt;&amp;m 复制转向输入的文件代码m存为n,使n连接到m</li>
+<li>n&gt;&amp;m 复制转向输出的文件代码m存为n,使n连接到m</li>
+<li><code>&gt;|</code> 忽略noclobber直接覆盖</li>
+<li>eg:exec 6 &lt; file ;cat &lt;&amp;6</li>
+</ul>
+<h2 id="系统信号">系统信号</h2>
+<ul>
+<li><code>kill -l/trap -l</code>显示使用系统信号</li>
+<li>kill <ul>
+<li><code>kill -信号id/名 PID</code> 或者 <code>kill -s 信号 PID</code></li>
+<li><code>kill -HUP PID</code> 重启进程，若是daemon就重新读取系统配置。</li>
+<li><kbd>CTRL</kbd>+<kbd>C</kbd> 发出INT信号。</li>
+</ul>
+</li>
+<li>trap<ul>
+<li><code>trap &quot;echo &#39;kill this ?&#39;&quot; INT</code>  注册INT信号</li>
+<li><code>trap - INT</code>  取消注册INT信号</li>
+<li><code>trap &#39;&#39; INT</code> 忽略INT信号</li>
+<li><code>trap -p</code> 显示全部注册信号</li>
+</ul>
+</li>
+</ul>
+<h2 id="进程">进程</h2>
+<ul>
+<li>进程字段|USER|PID|%CUP|%MEN|VSZ|RSS|TTY|STAT|START|TIME|COMMAND|</li>
+<li>进程NI(nice) 值，NI值越大，优先度越小。<ul>
+<li><code>nice -n num runapp</code></li>
+<li><code>renice num -p PID -g GROUP -u USER</code> 为指定进程/群组/用户调整NI值</li>
+</ul>
+</li>
+</ul>
+<h3 id="工作控制">工作控制</h3>
+<ul>
+<li><kbd>Ctrl</kbd>+<kbd>Z</kbd>暂停执行程序，bg后台执行。</li>
+<li>jobs -l 查看执行程序,%% 或者 %+调用当前程序，%- 调用前一个。%n调用编号为n的程序等同fg %n,后台执行%n&amp;或者bg %n</li>
+</ul>
+<h2 id="用户管理">用户管理</h2>
+<ul>
+<li><p>建立帐号</p>
+<pre><code>  adduser h2ero
+  useradd -<span class="type">D</span> 显示创建用户时候的默认配置，/etc/<span class="default"><span class="keyword">default</span>/useradd</span>
+  deluser/userdle username ~目录保存 
+</code></pre></li>
+</ul>
+<h2 id="其他">其他</h2>
+<ol>
+<li><p>添加字符集</p>
+<pre><code> cat /usr/share/i18n/SUPPORTED
+ vim /<span class="built_in">var</span>/lib/locales/supported<span class="built_in">.</span>d/<span class="built_in">local</span>
+ dpkg<span class="attribute">-reconfigure</span> <span class="subst">--</span>force locales
+</code></pre></li>
+<li><p>目录转换</p>
+<pre><code> export LANG<span class="subst">=</span>en_US
+ xdg<span class="attribute">-user</span><span class="attribute">-dirs</span><span class="attribute">-gtk</span><span class="attribute">-update</span>
+ export LANG<span class="subst">=</span>zh_CN
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:blog.h2ero.cn">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/PHP/">PHP</a><small>1</small></li>
+  
+    <li><a href="/categories/SQL/">SQL</a><small>1</small></li>
+  
+    <li><a href="/categories/hack/">hack</a><small>1</small></li>
+  
+    <li><a href="/categories/linux/">linux</a><small>9</small></li>
+  
+    <li><a href="/categories/mac/">mac</a><small>1</small></li>
+  
+    <li><a href="/categories/mysql/">mysql</a><small>1</small></li>
+  
+    <li><a href="/categories/note/">note</a><small>1</small></li>
+  
+    <li><a href="/categories/php/">php</a><small>8</small></li>
+  
+    <li><a href="/categories/plugin/">plugin</a><small>1</small></li>
+  
+    <li><a href="/categories/self/">self</a><small>3</small></li>
+  
+    <li><a href="/categories/tip/">tip</a><small>1</small></li>
+  
+    <li><a href="/categories/vim/">vim</a><small>1</small></li>
+  
+    <li><a href="/categories/web/">web</a><small>5</small></li>
+  
+    <li><a href="/categories/wiki/">wiki</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/CSS3/">CSS3</a><small>1</small></li>
+  
+    <li><a href="/tags/Godaddy/">Godaddy</a><small>1</small></li>
+  
+    <li><a href="/tags/GoogleAnalytics/">GoogleAnalytics</a><small>1</small></li>
+  
+    <li><a href="/tags/IE6/">IE6</a><small>1</small></li>
+  
+    <li><a href="/tags/MSSQL/">MSSQL</a><small>1</small></li>
+  
+    <li><a href="/tags/Mac/">Mac</a><small>1</small></li>
+  
+    <li><a href="/tags/MySQL/">MySQL</a><small>1</small></li>
+  
+    <li><a href="/tags/PHP/">PHP</a><small>2</small></li>
+  
+    <li><a href="/tags/Postfix/">Postfix</a><small>1</small></li>
+  
+    <li><a href="/tags/SMTP/">SMTP</a><small>1</small></li>
+  
+    <li><a href="/tags/SQL/">SQL</a><small>1</small></li>
+  
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>1</small></li>
+  
+    <li><a href="/tags/Vim/">Vim</a><small>1</small></li>
+  
+    <li><a href="/tags/Youtube/">Youtube</a><small>1</small></li>
+  
+    <li><a href="/tags/Zend Studio/">Zend Studio</a><small>1</small></li>
+  
+    <li><a href="/tags/algin/">algin</a><small>1</small></li>
+  
+    <li><a href="/tags/apache/">apache</a><small>1</small></li>
+  
+    <li><a href="/tags/aptana/">aptana</a><small>1</small></li>
+  
+    <li><a href="/tags/awesom/">awesom</a><small>1</small></li>
+  
+    <li><a href="/tags/awesome/">awesome</a><small>1</small></li>
+  
+    <li><a href="/tags/codeigniter/">codeigniter</a><small>3</small></li>
+  
+    <li><a href="/tags/compression/">compression</a><small>1</small></li>
+  
+    <li><a href="/tags/convention/">convention</a><small>1</small></li>
+  
+    <li><a href="/tags/css/">css</a><small>2</small></li>
+  
+    <li><a href="/tags/dedecms/">dedecms</a><small>1</small></li>
+  
+    <li><a href="/tags/eclipse/">eclipse</a><small>1</small></li>
+  
+    <li><a href="/tags/firefox/">firefox</a><small>1</small></li>
+  
+    <li><a href="/tags/firegestures script/">firegestures script</a><small>1</small></li>
+  
+    <li><a href="/tags/framework/">framework</a><small>1</small></li>
+  
+    <li><a href="/tags/ftp/">ftp</a><small>1</small></li>
+  
+    <li><a href="/tags/fuelphp/">fuelphp</a><small>1</small></li>
+  
+    <li><a href="/tags/fulltext/">fulltext</a><small>1</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>1</small></li>
+  
+    <li><a href="/tags/greasemonkey/">greasemonkey</a><small>1</small></li>
+  
+    <li><a href="/tags/h2ero/">h2ero</a><small>2</small></li>
+  
+    <li><a href="/tags/id_rsa.pub/">id_rsa.pub</a><small>1</small></li>
+  
+    <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
+  
+    <li><a href="/tags/jVi/">jVi</a><small>1</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>3</small></li>
+  
+    <li><a href="/tags/love/">love</a><small>1</small></li>
+  
+    <li><a href="/tags/loveYou/">loveYou</a><small>1</small></li>
+  
+    <li><a href="/tags/mac/">mac</a><small>1</small></li>
+  
+    <li><a href="/tags/markdown/">markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/mysql/">mysql</a><small>1</small></li>
+  
+    <li><a href="/tags/netbens/">netbens</a><small>1</small></li>
+  
+    <li><a href="/tags/newBlog/">newBlog</a><small>1</small></li>
+  
+    <li><a href="/tags/newLift/">newLift</a><small>1</small></li>
+  
+    <li><a href="/tags/php/">php</a><small>2</small></li>
+  
+    <li><a href="/tags/plugin/">plugin</a><small>1</small></li>
+  
+    <li><a href="/tags/scp/">scp</a><small>1</small></li>
+  
+    <li><a href="/tags/search/">search</a><small>1</small></li>
+  
+    <li><a href="/tags/shell/">shell</a><small>1</small></li>
+  
+    <li><a href="/tags/ssh/">ssh</a><small>1</small></li>
+  
+    <li><a href="/tags/terminator/">terminator</a><small>1</small></li>
+  
+    <li><a href="/tags/transform/">transform</a><small>1</small></li>
+  
+    <li><a href="/tags/ubuntu/">ubuntu</a><small>2</small></li>
+  
+    <li><a href="/tags/uploadify/">uploadify</a><small>1</small></li>
+  
+    <li><a href="/tags/url rewrite/">url rewrite</a><small>1</small></li>
+  
+    <li><a href="/tags/vim/">vim</a><small>4</small></li>
+  
+    <li><a href="/tags/vimL/">vimL</a><small>1</small></li>
+  
+    <li><a href="/tags/vimscript/">vimscript</a><small>1</small></li>
+  
+    <li><a href="/tags/virtulhost/">virtulhost</a><small>1</small></li>
+  
+    <li><a href="/tags/vrapper/">vrapper</a><small>1</small></li>
+  
+    <li><a href="/tags/vsftpd/">vsftpd</a><small>1</small></li>
+  
+    <li><a href="/tags/wine/">wine</a><small>1</small></li>
+  
+    <li><a href="/tags/xev/">xev</a><small>1</small></li>
+  
+    <li><a href="/tags/xfce/">xfce</a><small>1</small></li>
+  
+    <li><a href="/tags/xmodmap/">xmodmap</a><small>1</small></li>
+  
+    <li><a href="/tags/you/">you</a><small>1</small></li>
+  
+    <li><a href="/tags/存储过程/">存储过程</a><small>1</small></li>
+  
+    <li><a href="/tags/油猴子/">油猴子</a><small>1</small></li>
+  
+    <li><a href="/tags/索引/">索引</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 h2ero
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'h2ero';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

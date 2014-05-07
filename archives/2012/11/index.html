@@ -1,0 +1,545 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Archives: 2012/11 | h2ero</title>
+  <meta name="author" content="h2ero">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="h2ero"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="h2ero" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">h2ero</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+      <li><a href="/link">Link</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">2012/11</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-11-28T16:00:00.000Z"><a href="/2012/11/29/2012/2012-11-29-jvi-netbeans/">Nov 29 2012</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/11/29/2012/2012-11-29-jvi-netbeans/">netbeans</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="jvi">jvi</h3>
+<ol>
+<li>安装jvi后不能通过右键菜单行号不能显示，:set nu解决</li>
+<li>:w 需要回车两次，Menu&gt;Tools&gt;Options&gt;jVi&gt;Platform notice 去掉”:” command completion auto popup. 这项，这个时候没有自动补全需要按<kbd>Ctrl</kbd>+<kbd>space</kbd>,或者<kbd>Ctrl</kbd>+<kbd>D</kbd></li>
+<li>zc zo 折叠打开函数。zM zR 全部<h3 id="QuickOpener">QuickOpener</h3>
+<h3 id="show-path-in-title">show-path-in-title</h3>
+</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-11-24T16:00:00.000Z"><a href="/2012/11/25/2012/2012-11-25-Mac-SMTP-Postfix-enable/">Nov 25 2012</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/11/25/2012/2012-11-25-Mac-SMTP-Postfix-enable/">Mac下配置Postfix使用SMTP</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>上一次弄过，然后这一次再弄又给忘了，苦逼周末还在弄公司的东西。最近书也没有怎么看，自己的代码也没有怎么敲，现在在的这家公司感觉东西也学的差不多了。<br>公司用的发送Email用<a href="http://swiftmailer.org/" target="_blank">Swift mailer</a>，Mac下SMTP需要用到<a href="http://www.postfix.org/" target="_blank">Postfix</a>这个软件，Mac自带。</p>
+<h3 id="配置">配置</h3>
+<p><code>sudo vi /System/Library/LaunchDaemons/org.postfix.master.plist</code><br>在<code>&lt;/dict&gt;</code>加入<code>&lt;key&gt;RunAtLoad&lt;/key&gt; &lt;true/&gt; &lt;key&gt;KeepAlive&lt;/key&gt; &lt;true/&gt;</code></p>
+<h3 id="启用">启用</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>$ sudo launchctl
+launchd% start org<span class="preprocessor">.postfix</span><span class="preprocessor">.master</span>
+<span class="preprocessor">#测试运行没有</span>
+telnet localhost <span class="number">25</span>
+<span class="preprocessor">#停止</span>
+launchd% stop org<span class="preprocessor">.postfix</span><span class="preprocessor">.master</span>
+</pre></td></tr></table></figure>
+
+<p>参考：</p>
+<ol>
+<li><a href="http://marvelley.com/2011/02/02/sending-emails-with-php-using-swiftmailer-and-smtp-on-mac-osx/" target="_blank">Sending emails with PHP using Swiftmailer and SMTP on Mac OSX</a></li>
+<li><a href="http://www.freshblurbs.com/blog/2009/05/10/how-enable-local-smtp-postfix-os-x-leopard.html" target="_blank">How to Enable Local SMTP (Postfix) on OS-X Leopard</a></li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-11-24T16:00:00.000Z"><a href="/2012/11/25/2012/2012-11-25-fuelphp-multisit/">Nov 25 2012</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/11/25/2012/2012-11-25-fuelphp-multisit/">fuelphp 备忘</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>来不起了，不过还是记一下。不然就忘了。FuelPHP主要和Kohana,CodeIgniter相关。很多东西都类似。支持HMVC,<a href="http://kohanaframework.org/3.3/guide/kohana/files" title="Cascading Filesystem" target="_blank">Cascading Filesystem</a>,namespace。这些也许就是选他的原因了，如果什么时候kohana支持namespace了一定还是用kohana。不过暂时还不支持，fuelphp看起来还不错，不过很多都不完善，比如Cascading File System就是个悲剧。也有可能是自己没有搞懂，最近都在折腾Kohana和Fuelphp，Kohana中如果有用到module是可以直接通过路由访问的。而且不用设置路由，基于CFS直接冲module里面找。省很多东西，配置文件来说Kohana是merge，而Fuelphp是rewrite，所以有要多弄很多东西。不过各有各的好处。</p>
+<ol>
+<li>module直接访问，如果一个Module继承自另外一个Module，相同的Controller/action下，kohana不用再设置,不过带来的坏处就是不需要是的时候需要通过设置url router去屏蔽，其实这样是不可控制的。而Fuelphp需要设置Url router去控制，其实对于一站点或者一module来说就那么点点Controller这样可控制性更强。</li>
+<li>Controller_Template，kohana和fuelphp都可以设置$template，不过对于继承的kohana可以通过CFS找到，Fuelphp只能设置的时候添加’NS::template/default’来找到，总是觉得<a href="http://kohanaframework.org/3.3/guide/kohana/files" title="Cascading Filesystem" target="_blank">Cascading Filesystem</a>在Fuelphp里面没有体现出来。悲剧，不过实现起来还是比较简单，修改下源码即可实现。</li>
+<li>Config合并和覆盖看个人喜欢，比较不喜欢kohana的合并。</li>
+<li>Fuelphp的namespace。</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-11-17T16:00:00.000Z"><a href="/2012/11/18/2012/2012-11-18-ssh-private-key-for-current-domain/">Nov 18 2012</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/11/18/2012/2012-11-18-ssh-private-key-for-current-domain/">ssh 不同域用不同private key</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="ssh_key_生成">ssh key 生成</h2>
+<ol>
+<li>ssh-keygen or ssh-keygen -t rsa -C “h2ero.z@gmail.com”  (add comment)</li>
+<li>输入保存文件名，key将保存在~/.ssh/里面，如果不输入，默认将生成id_rsa，id_rsa.pub Enter file in which to save the key (/Users/apple/.ssh/id_rsa): </li>
+<li>输入key的密码，这样即使别人拿到了你的private key不知道你的密码也是不能认证的。Enter passphrase (empty for no passphrase): </li>
+<li>再次输入。Enter same passphrase again: <h2 id="ssh连接指定key">ssh连接指定key</h2>
+</li>
+</ol>
+<p>当上面第二步有输入文件名的时候比如输入h2ero那么在~/.ssh/里面将会生成h2ero,h2ero.pub。连接主机的时候就需要通过 <code>ssh -i ~/.ssh/h2ero ubuntu@h2ero.cn</code>这样来指定private key.如果没有输入则不用添加-i参数。</p>
+<p>当然用scp的时候也是可以这样的。<br><code>scp -i ~/.ssh/h2ero ubuntu@h2ero.cn:~/h2ero.gz ~/backup/h2ero.gz</code></p>
+<h2 id="ssh不同域不同key">ssh不同域不同key</h2>
+<p>有的时候还是需要的，比如工作一个key，自己平时用一个key。在~/.ssh/config文件里面进行配置即可。比如针对github用特殊的key。</p>
+<pre><code>Host github github<span class="preprocessor">.com</span>
+Hostname github<span class="preprocessor">.com</span>
+IdentityFile|~/<span class="preprocessor">.ssh</span>/h2ero`
+</code></pre><h3 id="登陆执行命令">登陆执行命令</h3>
+<pre><code>ssh root<span class="variable">@root</span>.com uname
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-11-17T16:00:00.000Z"><a href="/2012/11/18/wiki/2012-11-18-mysql-wiki/">Nov 18 2012</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/11/18/wiki/2012-11-18-mysql-wiki/">MySQL</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ol>
+<li><code>set @now=(DATE_FORMAT(NOW(),&#39;%Y-%m-%d %H:%i:%s&#39;));</code></li>
+<li><code>INSERT INTO test VALUES (&#39;&#39;,uid, @now) ON DUPLICATE KEY  update date_added=@now;</code> 当出现uid相同的列时候执行后面的语句。</li>
+<li><code>set @i=0;select (@i:=@i+1)   as   i  from games limit 20；</code>选择1-20</li>
+<li><p>join</p>
+<ol>
+<li><p>笛卡尔积(交叉连接),join,cross join</p>
+<pre><code>     <span class="operator"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> table1 <span class="keyword">CROSS</span> <span class="keyword">JOIN</span> table2
+  <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> table1 <span class="keyword">JOIN</span> table2
+  <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> table1,table2</span>
+</code></pre></li>
+<li>内连接INNER JOIN</li>
+<li>外连接LEFT [OUTER] JOIN,RIGHT [OUTER] JOIN</li>
+<li><code>USING select * from t1 join t1 on t1.id=t2.id</code>可以改为<code>select * from t1 join USING(id)</code></li>
+</ol>
+</li>
+<li><code>having select *,sum(cash) s_cash from transaction group by uid having s_cash &gt; 20000</code></li>
+<li><code>create table t1 select * from t2,insert into t1 select * t2</code>;</li>
+<li><code>SELECT * from name where field REGEXP &#39;.*h2ero|h2ero.*&#39;</code>;</li>
+<li><code>select last_insert_id()</code></li>
+<li><p>快速导入数据</p>
+<pre><code> mysql<span class="subst">&gt;</span>show variables like <span class="string">'max_allowed_packet'</span>;
+ mysql<span class="subst">&gt;</span>show variables like <span class="string">'net_buffer_length'</span>;
+ $<span class="subst">&gt;</span>mysqldump <span class="attribute">-uroot</span> <span class="attribute">-p</span>  matchmove_reports <span class="attribute">-e</span> <span class="subst">--</span>max_allowed_packet<span class="subst">=</span><span class="number">1048576</span> <span class="subst">--</span>net_buffer_length<span class="subst">=</span><span class="number">2048</span> <span class="subst">&gt;</span> ~/Downloads/matchmove_reports<span class="built_in">.</span>sql
+</code></pre></li>
+<li><p>两张表不同列导出同一日期数据</p>
+<pre><code># User,Download
+<span class="operator"><span class="keyword">select</span> <span class="keyword">date</span>,<span class="aggregate">sum</span>(Download) Download,<span class="aggregate">sum</span>(SignUp) SignUp <span class="keyword">from</span> ( <span class="keyword">select</span>  *  <span class="keyword">from</span> (<span class="keyword">SELECT</span> <span class="keyword">DATE</span>(date_added) <span class="keyword">date</span>, <span class="aggregate">COUNT</span>(id) <span class="string">'SignUp'</span>,<span class="number">0</span> <span class="string">'Download'</span> <span class="keyword">FROM</span> users <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">date</span>) s <span class="keyword">union</span> (<span class="keyword">SELECT</span> <span class="keyword">DATE</span>(date_added) <span class="keyword">date</span>, <span class="number">0</span> <span class="string">'SignUp'</span>,<span class="aggregate">COUNT</span>(id) <span class="string">'Download'</span> <span class="keyword">FROM</span> <span class="string">`tracks`</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">date</span>) ) r <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">date</span>;</span>
+</code></pre></li>
+<li><p>新建用户</p>
+<p>   //创建用户<br>   mysql&gt; insert into mysql.user(Host,User,Password) values(‘localhost’,’phplamp’,password(‘1234’));<br>   //刷新系统权限表<br>   mysql&gt;flush privileges;<br>   mysql&gt;exit;</p>
+</li>
+<li><p>授权</p>
+<pre><code><span class="operator"><span class="keyword">grant</span> <span class="keyword">select</span>, <span class="keyword">insert</span>, <span class="keyword">update</span>, <span class="keyword">delete</span> <span class="keyword">on</span> weimei2.* <span class="keyword">to</span> h2ero@localhost;</span>
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:blog.h2ero.cn">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/PHP/">PHP</a><small>1</small></li>
+  
+    <li><a href="/categories/SQL/">SQL</a><small>1</small></li>
+  
+    <li><a href="/categories/hack/">hack</a><small>1</small></li>
+  
+    <li><a href="/categories/linux/">linux</a><small>9</small></li>
+  
+    <li><a href="/categories/mac/">mac</a><small>1</small></li>
+  
+    <li><a href="/categories/mysql/">mysql</a><small>1</small></li>
+  
+    <li><a href="/categories/note/">note</a><small>1</small></li>
+  
+    <li><a href="/categories/php/">php</a><small>8</small></li>
+  
+    <li><a href="/categories/plugin/">plugin</a><small>1</small></li>
+  
+    <li><a href="/categories/self/">self</a><small>3</small></li>
+  
+    <li><a href="/categories/tip/">tip</a><small>1</small></li>
+  
+    <li><a href="/categories/vim/">vim</a><small>1</small></li>
+  
+    <li><a href="/categories/web/">web</a><small>5</small></li>
+  
+    <li><a href="/categories/wiki/">wiki</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/CSS3/">CSS3</a><small>1</small></li>
+  
+    <li><a href="/tags/Godaddy/">Godaddy</a><small>1</small></li>
+  
+    <li><a href="/tags/GoogleAnalytics/">GoogleAnalytics</a><small>1</small></li>
+  
+    <li><a href="/tags/IE6/">IE6</a><small>1</small></li>
+  
+    <li><a href="/tags/MSSQL/">MSSQL</a><small>1</small></li>
+  
+    <li><a href="/tags/Mac/">Mac</a><small>1</small></li>
+  
+    <li><a href="/tags/MySQL/">MySQL</a><small>1</small></li>
+  
+    <li><a href="/tags/PHP/">PHP</a><small>2</small></li>
+  
+    <li><a href="/tags/Postfix/">Postfix</a><small>1</small></li>
+  
+    <li><a href="/tags/SMTP/">SMTP</a><small>1</small></li>
+  
+    <li><a href="/tags/SQL/">SQL</a><small>1</small></li>
+  
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>1</small></li>
+  
+    <li><a href="/tags/Vim/">Vim</a><small>1</small></li>
+  
+    <li><a href="/tags/Youtube/">Youtube</a><small>1</small></li>
+  
+    <li><a href="/tags/Zend Studio/">Zend Studio</a><small>1</small></li>
+  
+    <li><a href="/tags/algin/">algin</a><small>1</small></li>
+  
+    <li><a href="/tags/apache/">apache</a><small>1</small></li>
+  
+    <li><a href="/tags/aptana/">aptana</a><small>1</small></li>
+  
+    <li><a href="/tags/awesom/">awesom</a><small>1</small></li>
+  
+    <li><a href="/tags/awesome/">awesome</a><small>1</small></li>
+  
+    <li><a href="/tags/codeigniter/">codeigniter</a><small>3</small></li>
+  
+    <li><a href="/tags/compression/">compression</a><small>1</small></li>
+  
+    <li><a href="/tags/convention/">convention</a><small>1</small></li>
+  
+    <li><a href="/tags/css/">css</a><small>2</small></li>
+  
+    <li><a href="/tags/dedecms/">dedecms</a><small>1</small></li>
+  
+    <li><a href="/tags/eclipse/">eclipse</a><small>1</small></li>
+  
+    <li><a href="/tags/firefox/">firefox</a><small>1</small></li>
+  
+    <li><a href="/tags/firegestures script/">firegestures script</a><small>1</small></li>
+  
+    <li><a href="/tags/framework/">framework</a><small>1</small></li>
+  
+    <li><a href="/tags/ftp/">ftp</a><small>1</small></li>
+  
+    <li><a href="/tags/fuelphp/">fuelphp</a><small>1</small></li>
+  
+    <li><a href="/tags/fulltext/">fulltext</a><small>1</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>1</small></li>
+  
+    <li><a href="/tags/greasemonkey/">greasemonkey</a><small>1</small></li>
+  
+    <li><a href="/tags/h2ero/">h2ero</a><small>2</small></li>
+  
+    <li><a href="/tags/id_rsa.pub/">id_rsa.pub</a><small>1</small></li>
+  
+    <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
+  
+    <li><a href="/tags/jVi/">jVi</a><small>1</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>3</small></li>
+  
+    <li><a href="/tags/love/">love</a><small>1</small></li>
+  
+    <li><a href="/tags/loveYou/">loveYou</a><small>1</small></li>
+  
+    <li><a href="/tags/mac/">mac</a><small>1</small></li>
+  
+    <li><a href="/tags/markdown/">markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/mysql/">mysql</a><small>1</small></li>
+  
+    <li><a href="/tags/netbens/">netbens</a><small>1</small></li>
+  
+    <li><a href="/tags/newBlog/">newBlog</a><small>1</small></li>
+  
+    <li><a href="/tags/newLift/">newLift</a><small>1</small></li>
+  
+    <li><a href="/tags/php/">php</a><small>2</small></li>
+  
+    <li><a href="/tags/plugin/">plugin</a><small>1</small></li>
+  
+    <li><a href="/tags/scp/">scp</a><small>1</small></li>
+  
+    <li><a href="/tags/search/">search</a><small>1</small></li>
+  
+    <li><a href="/tags/shell/">shell</a><small>1</small></li>
+  
+    <li><a href="/tags/ssh/">ssh</a><small>1</small></li>
+  
+    <li><a href="/tags/terminator/">terminator</a><small>1</small></li>
+  
+    <li><a href="/tags/transform/">transform</a><small>1</small></li>
+  
+    <li><a href="/tags/ubuntu/">ubuntu</a><small>2</small></li>
+  
+    <li><a href="/tags/uploadify/">uploadify</a><small>1</small></li>
+  
+    <li><a href="/tags/url rewrite/">url rewrite</a><small>1</small></li>
+  
+    <li><a href="/tags/vim/">vim</a><small>4</small></li>
+  
+    <li><a href="/tags/vimL/">vimL</a><small>1</small></li>
+  
+    <li><a href="/tags/vimscript/">vimscript</a><small>1</small></li>
+  
+    <li><a href="/tags/virtulhost/">virtulhost</a><small>1</small></li>
+  
+    <li><a href="/tags/vrapper/">vrapper</a><small>1</small></li>
+  
+    <li><a href="/tags/vsftpd/">vsftpd</a><small>1</small></li>
+  
+    <li><a href="/tags/wine/">wine</a><small>1</small></li>
+  
+    <li><a href="/tags/xev/">xev</a><small>1</small></li>
+  
+    <li><a href="/tags/xfce/">xfce</a><small>1</small></li>
+  
+    <li><a href="/tags/xmodmap/">xmodmap</a><small>1</small></li>
+  
+    <li><a href="/tags/you/">you</a><small>1</small></li>
+  
+    <li><a href="/tags/存储过程/">存储过程</a><small>1</small></li>
+  
+    <li><a href="/tags/油猴子/">油猴子</a><small>1</small></li>
+  
+    <li><a href="/tags/索引/">索引</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 h2ero
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'h2ero';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,549 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>jQuery | h2ero</title>
+  <meta name="author" content="h2ero">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="h2ero"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="h2ero" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">h2ero</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+      <li><a href="/link">Link</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title tag">jQuery</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-07-26T16:00:00.000Z"><a href="/2012/07/27/2012/2012-07-27-css3-transform-rotate-word-move-around-circle-by-js/">Jul 27 2012</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/07/27/2012/2012-07-27-css3-transform-rotate-word-move-around-circle-by-js/">CSS3 transform rotate实现文字围绕圆形旋转</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>最近看到<a href="http://hitcon.org/2012/" target="_blank">HITCON 2012</a>这个网站上文字围绕圆形旋转的效果，想看看怎么弄的结果是<code>&lt;img src=&quot;images/hack.svg&quot;&gt;</code> 囧，果断放弃。以为是CSS3实现的。于是折腾了下CSS3的实现。这个<a href="http://csswarp.eleqtriq.com/" title="csswarp" target="_blank">csswarp</a>网站上已经实现的很不错了,不过是静态的效果。实现上主要参考了下它的实现过程。</p>
+<h3 id="CSS3_transform_rotate知识点">CSS3 transform rotate知识点</h3>
+<ul>
+<li>书写格式:transform:rotate(0deg);</li>
+<li>单位:deg角度 rad弧度 换算:360deg=2PIrad=400grad PI=3.141592654  全称:deg degree rad radian</li>
+<li>获取:st.getPropertyValue(“-moz-transform”);得到一个matrix的矩阵值，rotate skew scale这三个效果都要通过这个值计算再得到。其中rotate(Xdeg) = matrix(cos(X), sin(X), -sin(X), cos(X), 0, 0);</li>
+</ul>
+<h3 id="文字围绕效果代码实现">文字围绕效果代码实现</h3>
+<ol>
+<li>将文字分段写入span中,平均计算每段的rotate值。</li>
+<li>为了文字移动平滑设置span CSS <code>transition:all 2s ease;</code></li>
+<li>通过setTimeOut递增每个span的rotate值并通过象限计算x,y的偏移距离</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+</pre></td><td class="code"><pre><span class="doctype">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd"&gt;</span>
+<span class="tag">&lt;<span class="title">html</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.w3.org/1999/xhtml"</span>&gt;</span>
+	<span class="tag">&lt;<span class="title">head</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Type"</span> <span class="attribute">content</span>=<span class="value">"text/html; charset=utf-8"</span> /&gt;</span>
+		<span class="tag">&lt;<span class="title">title</span>&gt;</span> Warped Text <span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"./style/js/jquery-1.7.2.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"./style/js/jquery-css-transform.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">'stylesheet'</span> <span class="attribute">type</span>=<span class="value">'text/css'</span> <span class="attribute">href</span>=<span class="value">'http://fonts.googleapis.com/css?family=Abel:regular:latin'</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">'text/css'</span>&gt;</span><span class="css">
+			<span class="id">#circle</span><span class="rules">{
+				<span class="rule"><span class="attribute">background</span>:<span class="value"> none repeat scroll <span class="number">0</span> <span class="number">0</span> <span class="hexcolor">#CCCCCC</span></span></span>;
+				<span class="rule"><span class="attribute">border-radius</span>:<span class="value"> <span class="number">280</span>px <span class="number">280</span>px <span class="number">280</span>px <span class="number">280</span>px</span></span>;
+				<span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;
+				<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">500</span>px</span></span>;
+				<span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;
+				<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">500</span>px</span></span>;
+			<span class="rule">}</span></span>
+			<span class="id">#circle</span> <span class="tag">span</span><span class="rules">{
+				<span class="rule"><span class="attribute">font-family</span>:<span class="value"> <span class="string">'Abel'</span></span></span>;
+				<span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">38</span>px</span></span>;
+				<span class="rule"><span class="attribute">font-weight</span>:<span class="value"> regular</span></span>;
+				<span class="rule"><span class="attribute">font-style</span>:<span class="value"> normal</span></span>;
+				<span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">0.65</span></span></span>;
+				<span class="rule"><span class="attribute">white-space</span>:<span class="value"> pre</span></span>;
+				<span class="rule"><span class="attribute">overflow</span>:<span class="value"> visible</span></span>;
+				<span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>px</span></span>;
+				<span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+				<span class="rule"><span class="attribute">-moz-transition</span>:<span class="value">all <span class="number">2</span>s ease</span></span>;
+			<span class="rule">}</span></span>
+		</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+	<span class="tag">&lt;<span class="title">body</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">'circle'</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+</pre></td><td class="code"><pre>$(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="comment">//通过R半径，angle角度获取具体位置</span>
+    <span class="function"><span class="keyword">function</span> <span class="title">getXY</span><span class="params">(angle, R)</span> {</span>
+        <span class="keyword">var</span> R = <span class="number">250</span>;
+        <span class="keyword">var</span> x, y;
+        angle = <span class="built_in">parseInt</span>(angle);
+        <span class="keyword">if</span>(angle&lt;<span class="number">0</span>){
+           angle=angle+<span class="number">360</span>*<span class="number">360</span>; 
+        }
+        angle = angle % <span class="number">360</span>;
+        where = <span class="built_in">Math</span>.floor(angle / <span class="number">90</span>) + <span class="number">1</span>;
+        <span class="comment">//转换为rad值</span>
+        an = <span class="built_in">Math</span>.floor(angle % <span class="number">90</span>) / <span class="number">360</span> * <span class="number">2</span> * <span class="built_in">Math</span>.PI;
+        <span class="comment">//分象限计算</span>
+        <span class="keyword">switch</span>(where) {
+            <span class="keyword">case</span> <span class="number">1</span>:
+                x = <span class="built_in">Math</span>.sin(an) * R + R;
+                y = R - <span class="built_in">Math</span>.cos(an) * R;
+                <span class="keyword">break</span>;
+            <span class="keyword">case</span> <span class="number">2</span>:
+                y = <span class="built_in">Math</span>.sin(an) * R +R;
+                x = <span class="built_in">Math</span>.cos(an) * R +R;
+                <span class="keyword">break</span>;
+            <span class="keyword">case</span> <span class="number">3</span>:
+                x = R - <span class="built_in">Math</span>.sin(an) * R;
+                y = <span class="built_in">Math</span>.cos(an) * R + R;
+                <span class="keyword">break</span>;
+            <span class="keyword">case</span> <span class="number">4</span>:
+                y = R-<span class="built_in">Math</span>.sin(an) * R;
+                x = R-<span class="built_in">Math</span>.cos(an) * R ;
+                <span class="keyword">break</span>;
+        }
+        <span class="keyword">return</span> [x,y];
+    }
+    <span class="keyword">var</span> str=<span class="string">"h2ero love you if you love too"</span>;
+    <span class="keyword">var</span> html=<span class="string">''</span>;
+    str=str.split(<span class="string">' '</span>);
+    <span class="keyword">var</span> deg=[];
+    <span class="keyword">var</span> len =str.length;
+    <span class="keyword">var</span> predeg=<span class="number">360</span>/len;
+    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;len;i++){
+        html+=<span class="string">'&lt;span id="w'</span>+i+<span class="string">'"&gt;&lt;a href="http://blog.h2ero.cn"&gt;'</span>+str[len-i-<span class="number">1</span>]+<span class="string">'&lt;/a&gt;&lt;/span&gt;'</span>
+        deg[i]=i*predeg;
+    }
+    $(<span class="string">'#circle'</span>).html(html);
+    <span class="keyword">var</span> R = <span class="number">250</span>;
+    <span class="keyword">var</span> doc=[];
+    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;deg.length;i++){
+         doc[i]=$(<span class="string">'#w'</span>+i);
+    }
+    <span class="function"><span class="keyword">function</span> <span class="title">turnRun</span><span class="params">()</span>{</span>
+        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;deg.length;i++){
+            deg[i] = deg[i] - <span class="number">20</span>;
+            r=getXY(deg[i],R);
+            angles = deg[i] + <span class="string">'deg'</span>;
+            doc[i].css({<span class="string">'left'</span>: r[<span class="number">0</span>] + <span class="string">'px'</span>,<span class="string">'top'</span>: r[<span class="number">1</span>] + <span class="string">'px'</span>,<span class="string">'-moz-transform'</span>: <span class="string">'rotate('</span> + angles + <span class="string">')'</span>});
+        }
+        setTimeout(turnRun,<span class="number">1000</span>);
+    }
+        setTimeout(turnRun,<span class="number">1000</span>);
+});
+</pre></td></tr></table></figure>
+
+<p>参考:</p>
+<ol>
+<li><a href="http://css-tricks.com/get-value-of-css-rotation-through-javascript/" title="rotation manipulate by js" target="_blank">rotation manipulate by js</a></li>
+<li><a href="http://stackoverflow.com/questions/8270612/get-element-moz-transformrotate-value-in-jquery" title="rotate value in jQuery" target="_blank">rotate value in jQuery</a></li>
+<li><a href="http://blog.sina.com.cn/s/blog_42cdca7d01014p2n.html" title="rotate unit" target="_blank">rotate unit</a></li>
+<li><a href="http://www.unitjuggler.com/convert-angle-from-rad-to-gon.html" title="online convert angle to rad " target="_blank">online convert angle to rad</a></li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:blog.h2ero.cn">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/PHP/">PHP</a><small>1</small></li>
+  
+    <li><a href="/categories/SQL/">SQL</a><small>1</small></li>
+  
+    <li><a href="/categories/hack/">hack</a><small>1</small></li>
+  
+    <li><a href="/categories/linux/">linux</a><small>9</small></li>
+  
+    <li><a href="/categories/mac/">mac</a><small>1</small></li>
+  
+    <li><a href="/categories/mysql/">mysql</a><small>1</small></li>
+  
+    <li><a href="/categories/note/">note</a><small>1</small></li>
+  
+    <li><a href="/categories/php/">php</a><small>8</small></li>
+  
+    <li><a href="/categories/plugin/">plugin</a><small>1</small></li>
+  
+    <li><a href="/categories/self/">self</a><small>3</small></li>
+  
+    <li><a href="/categories/tip/">tip</a><small>1</small></li>
+  
+    <li><a href="/categories/vim/">vim</a><small>1</small></li>
+  
+    <li><a href="/categories/web/">web</a><small>5</small></li>
+  
+    <li><a href="/categories/wiki/">wiki</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/CSS3/">CSS3</a><small>1</small></li>
+  
+    <li><a href="/tags/Godaddy/">Godaddy</a><small>1</small></li>
+  
+    <li><a href="/tags/GoogleAnalytics/">GoogleAnalytics</a><small>1</small></li>
+  
+    <li><a href="/tags/IE6/">IE6</a><small>1</small></li>
+  
+    <li><a href="/tags/MSSQL/">MSSQL</a><small>1</small></li>
+  
+    <li><a href="/tags/Mac/">Mac</a><small>1</small></li>
+  
+    <li><a href="/tags/MySQL/">MySQL</a><small>1</small></li>
+  
+    <li><a href="/tags/PHP/">PHP</a><small>2</small></li>
+  
+    <li><a href="/tags/Postfix/">Postfix</a><small>1</small></li>
+  
+    <li><a href="/tags/SMTP/">SMTP</a><small>1</small></li>
+  
+    <li><a href="/tags/SQL/">SQL</a><small>1</small></li>
+  
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>1</small></li>
+  
+    <li><a href="/tags/Vim/">Vim</a><small>1</small></li>
+  
+    <li><a href="/tags/Youtube/">Youtube</a><small>1</small></li>
+  
+    <li><a href="/tags/Zend Studio/">Zend Studio</a><small>1</small></li>
+  
+    <li><a href="/tags/algin/">algin</a><small>1</small></li>
+  
+    <li><a href="/tags/apache/">apache</a><small>1</small></li>
+  
+    <li><a href="/tags/aptana/">aptana</a><small>1</small></li>
+  
+    <li><a href="/tags/awesom/">awesom</a><small>1</small></li>
+  
+    <li><a href="/tags/awesome/">awesome</a><small>1</small></li>
+  
+    <li><a href="/tags/codeigniter/">codeigniter</a><small>3</small></li>
+  
+    <li><a href="/tags/compression/">compression</a><small>1</small></li>
+  
+    <li><a href="/tags/convention/">convention</a><small>1</small></li>
+  
+    <li><a href="/tags/css/">css</a><small>2</small></li>
+  
+    <li><a href="/tags/dedecms/">dedecms</a><small>1</small></li>
+  
+    <li><a href="/tags/eclipse/">eclipse</a><small>1</small></li>
+  
+    <li><a href="/tags/firefox/">firefox</a><small>1</small></li>
+  
+    <li><a href="/tags/firegestures script/">firegestures script</a><small>1</small></li>
+  
+    <li><a href="/tags/framework/">framework</a><small>1</small></li>
+  
+    <li><a href="/tags/ftp/">ftp</a><small>1</small></li>
+  
+    <li><a href="/tags/fuelphp/">fuelphp</a><small>1</small></li>
+  
+    <li><a href="/tags/fulltext/">fulltext</a><small>1</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>1</small></li>
+  
+    <li><a href="/tags/greasemonkey/">greasemonkey</a><small>1</small></li>
+  
+    <li><a href="/tags/h2ero/">h2ero</a><small>2</small></li>
+  
+    <li><a href="/tags/id_rsa.pub/">id_rsa.pub</a><small>1</small></li>
+  
+    <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
+  
+    <li><a href="/tags/jVi/">jVi</a><small>1</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>3</small></li>
+  
+    <li><a href="/tags/love/">love</a><small>1</small></li>
+  
+    <li><a href="/tags/loveYou/">loveYou</a><small>1</small></li>
+  
+    <li><a href="/tags/mac/">mac</a><small>1</small></li>
+  
+    <li><a href="/tags/markdown/">markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/mysql/">mysql</a><small>1</small></li>
+  
+    <li><a href="/tags/netbens/">netbens</a><small>1</small></li>
+  
+    <li><a href="/tags/newBlog/">newBlog</a><small>1</small></li>
+  
+    <li><a href="/tags/newLift/">newLift</a><small>1</small></li>
+  
+    <li><a href="/tags/php/">php</a><small>2</small></li>
+  
+    <li><a href="/tags/plugin/">plugin</a><small>1</small></li>
+  
+    <li><a href="/tags/scp/">scp</a><small>1</small></li>
+  
+    <li><a href="/tags/search/">search</a><small>1</small></li>
+  
+    <li><a href="/tags/shell/">shell</a><small>1</small></li>
+  
+    <li><a href="/tags/ssh/">ssh</a><small>1</small></li>
+  
+    <li><a href="/tags/terminator/">terminator</a><small>1</small></li>
+  
+    <li><a href="/tags/transform/">transform</a><small>1</small></li>
+  
+    <li><a href="/tags/ubuntu/">ubuntu</a><small>2</small></li>
+  
+    <li><a href="/tags/uploadify/">uploadify</a><small>1</small></li>
+  
+    <li><a href="/tags/url rewrite/">url rewrite</a><small>1</small></li>
+  
+    <li><a href="/tags/vim/">vim</a><small>4</small></li>
+  
+    <li><a href="/tags/vimL/">vimL</a><small>1</small></li>
+  
+    <li><a href="/tags/vimscript/">vimscript</a><small>1</small></li>
+  
+    <li><a href="/tags/virtulhost/">virtulhost</a><small>1</small></li>
+  
+    <li><a href="/tags/vrapper/">vrapper</a><small>1</small></li>
+  
+    <li><a href="/tags/vsftpd/">vsftpd</a><small>1</small></li>
+  
+    <li><a href="/tags/wine/">wine</a><small>1</small></li>
+  
+    <li><a href="/tags/xev/">xev</a><small>1</small></li>
+  
+    <li><a href="/tags/xfce/">xfce</a><small>1</small></li>
+  
+    <li><a href="/tags/xmodmap/">xmodmap</a><small>1</small></li>
+  
+    <li><a href="/tags/you/">you</a><small>1</small></li>
+  
+    <li><a href="/tags/存储过程/">存储过程</a><small>1</small></li>
+  
+    <li><a href="/tags/油猴子/">油猴子</a><small>1</small></li>
+  
+    <li><a href="/tags/索引/">索引</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 h2ero
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'h2ero';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
