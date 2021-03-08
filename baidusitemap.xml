@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://example.com//2014/2014-05-16.html</loc>
+    <lastmod>2021-03-08</lastmod>
+  </url>
+  <url>
+    <loc>http://example.com//2013/2013-01-29-vim-php-code-format-and-php-convention-code-style.html</loc>
+    <lastmod>2021-03-08</lastmod>
+  </url>
+  <url>
+    <loc>http://example.com//2013/2013-05-04-latest.html</loc>
+    <lastmod>2021-03-08</lastmod>
+  </url>
+  <url>
+    <loc>http://example.com//2015/2015-01-01.html</loc>
+    <lastmod>2021-03-08</lastmod>
+  </url>
+  <url>
     <loc>http://example.com//2011/2011-02-26-php-compress-css.html</loc>
     <lastmod>2021-03-08</lastmod>
   </url>
