@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>SHELL | Hexo</title>
+  <meta name="description" content="##基础知识###linux文件分类  -  一般文件 d  目录 l  符号链接文件 b  磁盘设备文件 c  字符设备文件 s  Socket文件 p  连接文件  判断方式ls -l,file filename ###文件权限  三种身份 u g o 四种权限 r(read)4 w(write)2 x(execute)1 s(set user&#x2F;group id|sticky bit)  se">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SHELL">
+<meta property="og:url" content="http://example.com/wiki/2012-09-01-shell-wiki.html">
+<meta property="og:site_name" content="73404的博客">
+<meta property="og:description" content="##基础知识###linux文件分类  -  一般文件 d  目录 l  符号链接文件 b  磁盘设备文件 c  字符设备文件 s  Socket文件 p  连接文件  判断方式ls -l,file filename ###文件权限  三种身份 u g o 四种权限 r(read)4 w(write)2 x(execute)1 s(set user&#x2F;group id|sticky bit)  se">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2012-08-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-08T07:20:36.023Z">
+<meta property="article:author" content="73404">
+<meta property="article:tag" content="shell terminator">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/wiki/2012-09-01-shell-wiki.html">
+  
+    <link rel="alternate" href="/atom.xml" title="73404的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/h2ero" target="_blank">
+          <img class="img-circle img-rotate" src="https://avatars.githubusercontent.com/u/1262641?s=460&amp;u=71527bb5543344720602ee48b0a0e32209c12663&amp;v=4" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">h2ero</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Developer &amp; Geek</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Chengdu, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/h2ero" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/h2ero" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/h2eros" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎来到我的世界!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hack/">hack</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac/">mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/plugin/">plugin</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/self/">self</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wiki/">wiki</a><span class="category-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IE6/" rel="tag">IE6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Postfix-Mac-SMTP/" rel="tag">Postfix Mac SMTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Youtube-GoogleAnalytics/" rel="tag">Youtube GoogleAnalytics</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codeigniter/" rel="tag">codeigniter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-compression/" rel="tag">css compression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dedecms/" rel="tag">dedecms</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fuelphp-php-framework/" rel="tag">fuelphp php framework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netbens-jVi-plugin/" rel="tag">netbens jVi plugin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php-javascript/" rel="tag">php javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/search/" rel="tag">search</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-terminator/" rel="tag">shell terminator</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/" rel="tag">vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vsftpd-ubuntu-ftp/" rel="tag">vsftpd ubuntu ftp</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/IE6/" style="font-size: 13px;">IE6</a> <a href="/tags/Postfix-Mac-SMTP/" style="font-size: 13px;">Postfix Mac SMTP</a> <a href="/tags/Youtube-GoogleAnalytics/" style="font-size: 13px;">Youtube GoogleAnalytics</a> <a href="/tags/codeigniter/" style="font-size: 13px;">codeigniter</a> <a href="/tags/css/" style="font-size: 13px;">css</a> <a href="/tags/css-compression/" style="font-size: 13px;">css compression</a> <a href="/tags/dedecms/" style="font-size: 13px;">dedecms</a> <a href="/tags/fuelphp-php-framework/" style="font-size: 13px;">fuelphp php framework</a> <a href="/tags/git/" style="font-size: 13px;">git</a> <a href="/tags/mysql/" style="font-size: 13px;">mysql</a> <a href="/tags/netbens-jVi-plugin/" style="font-size: 13px;">netbens jVi plugin</a> <a href="/tags/php-javascript/" style="font-size: 13px;">php javascript</a> <a href="/tags/search/" style="font-size: 13px;">search</a> <a href="/tags/shell-terminator/" style="font-size: 13px;">shell terminator</a> <a href="/tags/vim/" style="font-size: 14px;">vim</a> <a href="/tags/vsftpd-ubuntu-ftp/" style="font-size: 13px;">vsftpd ubuntu ftp</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/wiki/tpl.html" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-03-08T07:08:51.674Z" itemprop="datePublished">2021-03-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2013/2013-01-24-2012.html" class="title">2012年</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2013-01-23T16:00:00.000Z" itemprop="datePublished">2013-01-24</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/wiki/">wiki</a>
+              </p>
+              <p class="item-title">
+                <a href="/2012/2012-12-18-YouTube_Google_Analytics.html" class="title">为Youtube播放事件添加Google Analytics统计</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2012-12-17T16:00:00.000Z" itemprop="datePublished">2012-12-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/wiki/">wiki</a>
+              </p>
+              <p class="item-title">
+                <a href="/2012/2012-12-09-spider.html" class="title">各搜索引擎header信息</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2012-12-08T16:00:00.000Z" itemprop="datePublished">2012-12-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/plugin/">plugin</a>
+              </p>
+              <p class="item-title">
+                <a href="/2012/2012-11-29-jvi-netbeans.html" class="title">netbeans</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2012-11-28T16:00:00.000Z" itemprop="datePublished">2012-11-29</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-wiki/2012-09-01-shell-wiki" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SHELL
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/wiki/2012-09-01-shell-wiki.html" class="article-date">
+	  <time datetime="2012-08-31T16:00:00.000Z" itemprop="datePublished">2012-09-01</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/wiki/">wiki</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/shell-terminator/" rel="tag">shell terminator</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/wiki/2012-09-01-shell-wiki.html#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>##基础知识<br>###linux文件分类</p>
+<ul>
+<li>-  一般文件</li>
+<li>d  目录</li>
+<li>l  符号链接文件</li>
+<li>b  磁盘设备文件</li>
+<li>c  字符设备文件</li>
+<li>s  Socket文件</li>
+<li>p  连接文件</li>
+</ul>
+<p>判断方式ls -l,file filename</p>
+<p>###文件权限</p>
+<ul>
+<li>三种身份 u g o</li>
+<li>四种权限 r(read)4 w(write)2 x(execute)1 s(set user/group id|sticky bit) <ul>
+<li>set user id 执行者变为文件的拥有者4755</li>
+<li>set group id 执行者变为用户组 2755</li>
+<li>sticky bit 只有文件拥有者才可以删除 1777</li>
+</ul>
+</li>
+</ul>
+<p>###Login Shell<br>/etc/passwd字段含义:帐号:x:UID:GID:用户信息:主目录:login shell<br>eg:lightdm:x:104:111:Light Display Manager:/var/lib/lightdm:/bin/false</p>
+<p>###配置文件</p>
+<ul>
+<li>登录执行脚本及顺序<ol>
+<li>/etc/profile</li>
+<li>.bash_profile</li>
+<li>.bash_login</li>
+<li>.profile</li>
+</ol>
+</li>
+<li>注销<ol>
+<li>.bash_logout</li>
+</ol>
+</li>
+<li>执行新Shell<ol>
+<li>交互模式(interactive) .bashrc</li>
+<li>非交互模式 /bin/bash 检查BASH_ENV /bin/sh不检查任何文件</li>
+</ol>
+</li>
+</ul>
+<p>###括号匹配</p>
+<ul>
+<li>echo l{i,o}ve</li>
+<li>cp file{,.bak} 备份文件</li>
+<li>mkdir {1,2}/{3,4}</li>
+</ul>
+<p>##Shell Script<br>###执行</p>
+<ul>
+<li><code>bash script.sh</code></li>
+<li><code>sh script.sh</code></li>
+<li><code>. script.sh</code></li>
+<li><code>source .bashrc</code> 直接使配置生效</li>
+<li>. source 都会让script.sh在父Shell中执行<code>echo $SHLVL</code> <code>ps axf</code>查看层级</li>
+</ul>
+<p>###调试</p>
+<ul>
+<li>检测语法 <code>bash -v script.sh</code></li>
+<li>不执行查看程序代码 <code>bash -n script.sh</code></li>
+<li>追踪脚本执行 <code>bash -x</code></li>
+</ul>
+<p>##命令<br>###内置命令</p>
+<ol>
+<li> <code>type bg</code>  bg is a shell builtin 判断内置命令</li>
+<li> <code>help -s</code> 显示命令语法 eg: <code>help -s alias</code>  alias: alias [-p] [name[=value] … ]</li>
+<li> <code>echo</code> -n 不换行 -e \n等解释</li>
+<li> <code>cd -</code> 返回先前目录</li>
+<li> <code>:</code> 传回真值</li>
+<li> <code>alias ll=&#39;ls -l&#39;</code> 重命名命令,取消<code>alias ll=&#39;ll&#39;</code> 或者 <code>unalias ll</code> <code>unalias -a</code>取消所有别名</li>
+<li> <code>umask</code> 显示文件权限屏蔽值 创建文件时候 文件权限值=系统默认权限-umask值</li>
+<li> <code>set</code> 设置Bash Shell属性 <code>set -o vi</code>开启vi模式，<code>set +o vi</code> 关闭vi模式,<code>set -o noclobber</code>/<code>set -C</code>转向输出保护存在文件</li>
+<li> <code>shopt</code> 设置Bash Shell行为模式</li>
+<li><code>time</code> 指令执行耗时统计 <code>time ls -la</code></li>
+<li>read 读取变量<ul>
+<li><code>read input</code> 如果没有input变量，默认为$REPLY</li>
+<li><code>read -p &quot;please input a word:&quot;</code></li>
+<li><code>read -a arr&lt;&lt;(echo 1,2,3,6,5,4)</code> 读取数组</li>
+<li><code>IFS=&quot;:&quot;;read f1 f2 f3 f4 &lt; datafile</code> 没有设置IFS则默认空格</li>
+<li><code>read -r raw</code> 不过滤\</li>
+</ul>
+</li>
+<li><code>exec</code> <code>eval</code> 执行命令</li>
+<li><code>man -k sort</code> 查找命令</li>
+</ol>
+<p>###命令行程序<br>执行时候需要到$PATH中寻找</p>
+<ol>
+<li> <code>which top</code> 在PATH找寻第一top命令所在位置 -a 找寻全部</li>
+<li> <code>locate my.conf</code> 在文件索引数据库中找寻my.conf文件</li>
+<li>date<ul>
+<li><code>date MMDDhhmmYY</code>调整时间 </li>
+<li><code>date + &quot;%d%h%m&quot;</code> 产生指定时间格式</li>
+<li><code>date -R</code> 产生与RFC-2822兼容的时间格式</li>
+</ul>
+</li>
+<li>ls<ul>
+<li><code>ls -A</code> 与 <code>ls -a</code>相同但不显示 .,..</li>
+<li><code>ls -F</code> 在结果中加入标识符(*可执行文件，@软链接文件，=socket文件，|管道文件,不加则表示普通文件)</li>
+</ul>
+</li>
+<li> <code>cat &gt;file</code>输入内容<kbd>CTRL</kbd>+<kbd>D</kbd>编辑保存文件内容到file</li>
+<li> <code>head -n 4</code>显示前4行内容，<code>head -c -20</code>不显示前面20bytes内容,<code>tail</code>类似</li>
+<li> <code>wc</code> -c/w/l计算文件字符/单词/行</li>
+<li> <code>finde . -name &quot;*.txt&quot; -ctime 2 --exec rm -f &#123;&#125; \; </code> 找寻2天内修改过的text文件删除</li>
+<li>tar<ul>
+<li><code>tar -zxvf backup.tgz -C www/public</code> 解压到指定目录</li>
+<li>tar tvf etc.tar 显示文件内容</li>
+<li>tar xzvf etc.tar 解压</li>
+<li>tar zcvf etc.tar 压缩</li>
+<li>tar rvf etc.tar re.add.file 添加</li>
+<li>tar uvf etc.tar add.file 更新</li>
+<li>tar Avf 1.tar 2.tar all.tar 合并</li>
+<li>tar vf etc.tar –delete etc/hosts 删除指定文件</li>
+</ul>
+</li>
+<li><code>basename /path/filename</code> 取filename</li>
+<li><code>dirname /path/filename</code> 取path </li>
+<li><code>sort -nr +2 -t: /etc/passwd</code> -t 分隔符 +2 跳过两列排序第三列 -nr 反序按数值排序(默认按ASCII)</li>
+<li><code>uniq file</code>删除文件中重复的行，-d找出重复行，-c 计算重复行出现的次数</li>
+<li>cut<ul>
+<li><code>cut -c2-3 file</code> 抽取第2-3个字符</li>
+<li><code>cut -c9- file</code> 抽取第9以后的</li>
+<li><code>cut -c1</code> 抽取第1个字符</li>
+<li><code>cut -c-3,22- file</code>抽取第1-3,和22以后的字符</li>
+<li><code>cut -d: -f3,1 /etc/passwd</code> 抽取paawd见3,1列</li>
+</ul>
+</li>
+<li>tr 转换或删除字符<ul>
+<li><code>tr &#39;[a-z]&#39; &#39;[A-Z]&#39; &lt; file</code> 转换大写</li>
+<li><code>tr -d k</code> 删除字符k</li>
+<li><code>tr -s &#39;[a-z]&#39; &#39;[a-z]&#39; &lt;file </code>压缩aaa为a</li>
+</ul>
+</li>
+<li>grep<ul>
+<li><code>grep -Rin &quot;word&quot; *</code>/<code>grep -Ril &quot;word&quot; *</code> 匹配所有word显示行号，不区分大小</li>
+<li><code>grep -v &quot;word&quot; *</code> 显示不包含word eg:<code>ps -ef | grep nautilus| grep -v &quot;grep nautilus&quot;</code></li>
+<li><code>grep -q &quot;word&quot; file</code> 返回1/0，并放到$?这个变量中</li>
+<li><code>grep -A 2 -e &#39;someone (love|like) you&#39; file</code> 找到h2..以后显示接下来的两行</li>
+</ul>
+</li>
+<li>tee<ul>
+<li><code>tee -a file</code>=<code>cat &gt;&gt;file</code>文件内容<kbd>Ctrl</kbd>+<kbd>D</kbd></li>
+<li><code>tee file</code>存在清空，不存在输入然后<kbd>Ctrl</kbd>+<kbd>D</kbd></li>
+</ul>
+</li>
+<li><code>script log</code>记录接下来命令的执行过程及结果,直到<code>exit</code>退出</li>
+<li>top <kby>z</kby>切换彩色显示</li>
+<li>关机命令<ul>
+<li>sync&amp;&amp;shutdown -h now/+30/20:00</li>
+<li>init 0<ul>
+<li>0 关机</li>
+<li>3 纯文本</li>
+<li>5 图形界面</li>
+<li>6 重新启动</li>
+</ul>
+</li>
+<li>poweroff -f</li>
+</ul>
+</li>
+<li>chown root:root file</li>
+<li>chmod <ul>
+<li>chmod u=rwx,g=rw file</li>
+<li>chmod a-x file</li>
+</ul>
+</li>
+</ol>
+<p>###文件操作<br>20. touch file 建立新文件等同于 &gt; file :&gt;file<br>21. mkdir -m 777 file<br>22. mknod -m 666 file c/b/p n m 建立字符/区块/管道文件 主要设备代码n 次要设备代码m<br>23. mkfifo file 建立管道文件 使用 echo “h2ero” &gt; file ,  cat &lt; file<br>24. ln -sf file lnfile 删除ln再次建立<br>25. stat file 查看文件的所有属性<br>    + stat -c “%a%n” 单独查看文件相关属性输出<br>    + stat -f “%a” 单独查看分区相关属性输出<br>26. chattr +attr =attr -attr AaiD 为文件设置文件取用时间不变/只能转向开启文件进行写入/不能修改文件/不需要dump 特殊属性<br>27. lsattr file 查看文件特殊属性<br>28. gzip<br>    * gzip -d 解压<br>    * gzip -c 压缩<br>        * zcat</p>
+<p>###历史命令</p>
+<ul>
+<li>fc<ul>
+<li>fc ssh 查找最近一个包含ssh</li>
+<li>fc -s ssh 查找最近一个包含ssh，并执行</li>
+</ul>
+</li>
+<li>历史命令扩展<ul>
+<li>!! 执行上一条 = !-1</li>
+<li>!historyline 执行编号为historyline的指令</li>
+<li>!-n 调用倒数第n条指令</li>
+<li>!ssh 调用最近含有ssh的命令</li>
+<li>!?home? 调用最近含有home的命令</li>
+<li>^var1^var2^ 将前一个历史命令中的var1替换为var2再执行</li>
+<li>!# 前面输入的所有字符。ls !# 相当于执行ls ls</li>
+<li>!!:$ 前一条命令的最后一个参数=$_</li>
+<li>!ls:1 找出最近一条以ls开头的命令的第一个参数=!ls:^</li>
+<li>!ls:* 找出最近一天以ls开头的所有参数</li>
+<li>!!:3-5 找出前一条3-5的参数</li>
+<li>!!:s/var/var1/替换前1条指令中的var 为 var1</li>
+<li>!!:h 删除后面的文件名</li>
+<li>!!:t 删除前面的目录</li>
+<li>!!:p 显示前一条命令但是不执行</li>
+</ul>
+</li>
+</ul>
+<p>###执行多条命令</p>
+<ol>
+<li>cmd1&amp;&amp;cmd2 cmd1执行成功cmd2才执行</li>
+<li>cmd1||cmd2 cmd1执行失败cmd2才执行</li>
+<li>(cmd1,cmd2,cmd3)子shell中执行</li>
+<li>{ cmd1,cmd2,cmd3 }在当前shell中执行</li>
+</ol>
+<p>##变量<br>###数组</p>
+<ul>
+<li>语法${A[index]}}，声明arr=(1 2 3 4)</li>
+<li>所有元素<code>$&#123;A[@]&#125;/$&#123;A[*]&#125;</code></li>
+<li>长度<code>$&#123;#A[@]&#125;/$&#123;#A[*]&#125;</code></li>
+<li>赋值 <code>arr[$&#123;#arr[*]&#125;]=2</code></li>
+</ul>
+<p>###取消变量</p>
+<ul>
+<li>unset -v variable unset -f function</li>
+</ul>
+<p>###环境变量</p>
+<ul>
+<li>export -p 显示全部环境变量</li>
+<li><code>declare -x LANG=&quot;en_US.UTF-8&quot;</code> 或者 <code>export LANG=&quot;en_US.UTF-8&quot;</code><br>###Bash 内置变量</li>
+<li>$BASH bash完整路径</li>
+<li>$BASH_VERSION bash版本</li>
+<li>$CDPATH cd切换搜寻目录</li>
+<li>$HISCONTROL 控制指令是否存入历史，三个值ignorespace,ignoredups,ignoreboth，</li>
+<li>$HISTFILESIZE 行数</li>
+<li>$HISTIGNORE <code>export HISTIGNORE=ls:ps:cd:t*:\&amp; </code></li>
+<li>HISTTIMEFORMAT=’%F%T’ 时间格式</li>
+<li><code>locale</code> 语系</li>
+<li>$PATH 命令搜索目录</li>
+<li>RANDOM</li>
+<li>$* 所有参数一个字符串 “arg1 arg2 arg3”</li>
+<li>$n 第n个参数</li>
+<li>$@ 所有参数分开字符串 “arg1” “arg2” “arg3”</li>
+<li>$# 位置参数个数</li>
+<li>$? 上一条命令传回的值1/0 成功或者失败</li>
+<li>$$ 当前bash shell 进程标号 eg: kill $$</li>
+<li>$_ <ul>
+<li>script执行时候bash路径/bin/bash</li>
+<li>上一条命令最后一个参数值</li>
+<li>检查邮件时候,邮件文件名</li>
+</ul>
+</li>
+</ul>
+<p>###变量属性</p>
+<ul>
+<li>readonly<ul>
+<li>readonly -p 显示所有只读属性</li>
+<li>readonly -a/f 声明只读变量或者函数</li>
+</ul>
+</li>
+<li>declare <ul>
+<li>declare -p | grep x  显示x变量属性</li>
+<li>declare -p x 显示x变量属性</li>
+<li>declare -a/f/i/r/x 声明数组/函数/整数/只读/环境变量</li>
+<li>declare -F 显示所有的函数名称及属性</li>
+</ul>
+</li>
+</ul>
+<p>###HEREDOC</p>
+<ol>
+<li>重定向到msg文件<pre><code> cat  &lt;&lt;HEREDOC &gt;msg 
+ doc
+ HEREDOC
+</code></pre>
+</li>
+<li>直接输出<pre><code> cat &lt;&lt;HEREDOC 
+ $USER can be used
+ HEREDOC
+</code></pre>
+</li>
+<li>直接输出不支持变量替换<pre><code> cat &lt;&lt;&quot;HEREDOC&quot;
+ $USER can&#39;t be used
+ HEREDOC
+</code></pre>
+</li>
+</ol>
+<p>##高级变量<br>###分类</p>
+<ol>
+<li><p>${var} 变量扩展</p>
+<ul>
+<li><p>测试存在</p>
+<table>
+<thead>
+<tr>
+<th>条件式</th>
+<th>目的</th>
+<th>判断条件</th>
+<th>符合的处理方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>${待测变量-默认值}</td>
+<td>给不存在变量赋值</td>
+<td>不存在</td>
+<td>赋值</td>
+</tr>
+<tr>
+<td>${待测变量:-默认值}</td>
+<td>给不存在或空值变量赋值</td>
+<td>不存在或空值</td>
+<td>赋值</td>
+</tr>
+<tr>
+<td>${待测变量:=默认值}</td>
+<td>给空值赋值</td>
+<td>不存在或空值</td>
+<td>赋值</td>
+</tr>
+<tr>
+<td>${待测变量:?默认值}</td>
+<td>检查变量是否完备</td>
+<td>不存在或空值</td>
+<td>显示变量名称:提示信息，停止执行后面的</td>
+</tr>
+<tr>
+<td>${待测变量:i默认值}</td>
+<td>判断是否为真</td>
+<td>测试存在且非空</td>
+<td>传回默认值</td>
+</tr>
+</tbody></table>
+<p> 记忆</p>
+<table>
+<thead>
+<tr>
+<th>:</th>
+<th>空</th>
+<th>测试值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-</td>
+<td>负向</td>
+<td>测不存在</td>
+</tr>
+<tr>
+<td>=</td>
+<td>设值</td>
+<td>给空值变量设置一个默认值</td>
+</tr>
+<tr>
+<td>?</td>
+<td>有问题</td>
+<td>检查条件是否完备后再执行</td>
+</tr>
+<tr>
+<td>-</td>
+<td>正向</td>
+<td>测试存在</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>+ 取字符串
+
+   | $&#123;var:start&#125;     | 指定位置截取到最后       | 
+   |------------------|--------------------------|
+   | $&#123;var:start:len&#125; | 指定位置截取len个        | 
+   | $&#123;#var&#125;          | 变量字符长度             | 
+   | $&#123;#var[@]&#125;       | 数组元素个数             | 
+   | $&#123;#var[\*]&#125;      | 数组元素个数             | 
+   | $&#123;var:start:len&#125; | 指定位置截取len个        | 
+   | $&#123;@:start&#125;       | 指定位置截取到最后的参数 | 
+   | $&#123;@:start:count&#125; | 指定位置截取到最后的参数 | 
+
++ 对比
+
+   | $&#123;var#tpl&#125;  | 由前面对比删除最短 | 
+   |-------------|--------------------|
+   | $&#123;var##tpl&#125; | 由前面对比删除最长 | 
+   | $&#123;var%tpl&#125;  | 由后面对比删除最短 | 
+   | $&#123;var%%tpl&#125; | 由后面对比删除最长 | 
+
++ 修改 若不加/str则为删除，替换为空
+
+   | 1 | $&#123;var/tpl/str&#125;  | 替换地一个符tpl的  |
+   |---|-----------------|--------------------|
+   | 2 | $&#123;var//tpl/str&#125; | 替换地全部符合tpl的|
+   | 3 | $&#123;var#tpl/str&#125;  | 同1，由开始替换    |
+   | 4 | $&#123;var#tpl/str&#125;  | 同2，由开始替换    |
+
++ 取变量
+    1. $&#123;!var@&#125; 或者 `$&#123;!var*&#125;` 去所有一var开头的变量名称
+    2. $&#123;!arr[@]&#125; 或者 `$&#123;!arr[*]&#125;` 取所有数组索引
+</code></pre>
+<ol start="2">
+<li>$(cmd) 或者 <code>cmd</code> 命令扩展</li>
+<li>算术扩展<ol>
+<li>$((exp)) </li>
+<li><code>expr exp</code></li>
+<li>$[exp]</li>
+</ol>
+</li>
+</ol>
+<p>##流程控制</p>
+<ol>
+<li>if cmd1&amp;&amp;cmd2 也可当做if用<ol>
+<li>if-then<pre><code> if condition;then
+     cmd
+ fi
+</code></pre>
+</li>
+<li>if-then-else<pre><code> if condition;then
+     cmd
+ else
+     cmd
+ fi
+</code></pre>
+</li>
+<li>if-then-elif-then-else<pre><code> if condition;then
+     cmd
+ elif condition;then
+ else
+     cmd
+ fi
+</code></pre>
+</li>
+</ol>
+</li>
+<li>条件<ol>
+<li>执行命令返回的结果，eg: grep -q ^h2ero$ filename</li>
+<li>[[ ]] eg: [[ str &gt; xyz ]]</li>
+<li>test eg: test “str”&gt;“xyz”</li>
+<li><input disabled="" type="checkbox"> eg:[ “str”&gt;“xyz” ] , [ -f dir/file ]</li>
+</ol>
+</li>
+<li>case 如果shopt -s extglob 则开启高级样式<pre><code> case testitem in
+     j|k|l) cmd;;
+ esac
+</code></pre>
+</li>
+<li>for<pre><code> for i in arr
+ do
+     cmd
+ done
+ for ((i=1;i&lt;10;i++))
+ do
+     cmd
+ done
+</code></pre>
+</li>
+<li>while or until<pre><code> while condition
+ do 
+     cmd
+ done
+ 死循环
+ while ((1))|true|:
+ for(;1;)
+ do
+     cmd
+ done
+</code></pre>
+</li>
+<li>select <pre><code> select s in arr
+ do 
+     $REPLY $f
+ done
+ eg:
+ select i in $(ls ../)
+ do
+     if [ $REPLY==&#39;q&#39; ];then
+         kill -INT $$
+     fi
+ done
+</code></pre>
+##转向<br>###默认文件代码(file descriptor)</li>
+</ol>
+<ul>
+<li>stdin 0 stdout 1 stderr 2</li>
+</ul>
+<p>###文件代码操作</p>
+<ul>
+<li>fileDescriptor&lt;&gt;file 打开文件</li>
+<li>fileDescriptor&lt;&amp;- 关闭文件</li>
+<li>fileDescriptor&gt;&amp;- 关闭转向输出文件</li>
+<li>n&lt;&amp;m 复制转向输入的文件代码m存为n,使n连接到m</li>
+<li>n&gt;&amp;m 复制转向输出的文件代码m存为n,使n连接到m</li>
+<li><code>&gt;|</code> 忽略noclobber直接覆盖</li>
+<li>eg:exec 6 &lt; file ;cat &lt;&amp;6</li>
+</ul>
+<p>##系统信号</p>
+<ul>
+<li><code>kill -l/trap -l</code>显示使用系统信号</li>
+<li>kill <ul>
+<li><code>kill -信号id/名 PID</code> 或者 <code>kill -s 信号 PID</code></li>
+<li><code>kill -HUP PID</code> 重启进程，若是daemon就重新读取系统配置。</li>
+<li><kbd>CTRL</kbd>+<kbd>C</kbd> 发出INT信号。</li>
+</ul>
+</li>
+<li>trap<ul>
+<li><code>trap &quot;echo &#39;kill this ?&#39;&quot; INT</code>  注册INT信号</li>
+<li><code>trap - INT</code>  取消注册INT信号</li>
+<li><code>trap &#39;&#39; INT</code> 忽略INT信号</li>
+<li><code>trap -p</code> 显示全部注册信号</li>
+</ul>
+</li>
+</ul>
+<p>##进程</p>
+<ul>
+<li>进程字段|USER|PID|%CUP|%MEN|VSZ|RSS|TTY|STAT|START|TIME|COMMAND|</li>
+<li>进程NI(nice) 值，NI值越大，优先度越小。<ul>
+<li><code>nice -n num runapp</code></li>
+<li><code>renice num -p PID -g GROUP -u USER</code> 为指定进程/群组/用户调整NI值</li>
+</ul>
+</li>
+</ul>
+<p>###工作控制</p>
+<ul>
+<li><kbd>Ctrl</kbd>+<kbd>Z</kbd>暂停执行程序，bg后台执行。</li>
+<li>jobs -l 查看执行程序,%% 或者 %+调用当前程序，%- 调用前一个。%n调用编号为n的程序等同fg %n,后台执行%n&amp;或者bg %n</li>
+</ul>
+<p>##用户管理</p>
+<ul>
+<li>建立帐号<pre><code>  adduser h2ero
+  useradd -D 显示创建用户时候的默认配置，/etc/default/useradd
+  deluser/userdle username ~目录保存 
+</code></pre>
+</li>
+</ul>
+<p>##其他</p>
+<ol>
+<li>添加字符集<pre><code> cat /usr/share/i18n/SUPPORTED
+ vim /var/lib/locales/supported.d/local
+ dpkg-reconfigure --force locales
+</code></pre>
+</li>
+<li>目录转换<pre><code> export LANG=en_US
+ xdg-user-dirs-gtk-update
+ export LANG=zh_CN
+</code></pre>
+</li>
+</ol>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/wiki/2012-09-01-shell-wiki.html" title="SHELL" target="_blank" rel="external">http://example.com/wiki/2012-09-01-shell-wiki.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/h2ero" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://avatars.githubusercontent.com/u/1262641?s=460&amp;u=71527bb5543344720602ee48b0a0e32209c12663&amp;v=4" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/h2ero" target="_blank"><span class="text-dark">h2ero</span><small class="ml-1x">Developer &amp; Geek</small></a></h3>
+        <div>后端程序员，会一点Java,Golang,PHP, Vim党, Geek, 会一点运维，囤了很多域名，做过很多网站。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/wiki/2012-09-04-vim-wiki.html" title="VIM"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2012/2012-08-27-ubuntu-vsftp-add-user.html" title="linux vsftpd添加用户"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/h2ero" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/h2ero" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/h2eros" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>

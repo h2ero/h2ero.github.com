@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>73404的博客</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2021-03-08T07:08:51.674Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>73404</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/wiki/tpl.html"/>
+    <id>http://example.com/wiki/tpl.html</id>
+    <published>2021-03-08T07:08:51.674Z</published>
+    <updated>2021-03-08T07:08:51.674Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="time"><a href="#time" class="headerlink" title="time"></a>time</h2><p>layout: post<br>title:<br>tags:<br>categories: </p><hr><p> 保留一模板，以后写东西就在上面了，哈哈～今天又没有白活!<br><a href="http://location/" title="name">Google</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;time&quot;&gt;&lt;a href=&quot;#time&quot; class=&quot;headerlink&quot; title=&quot;time&quot;&gt;&lt;/a&gt;time&lt;/h2&gt;&lt;p&gt;layout: post&lt;br&gt;title:&lt;br&gt;tags:&lt;br&gt;categories: &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt; 保</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2012年</title>
+    <link href="http://example.com/2013/2013-01-24-2012.html"/>
+    <id>http://example.com/2013/2013-01-24-2012.html</id>
+    <published>2013-01-23T16:00:00.000Z</published>
+    <updated>2021-03-08T07:28:19.147Z</updated>
+    
+    <content type="html"><![CDATA[<p>##2012</p><h3 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h3><p>2012过去快一个月了，说好的总结现在才开始写。2012在学校里面呆了一学期，基本上都是乖乖的去上课，因为不想挂科。上课的时候也差不多是在看借的和买的书，还没有考试就闲不下来出去找工作去了。然后请假考试，因为学校都是要停一个月的课。剩下的7个月都在外边，第一份工作每天回学校第二份在外边租了房子，不过大多数都是一个人呆着。这一年学了很多东西，各种折腾，最近一次折腾下Openwrt折腾了一天没有折腾好，感觉没有以前那种激情了。可能时间不够了。我想这句话比较适合现在的自己吧，<code>too young too simple sometime naive</code>。</p><p>###做好的</p><ol><li>学分修完了。</li><li>搬出学校一个人生活了，当然基本上都是吃自己弄的了。</li><li>linux,php,vim,git常用的开发工具软件语言都能用上手了，不枉那些年为戒游戏和QQ装的ubuntu单系统，年尾看正则现在vim里面正则用着那叫一个爽，还看了看vimL，然后看的那本shell的书也给自己带来了很多的东西。</li><li>看了一些书，在学校每周也有去图书馆借新书，学的东西有点点泛。</li><li>认识了很多朋友给自己带来了不少的激情，也让自己很多想法改变了很多。看着同事们都活的蛮开心觉得自己也会有个不错的未来。</li><li>PHP单独说下，在MatchMove也算见识到PHP比较NB的用法了，主要是Kohana里面的一些东西，还有譬如namespace等。MatchMove什么都是用的自己熟悉的总之还是蛮享受这四个月的工作时间，不过因为自己太浮躁静不下心来最终决定离开。挺对不住fancy和KJ的。</li></ol><p>###挚爱</p><p>生命这是那样，自己要珍惜自己才可以让其他人不担心自己。身边的人都生病，外婆病了一年，年纪太大了。老爸老妈也病了，不过都好了。有的时候就觉的时间太短了，要做的事情太多。晃眼一看身边的人都老了，朋友们都各忙各的，没有谁还有那么多的时间了。</p><p>##2013</p><p>###计划</p><ol><li>锻炼好身体</li><li>消灭完买的书</li><li>多混社区</li><li>待心安静下来了再找份安定的工作</li><li>找个能手牵手一起走女朋友</li><li>把FuelPHP的代码给看了</li><li>弄编译原理和算法</li><li>多参加社会活动</li><li>语言继续python打算学学lua</li><li>认真写部落格，坚决不再删微博。</li></ol><p><i class="os_date"> System Version: OS X 10.8 (12A269) Kernel Version: Darwin 12.0.0 2013-01-24 14:49:46 </i></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;##2012&lt;/p&gt;
+&lt;h3 id=&quot;碎碎念&quot;&gt;&lt;a href=&quot;#碎碎念&quot; class=&quot;headerlink&quot; title=&quot;碎碎念&quot;&gt;&lt;/a&gt;碎碎念&lt;/h3&gt;&lt;p&gt;2012过去快一个月了，说好的总结现在才开始写。2012在学校里面呆了一学期，基本上都是乖乖的去上课，因</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>为Youtube播放事件添加Google Analytics统计</title>
+    <link href="http://example.com/2012/2012-12-18-YouTube_Google_Analytics.html"/>
+    <id>http://example.com/2012/2012-12-18-YouTube_Google_Analytics.html</id>
+    <published>2012-12-17T16:00:00.000Z</published>
+    <updated>2021-03-08T07:25:14.997Z</updated>
+    
+    <content type="html"><![CDATA[<p>Google Analytics太过于强大，才发现国内的什么CNZZ,51la,百度统计等都弱爆。单单是 <a href="https://developers.google.com/analytics/devguides/reporting/core/dimsmets">Dimensions &amp; Metrics</a>就可以满足对网站各种不同的数据分析。以前都不明白为什么很多外国的官方网站都放Youtube的视频，原来Youtube提供的API也非常强大。可惜这些好产品在国内都不能用。不过做个英文站这些都会用到。<br>要统计Youtube的播放及其他事件需要参照<a href="https://developers.google.com/youtube/player_parameters#IFrame_Player_API">IFrame embeds using the IFrame Player API</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;先在页面添加div#player</span><br><span class="line">var tag &#x3D; document.createElement(&#39;script&#39;);</span><br><span class="line">tag.src &#x3D; &quot;http:&#x2F;&#x2F;www.youtube.com&#x2F;player_api&quot;;</span><br><span class="line">var firstScriptTag &#x3D; document.getElementsByTagName(&#39;script&#39;)[0];</span><br><span class="line">firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);</span><br><span class="line"></span><br><span class="line">var player;</span><br><span class="line">function onYouTubePlayerAPIReady() &#123;</span><br><span class="line">    player &#x3D; new YT.Player(&#39;player&#39;, &#123;</span><br><span class="line">        height: &#39;390&#39;,</span><br><span class="line">        width: &#39;640&#39;,</span><br><span class="line">        videoId: &#39;zLQFkztsozw&#39;,</span><br><span class="line">        events: &#123;</span><br><span class="line">            &#39;onReady&#39;: onPlayerReady,</span><br><span class="line">            &#39;onStateChange&#39;: onPlayerStateChange</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">function onPlayerStateChange(event) &#123;</span><br><span class="line">    if(event.data &#x3D;&#x3D; YT.PlayerState.PLAYING) &#123;</span><br><span class="line">        _gaq.push([&#39;_trackEvent&#39;, &#39;Videos&#39;, &#39;Play&#39;, player.getVideoUrl()]);</span><br><span class="line">    &#125;</span><br><span class="line">    if(event.data &#x3D;&#x3D; YT.PlayerState.ENDED) &#123;</span><br><span class="line">        _gaq.push([&#39;_trackEvent&#39;, &#39;Videos&#39;, &#39;Watch to End&#39;, player.getVideoUrl()]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">tag.onload &#x3D; onYouTubePlayerAPIReady();</span><br></pre></td></tr></table></figure><p>然后就可以在Google Analytics里面看到。</p><table><thead><tr><th>Event Category</th><th>Event Action</th><th>total event</th><th>unique event</th></tr></thead><tbody><tr><td>Videos</td><td>Play</td><td>90</td><td>85</td></tr><tr><td>Videos</td><td>Watched to End</td><td>30</td><td>30</td></tr></tbody></table>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Google Analytics太过于强大，才发现国内的什么CNZZ,51la,百度统计等都弱爆。单单是 &lt;a href=&quot;https://developers.google.com/analytics/devguides/reporting/core/dimsmets&quot;&gt;</summary>
+      
+    
+    
+    
+    <category term="wiki" scheme="http://example.com/categories/wiki/"/>
+    
+    
+    <category term="Youtube GoogleAnalytics" scheme="http://example.com/tags/Youtube-GoogleAnalytics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>各搜索引擎header信息</title>
+    <link href="http://example.com/2012/2012-12-09-spider.html"/>
+    <id>http://example.com/2012/2012-12-09-spider.html</id>
+    <published>2012-12-08T16:00:00.000Z</published>
+    <updated>2021-03-08T07:20:35.749Z</updated>
+    
+    <content type="html"><![CDATA[<p>整理了一下日志里面的爬虫信息。</p><ul><li>baidu image: <code>&quot;Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; baidu Transcoder;)&quot;</code></li><li>soso: <code>&quot;Mozilla/5.0(compatible; Sosospider/2.0; +http://help.soso.com/webspider.htm)&quot;</code></li><li>baidu: <code>&quot;Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)&quot; </code></li><li>esou: <code>&quot;Mozilla/5.0 (compatible; EasouSpider; +http://www.easou.com/spider.html)&quot;</code></li><li>jike: <code>&quot;Mozilla/5.0 (compatible; JikeSpider; +http://shoulu.jike.com/spider.html)&quot;</code></li><li>procog: <code>&quot;Mozilla/5.0 (compatible; ProCogBot/1.0; +http://www.procog.com/spider.html)&quot;</code></li><li>openindex: <code>&quot;Mozilla/5.0 (compatible; OpenindexSpider; +http://www.openindex.io/en/webmasters/spider.html)&quot;</code></li><li>google: <code>&quot;Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)&quot;</code></li><li>360: <code>&quot;Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN; rv:1.8.0.11) Gecko/20070312 Firefox/1.5.0.11; 360Spider&quot;</code></li><li>bing: <code> &quot;Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)&quot;</code></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;整理了一下日志里面的爬虫信息。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;baidu image: &lt;code&gt;&amp;quot;Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; baidu Transcoder;)&amp;quot;&lt;/code&gt;&lt;</summary>
+      
+    
+    
+    
+    <category term="wiki" scheme="http://example.com/categories/wiki/"/>
+    
+    
+    <category term="search" scheme="http://example.com/tags/search/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>netbeans</title>
+    <link href="http://example.com/2012/2012-11-29-jvi-netbeans.html"/>
+    <id>http://example.com/2012/2012-11-29-jvi-netbeans.html</id>
+    <published>2012-11-28T16:00:00.000Z</published>
+    <updated>2021-03-08T07:20:35.716Z</updated>
+    
+    <content type="html"><![CDATA[<p>###jvi</p><ol><li>安装jvi后不能通过右键菜单行号不能显示，:set nu解决</li><li>:w 需要回车两次，Menu&gt;Tools&gt;Options&gt;jVi&gt;Platform notice 去掉”:” command completion auto popup. 这项，这个时候没有自动补全需要按<kbd>Ctrl</kbd>+<kbd>space</kbd>,或者<kbd>Ctrl</kbd>+<kbd>D</kbd></li><li>zc zo 折叠打开函数。zM zR 全部<br>###QuickOpener<br>###show-path-in-title</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;###jvi&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;安装jvi后不能通过右键菜单行号不能显示，:set nu解决&lt;/li&gt;
+&lt;li&gt;:w 需要回车两次，Menu&amp;gt;Tools&amp;gt;Options&amp;gt;jVi&amp;gt;Platform notice 去掉”:” command co</summary>
+      
+    
+    
+    
+    <category term="plugin" scheme="http://example.com/categories/plugin/"/>
+    
+    
+    <category term="netbens jVi plugin" scheme="http://example.com/tags/netbens-jVi-plugin/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac下配置Postfix使用SMTP</title>
+    <link href="http://example.com/2012/2012-11-25-Mac-SMTP-Postfix-enable.html"/>
+    <id>http://example.com/2012/2012-11-25-Mac-SMTP-Postfix-enable.html</id>
+    <published>2012-11-24T16:00:00.000Z</published>
+    <updated>2021-03-08T07:20:35.689Z</updated>
+    
+    <content type="html"><![CDATA[<p>上一次弄过，然后这一次再弄又给忘了，苦逼周末还在弄公司的东西。最近书也没有怎么看，自己的代码也没有怎么敲，现在在的这家公司感觉东西也学的差不多了。<br>公司用的发送Email用<a href="http://swiftmailer.org/">Swift mailer</a>，Mac下SMTP需要用到<a href="http://www.postfix.org/">Postfix</a>这个软件，Mac自带。<br>###配置<br><code>sudo vi /System/Library/LaunchDaemons/org.postfix.master.plist</code><br>在<code>&lt;/dict&gt;</code>加入<code>&lt;key&gt;RunAtLoad&lt;/key&gt; &lt;true/&gt; &lt;key&gt;KeepAlive&lt;/key&gt; &lt;true/&gt;</code><br>###启用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ sudo launchctl</span><br><span class="line">launchd% start org.postfix.master</span><br><span class="line">#测试运行没有</span><br><span class="line">telnet localhost 25</span><br><span class="line">#停止</span><br><span class="line">launchd% stop org.postfix.master</span><br></pre></td></tr></table></figure><p>参考：</p><ol><li><a href="http://marvelley.com/2011/02/02/sending-emails-with-php-using-swiftmailer-and-smtp-on-mac-osx/">Sending emails with PHP using Swiftmailer and SMTP on Mac OSX</a></li><li><a href="http://www.freshblurbs.com/blog/2009/05/10/how-enable-local-smtp-postfix-os-x-leopard.html">How to Enable Local SMTP (Postfix) on OS-X Leopard</a></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;上一次弄过，然后这一次再弄又给忘了，苦逼周末还在弄公司的东西。最近书也没有怎么看，自己的代码也没有怎么敲，现在在的这家公司感觉东西也学的差不多了。&lt;br&gt;公司用的发送Email用&lt;a href=&quot;http://swiftmailer.org/&quot;&gt;Swift mailer&lt;/</summary>
+      
+    
+    
+    
+    <category term="mac" scheme="http://example.com/categories/mac/"/>
+    
+    
+    <category term="Postfix Mac SMTP" scheme="http://example.com/tags/Postfix-Mac-SMTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>fuelphp 备忘</title>
+    <link href="http://example.com/2012/2012-11-25-fuelphp-multisit.html"/>
+    <id>http://example.com/2012/2012-11-25-fuelphp-multisit.html</id>
+    <published>2012-11-24T16:00:00.000Z</published>
+    <updated>2021-03-08T07:20:35.649Z</updated>
+    
+    <content type="html"><![CDATA[<p>来不起了，不过还是记一下。不然就忘了。FuelPHP主要和Kohana,CodeIgniter相关。很多东西都类似。支持HMVC,<a href="http://kohanaframework.org/3.3/guide/kohana/files" title="Cascading Filesystem">Cascading Filesystem</a>,namespace。这些也许就是选他的原因了，如果什么时候kohana支持namespace了一定还是用kohana。不过暂时还不支持，fuelphp看起来还不错，不过很多都不完善，比如Cascading File System就是个悲剧。也有可能是自己没有搞懂，最近都在折腾Kohana和Fuelphp，Kohana中如果有用到module是可以直接通过路由访问的。而且不用设置路由，基于CFS直接冲module里面找。省很多东西，配置文件来说Kohana是merge，而Fuelphp是rewrite，所以有要多弄很多东西。不过各有各的好处。</p><ol><li>module直接访问，如果一个Module继承自另外一个Module，相同的Controller/action下，kohana不用再设置,不过带来的坏处就是不需要是的时候需要通过设置url router去屏蔽，其实这样是不可控制的。而Fuelphp需要设置Url router去控制，其实对于一站点或者一module来说就那么点点Controller这样可控制性更强。</li><li>Controller_Template，kohana和fuelphp都可以设置$template，不过对于继承的kohana可以通过CFS找到，Fuelphp只能设置的时候添加’NS::template/default’来找到，总是觉得<a href="http://kohanaframework.org/3.3/guide/kohana/files" title="Cascading Filesystem">Cascading Filesystem</a>在Fuelphp里面没有体现出来。悲剧，不过实现起来还是比较简单，修改下源码即可实现。</li><li>Config合并和覆盖看个人喜欢，比较不喜欢kohana的合并。</li><li>Fuelphp的namespace。</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;来不起了，不过还是记一下。不然就忘了。FuelPHP主要和Kohana,CodeIgniter相关。很多东西都类似。支持HMVC,&lt;a href=&quot;http://kohanaframework.org/3.3/guide/kohana/files&quot; title=&quot;Casca</summary>
+      
+    
+    
+    
+    <category term="php" scheme="http://example.com/categories/php/"/>
+    
+    
+    <category term="fuelphp php framework" scheme="http://example.com/tags/fuelphp-php-framework/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL</title>
+    <link href="http://example.com/wiki/2012-11-18-mysql-wiki.html"/>
+    <id>http://example.com/wiki/2012-11-18-mysql-wiki.html</id>
+    <published>2012-11-17T16:00:00.000Z</published>
+    <updated>2021-03-08T07:20:36.139Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p><code>set @now=(DATE_FORMAT(NOW(),&#39;%Y-%m-%d %H:%i:%s&#39;));</code></p></li><li><p><code>INSERT INTO test VALUES (&#39;&#39;,uid, @now) ON DUPLICATE KEY  update date_added=@now;</code> 当出现uid相同的列时候执行后面的语句。</p></li><li><p><code>set @i=0;select (@i:=@i+1)   as   i  from games limit 20；</code>选择1-20</p></li><li><p>join</p><ol><li><p>笛卡尔积(交叉连接),join,cross join</p><pre><code>     SELECT * FROM table1 CROSS JOIN table2  SELECT * FROM table1 JOIN table2  SELECT * FROM table1,table2</code></pre></li><li><p>内连接INNER JOIN</p></li><li><p>外连接LEFT [OUTER] JOIN,RIGHT [OUTER] JOIN</p></li><li><p><code>USING select * from t1 join t1 on t1.id=t2.id </code>可以改为<code> select * from t1 join USING(id)</code></p></li></ol></li><li><p><code>having select *,sum(cash) s_cash from transaction group by uid having s_cash &gt; 20000</code></p></li><li><p><code>create table t1 select * from t2,insert into t1 select * t2</code>;</p></li><li><p><code>SELECT * from name where field REGEXP &#39;.*h2ero|h2ero.*&#39;</code>;</p></li><li><p><code>select last_insert_id()</code></p></li><li><p>快速导入数据</p><pre><code> mysql&gt;show variables like &#39;max_allowed_packet&#39;; mysql&gt;show variables like &#39;net_buffer_length&#39;; $&gt;mysqldump -uroot -p  matchmove_reports -e --max_allowed_packet=1048576 --net_buffer_length=2048 &gt; ~/Downloads/matchmove_reports.sql</code></pre></li><li><p>两张表不同列导出同一日期数据</p><pre><code># User,Downloadselect date,sum(Download) Download,sum(SignUp) SignUp from ( select  *  from (SELECT DATE(date_added) date, COUNT(id) &#39;SignUp&#39;,0 &#39;Download&#39; FROM users GROUP BY date) s union (SELECT DATE(date_added) date, 0 &#39;SignUp&#39;,COUNT(id) &#39;Download&#39; FROM `tracks` GROUP BY date) ) r group by date;</code></pre></li><li><p> 新建用户</p><pre><code>//创建用户mysql&gt; insert into mysql.user(Host,User,Password) values(&#39;localhost&#39;,&#39;phplamp&#39;,password(&#39;1234&#39;));//刷新系统权限表mysql&gt;flush privileges;mysql&gt;exit;</code></pre></li><li><p>授权</p><pre><code>grant select, insert, update, delete on weimei2.* to h2ero@localhost;</code></pre></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;set @now=(DATE_FORMAT(NOW(),&amp;#39;%Y-%m-%d %H:%i:%s&amp;#39;));&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;INSERT INTO test VALUES (&amp;#39;&amp;#3</summary>
+      
+    
+    
+    
+    <category term="mysql" scheme="http://example.com/categories/mysql/"/>
+    
+    
+    <category term="mysql" scheme="http://example.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git</title>
+    <link href="http://example.com/wiki/2012-09-22-Git-wiki.html"/>
+    <id>http://example.com/wiki/2012-09-22-Git-wiki.html</id>
+    <published>2012-09-21T16:00:00.000Z</published>
+    <updated>2021-03-08T07:20:35.334Z</updated>
+    
+    <content type="html"><![CDATA[<p>###Git ignore</p><ol><li>.gitignore生效<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached .</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;.gitignore work&quot;</span><br></pre></td></tr></table></figure></li></ol><p>###Git log<br>git log –oneline 和git log –pretty=oneline 前者commit id 为部分</p><p>###Git 统计代码贡献</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git log --shortstat --author &quot;Aviv Ben-Yosef&quot; --since &quot;2 weeks ago&quot; --until &quot;1 week ago&quot; </span><br><span class="line">    | grep &quot;files changed&quot; </span><br><span class="line">    | awk &#39;&#123;files+&#x3D;$1; inserted+&#x3D;$4; deleted+&#x3D;$6&#125; END </span><br><span class="line">           &#123;print &quot;files changed&quot;, files, &quot;lines inserted:&quot;, inserted, &quot;lines deleted:&quot;, deleted&#125;&#39;</span><br></pre></td></tr></table></figure><p>###Git tip</p><ol><li>reset –hard HEAD^后想恢复之前的提交，可以git reflog 找到提交的id然后用git cherry-pick对该ID的提交进行回访。</li><li>更改提交者信息<code>git filter-branch -f --env-filter &quot;GIT_AUTHOR_NAME=&#39;Newname&#39;; GIT_AUTHOR_EMAIL=&#39;newemail&#39;; GIT_COMMITTER_NAME=&#39;Newname&#39;; GIT_COMMITTER_EMAIL=&#39;newemail&#39;;&quot; HEAD</code></li></ol><p><a href="http://stackoverflow.com/questions/4592866/git-how-to-estimate-a-contribution-of-a-person-to-my-project-in-terms-of-added" title="contribution">git contribution</a><br><a href="http://codeimpossible.com/2011/12/16/Stupid-Git-Trick-getting-contributor-stats/" title="git get contributor">git get contributor</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;###Git ignore&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;.gitignore生效&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;</summary>
+      
+    
+    
+    
+    <category term="wiki" scheme="http://example.com/categories/wiki/"/>
+    
+    
+    <category term="git" scheme="http://example.com/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VIM</title>
+    <link href="http://example.com/wiki/2012-09-04-vim-wiki.html"/>
+    <id>http://example.com/wiki/2012-09-04-vim-wiki.html</id>
+    <published>2012-09-03T16:00:00.000Z</published>
+    <updated>2021-03-08T07:20:36.093Z</updated>
+    
+    <content type="html"><![CDATA[<p>#VIM#</p><p>##编辑</p><p>###常用<br>C 改变改行后面部分相当于c$<br>ci” ci’ ci( ci&lt; 同vi’<br>== 修复行缩进<br>C-A 递增数字</p><p>###补全<br>整行补全                        CTRL-X CTRL-L<br>根据当前文件里关键字补全        CTRL-X CTRL-N<br>根据字典补全                    CTRL-X CTRL-K<br>根据同义词字典补全              CTRL-X CTRL-T<br>根据头文件内关键字补全          CTRL-X CTRL-I<br>根据标签补全                    CTRL-X CTRL-]<br>补全文件名                      CTRL-X CTRL-F<br>补全宏定义                      CTRL-X CTRL-D<br>补全vim命令                     CTRL-X CTRL-V<br>用户自定义补全方式              CTRL-X CTRL-U<br>拼写建议                        CTRL-X CTRL-S </p><p>##搜索</p><ul><li>搜索当前光标位置下的单词</li></ul><p>##移动<br>‘. 跳转到上一次编辑的行<br>g; 跳转到最后一次修改的位置</p><p>##Vim Visual Mode<br>vi{ 选中{}中间的内容,不包括{}<br>va{ 选中{}中间内容，包括{}<br>vi( 选中()中间内容<br>vi&lt; 选中&lt;&gt;中间内容<br>vi[ 选中[]中间内容<br>vit 选中中间的内容<br>vi” 选中””中间内容<br>vi’ 选中”中间的内容<br>vis 选中一个句子<br>vib 选中一个block<br>viw选中一个单词<br>vip 选中一个段落 </p><p>##其他</p><ul><li>vim file +cmd 打开文件执行命令 vim file +123</li><li>v% 选中括号内容</li><li>g8 显示utf8编码</li><li>:set rtp 显示runtimepath</li><li>:set ft=html 设置filetype</li><li>ZZ :wq ZQ :q!<br><a href="http://location/" title="name">Google</a></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;#VIM#&lt;/p&gt;
+&lt;p&gt;##编辑&lt;/p&gt;
+&lt;p&gt;###常用&lt;br&gt;C 改变改行后面部分相当于c$&lt;br&gt;ci” ci’ ci( ci&amp;lt; 同vi’&lt;br&gt;== 修复行缩进&lt;br&gt;C-A 递增数字&lt;/p&gt;
+&lt;p&gt;###补全&lt;br&gt;整行补全                </summary>
+      
+    
+    
+    
+    <category term="wiki" scheme="http://example.com/categories/wiki/"/>
+    
+    
+    <category term="vim" scheme="http://example.com/tags/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SHELL</title>
+    <link href="http://example.com/wiki/2012-09-01-shell-wiki.html"/>
+    <id>http://example.com/wiki/2012-09-01-shell-wiki.html</id>
+    <published>2012-08-31T16:00:00.000Z</published>
+    <updated>2021-03-08T07:20:36.023Z</updated>
+    
+    <content type="html"><![CDATA[<p>##基础知识<br>###linux文件分类</p><ul><li>-  一般文件</li><li>d  目录</li><li>l  符号链接文件</li><li>b  磁盘设备文件</li><li>c  字符设备文件</li><li>s  Socket文件</li><li>p  连接文件</li></ul><p>判断方式ls -l,file filename</p><p>###文件权限</p><ul><li>三种身份 u g o</li><li>四种权限 r(read)4 w(write)2 x(execute)1 s(set user/group id|sticky bit) <ul><li>set user id 执行者变为文件的拥有者4755</li><li>set group id 执行者变为用户组 2755</li><li>sticky bit 只有文件拥有者才可以删除 1777</li></ul></li></ul><p>###Login Shell<br>/etc/passwd字段含义:帐号:x:UID:GID:用户信息:主目录:login shell<br>eg:lightdm:x:104:111:Light Display Manager:/var/lib/lightdm:/bin/false</p><p>###配置文件</p><ul><li>登录执行脚本及顺序<ol><li>/etc/profile</li><li>.bash_profile</li><li>.bash_login</li><li>.profile</li></ol></li><li>注销<ol><li>.bash_logout</li></ol></li><li>执行新Shell<ol><li>交互模式(interactive) .bashrc</li><li>非交互模式 /bin/bash 检查BASH_ENV /bin/sh不检查任何文件</li></ol></li></ul><p>###括号匹配</p><ul><li>echo l{i,o}ve</li><li>cp file{,.bak} 备份文件</li><li>mkdir {1,2}/{3,4}</li></ul><p>##Shell Script<br>###执行</p><ul><li><code>bash script.sh</code></li><li><code>sh script.sh</code></li><li><code>. script.sh</code></li><li><code>source .bashrc</code> 直接使配置生效</li><li>. source 都会让script.sh在父Shell中执行<code>echo $SHLVL</code> <code>ps axf</code>查看层级</li></ul><p>###调试</p><ul><li>检测语法 <code>bash -v script.sh</code></li><li>不执行查看程序代码 <code>bash -n script.sh</code></li><li>追踪脚本执行 <code>bash -x</code></li></ul><p>##命令<br>###内置命令</p><ol><li> <code>type bg</code>  bg is a shell builtin 判断内置命令</li><li> <code>help -s</code> 显示命令语法 eg: <code>help -s alias</code>  alias: alias [-p] [name[=value] … ]</li><li> <code>echo</code> -n 不换行 -e \n等解释</li><li> <code>cd -</code> 返回先前目录</li><li> <code>:</code> 传回真值</li><li> <code>alias ll=&#39;ls -l&#39;</code> 重命名命令,取消<code>alias ll=&#39;ll&#39;</code> 或者 <code>unalias ll</code> <code>unalias -a</code>取消所有别名</li><li> <code>umask</code> 显示文件权限屏蔽值 创建文件时候 文件权限值=系统默认权限-umask值</li><li> <code>set</code> 设置Bash Shell属性 <code>set -o vi</code>开启vi模式，<code>set +o vi</code> 关闭vi模式,<code>set -o noclobber</code>/<code>set -C</code>转向输出保护存在文件</li><li> <code>shopt</code> 设置Bash Shell行为模式</li><li><code>time</code> 指令执行耗时统计 <code>time ls -la</code></li><li>read 读取变量<ul><li><code>read input</code> 如果没有input变量，默认为$REPLY</li><li><code>read -p &quot;please input a word:&quot;</code></li><li><code>read -a arr&lt;&lt;(echo 1,2,3,6,5,4)</code> 读取数组</li><li><code>IFS=&quot;:&quot;;read f1 f2 f3 f4 &lt; datafile</code> 没有设置IFS则默认空格</li><li><code>read -r raw</code> 不过滤\</li></ul></li><li><code>exec</code> <code>eval</code> 执行命令</li><li><code>man -k sort</code> 查找命令</li></ol><p>###命令行程序<br>执行时候需要到$PATH中寻找</p><ol><li> <code>which top</code> 在PATH找寻第一top命令所在位置 -a 找寻全部</li><li> <code>locate my.conf</code> 在文件索引数据库中找寻my.conf文件</li><li>date<ul><li><code>date MMDDhhmmYY</code>调整时间 </li><li><code>date + &quot;%d%h%m&quot;</code> 产生指定时间格式</li><li><code>date -R</code> 产生与RFC-2822兼容的时间格式</li></ul></li><li>ls<ul><li><code>ls -A</code> 与 <code>ls -a</code>相同但不显示 .,..</li><li><code>ls -F</code> 在结果中加入标识符(*可执行文件，@软链接文件，=socket文件，|管道文件,不加则表示普通文件)</li></ul></li><li> <code>cat &gt;file</code>输入内容<kbd>CTRL</kbd>+<kbd>D</kbd>编辑保存文件内容到file</li><li> <code>head -n 4</code>显示前4行内容，<code>head -c -20</code>不显示前面20bytes内容,<code>tail</code>类似</li><li> <code>wc</code> -c/w/l计算文件字符/单词/行</li><li> <code>finde . -name &quot;*.txt&quot; -ctime 2 --exec rm -f &#123;&#125; \; </code> 找寻2天内修改过的text文件删除</li><li>tar<ul><li><code>tar -zxvf backup.tgz -C www/public</code> 解压到指定目录</li><li>tar tvf etc.tar 显示文件内容</li><li>tar xzvf etc.tar 解压</li><li>tar zcvf etc.tar 压缩</li><li>tar rvf etc.tar re.add.file 添加</li><li>tar uvf etc.tar add.file 更新</li><li>tar Avf 1.tar 2.tar all.tar 合并</li><li>tar vf etc.tar –delete etc/hosts 删除指定文件</li></ul></li><li><code>basename /path/filename</code> 取filename</li><li><code>dirname /path/filename</code> 取path </li><li><code>sort -nr +2 -t: /etc/passwd</code> -t 分隔符 +2 跳过两列排序第三列 -nr 反序按数值排序(默认按ASCII)</li><li><code>uniq file</code>删除文件中重复的行，-d找出重复行，-c 计算重复行出现的次数</li><li>cut<ul><li><code>cut -c2-3 file</code> 抽取第2-3个字符</li><li><code>cut -c9- file</code> 抽取第9以后的</li><li><code>cut -c1</code> 抽取第1个字符</li><li><code>cut -c-3,22- file</code>抽取第1-3,和22以后的字符</li><li><code>cut -d: -f3,1 /etc/passwd</code> 抽取paawd见3,1列</li></ul></li><li>tr 转换或删除字符<ul><li><code>tr &#39;[a-z]&#39; &#39;[A-Z]&#39; &lt; file</code> 转换大写</li><li><code>tr -d k</code> 删除字符k</li><li><code>tr -s &#39;[a-z]&#39; &#39;[a-z]&#39; &lt;file </code>压缩aaa为a</li></ul></li><li>grep<ul><li><code>grep -Rin &quot;word&quot; *</code>/<code>grep -Ril &quot;word&quot; *</code> 匹配所有word显示行号，不区分大小</li><li><code>grep -v &quot;word&quot; *</code> 显示不包含word eg:<code>ps -ef | grep nautilus| grep -v &quot;grep nautilus&quot;</code></li><li><code>grep -q &quot;word&quot; file</code> 返回1/0，并放到$?这个变量中</li><li><code>grep -A 2 -e &#39;someone (love|like) you&#39; file</code> 找到h2..以后显示接下来的两行</li></ul></li><li>tee<ul><li><code>tee -a file</code>=<code>cat &gt;&gt;file</code>文件内容<kbd>Ctrl</kbd>+<kbd>D</kbd></li><li><code>tee file</code>存在清空，不存在输入然后<kbd>Ctrl</kbd>+<kbd>D</kbd></li></ul></li><li><code>script log</code>记录接下来命令的执行过程及结果,直到<code>exit</code>退出</li><li>top <kby>z</kby>切换彩色显示</li><li>关机命令<ul><li>sync&amp;&amp;shutdown -h now/+30/20:00</li><li>init 0<ul><li>0 关机</li><li>3 纯文本</li><li>5 图形界面</li><li>6 重新启动</li></ul></li><li>poweroff -f</li></ul></li><li>chown root:root file</li><li>chmod <ul><li>chmod u=rwx,g=rw file</li><li>chmod a-x file</li></ul></li></ol><p>###文件操作<br>20. touch file 建立新文件等同于 &gt; file :&gt;file<br>21. mkdir -m 777 file<br>22. mknod -m 666 file c/b/p n m 建立字符/区块/管道文件 主要设备代码n 次要设备代码m<br>23. mkfifo file 建立管道文件 使用 echo “h2ero” &gt; file ,  cat &lt; file<br>24. ln -sf file lnfile 删除ln再次建立<br>25. stat file 查看文件的所有属性<br>    + stat -c “%a%n” 单独查看文件相关属性输出<br>    + stat -f “%a” 单独查看分区相关属性输出<br>26. chattr +attr =attr -attr AaiD 为文件设置文件取用时间不变/只能转向开启文件进行写入/不能修改文件/不需要dump 特殊属性<br>27. lsattr file 查看文件特殊属性<br>28. gzip<br>    * gzip -d 解压<br>    * gzip -c 压缩<br>        * zcat</p><p>###历史命令</p><ul><li>fc<ul><li>fc ssh 查找最近一个包含ssh</li><li>fc -s ssh 查找最近一个包含ssh，并执行</li></ul></li><li>历史命令扩展<ul><li>!! 执行上一条 = !-1</li><li>!historyline 执行编号为historyline的指令</li><li>!-n 调用倒数第n条指令</li><li>!ssh 调用最近含有ssh的命令</li><li>!?home? 调用最近含有home的命令</li><li>^var1^var2^ 将前一个历史命令中的var1替换为var2再执行</li><li>!# 前面输入的所有字符。ls !# 相当于执行ls ls</li><li>!!:$ 前一条命令的最后一个参数=$_</li><li>!ls:1 找出最近一条以ls开头的命令的第一个参数=!ls:^</li><li>!ls:* 找出最近一天以ls开头的所有参数</li><li>!!:3-5 找出前一条3-5的参数</li><li>!!:s/var/var1/替换前1条指令中的var 为 var1</li><li>!!:h 删除后面的文件名</li><li>!!:t 删除前面的目录</li><li>!!:p 显示前一条命令但是不执行</li></ul></li></ul><p>###执行多条命令</p><ol><li>cmd1&amp;&amp;cmd2 cmd1执行成功cmd2才执行</li><li>cmd1||cmd2 cmd1执行失败cmd2才执行</li><li>(cmd1,cmd2,cmd3)子shell中执行</li><li>{ cmd1,cmd2,cmd3 }在当前shell中执行</li></ol><p>##变量<br>###数组</p><ul><li>语法${A[index]}}，声明arr=(1 2 3 4)</li><li>所有元素<code>$&#123;A[@]&#125;/$&#123;A[*]&#125;</code></li><li>长度<code>$&#123;#A[@]&#125;/$&#123;#A[*]&#125;</code></li><li>赋值 <code>arr[$&#123;#arr[*]&#125;]=2</code></li></ul><p>###取消变量</p><ul><li>unset -v variable unset -f function</li></ul><p>###环境变量</p><ul><li>export -p 显示全部环境变量</li><li><code>declare -x LANG=&quot;en_US.UTF-8&quot;</code> 或者 <code>export LANG=&quot;en_US.UTF-8&quot;</code><br>###Bash 内置变量</li><li>$BASH bash完整路径</li><li>$BASH_VERSION bash版本</li><li>$CDPATH cd切换搜寻目录</li><li>$HISCONTROL 控制指令是否存入历史，三个值ignorespace,ignoredups,ignoreboth，</li><li>$HISTFILESIZE 行数</li><li>$HISTIGNORE <code>export HISTIGNORE=ls:ps:cd:t*:\&amp; </code></li><li>HISTTIMEFORMAT=’%F%T’ 时间格式</li><li><code>locale</code> 语系</li><li>$PATH 命令搜索目录</li><li>RANDOM</li><li>$* 所有参数一个字符串 “arg1 arg2 arg3”</li><li>$n 第n个参数</li><li>$@ 所有参数分开字符串 “arg1” “arg2” “arg3”</li><li>$# 位置参数个数</li><li>$? 上一条命令传回的值1/0 成功或者失败</li><li>$$ 当前bash shell 进程标号 eg: kill $$</li><li>$_ <ul><li>script执行时候bash路径/bin/bash</li><li>上一条命令最后一个参数值</li><li>检查邮件时候,邮件文件名</li></ul></li></ul><p>###变量属性</p><ul><li>readonly<ul><li>readonly -p 显示所有只读属性</li><li>readonly -a/f 声明只读变量或者函数</li></ul></li><li>declare <ul><li>declare -p | grep x  显示x变量属性</li><li>declare -p x 显示x变量属性</li><li>declare -a/f/i/r/x 声明数组/函数/整数/只读/环境变量</li><li>declare -F 显示所有的函数名称及属性</li></ul></li></ul><p>###HEREDOC</p><ol><li>重定向到msg文件<pre><code> cat  &lt;&lt;HEREDOC &gt;msg  doc HEREDOC</code></pre></li><li>直接输出<pre><code> cat &lt;&lt;HEREDOC  $USER can be used HEREDOC</code></pre></li><li>直接输出不支持变量替换<pre><code> cat &lt;&lt;&quot;HEREDOC&quot; $USER can&#39;t be used HEREDOC</code></pre></li></ol><p>##高级变量<br>###分类</p><ol><li><p>${var} 变量扩展</p><ul><li><p>测试存在</p><table><thead><tr><th>条件式</th><th>目的</th><th>判断条件</th><th>符合的处理方法</th></tr></thead><tbody><tr><td>${待测变量-默认值}</td><td>给不存在变量赋值</td><td>不存在</td><td>赋值</td></tr><tr><td>${待测变量:-默认值}</td><td>给不存在或空值变量赋值</td><td>不存在或空值</td><td>赋值</td></tr><tr><td>${待测变量:=默认值}</td><td>给空值赋值</td><td>不存在或空值</td><td>赋值</td></tr><tr><td>${待测变量:?默认值}</td><td>检查变量是否完备</td><td>不存在或空值</td><td>显示变量名称:提示信息，停止执行后面的</td></tr><tr><td>${待测变量:i默认值}</td><td>判断是否为真</td><td>测试存在且非空</td><td>传回默认值</td></tr></tbody></table><p> 记忆</p><table><thead><tr><th>:</th><th>空</th><th>测试值</th></tr></thead><tbody><tr><td>-</td><td>负向</td><td>测不存在</td></tr><tr><td>=</td><td>设值</td><td>给空值变量设置一个默认值</td></tr><tr><td>?</td><td>有问题</td><td>检查条件是否完备后再执行</td></tr><tr><td>-</td><td>正向</td><td>测试存在</td></tr></tbody></table></li></ul></li></ol><pre><code>+ 取字符串   | $&#123;var:start&#125;     | 指定位置截取到最后       |    |------------------|--------------------------|   | $&#123;var:start:len&#125; | 指定位置截取len个        |    | $&#123;#var&#125;          | 变量字符长度             |    | $&#123;#var[@]&#125;       | 数组元素个数             |    | $&#123;#var[\*]&#125;      | 数组元素个数             |    | $&#123;var:start:len&#125; | 指定位置截取len个        |    | $&#123;@:start&#125;       | 指定位置截取到最后的参数 |    | $&#123;@:start:count&#125; | 指定位置截取到最后的参数 | + 对比   | $&#123;var#tpl&#125;  | 由前面对比删除最短 |    |-------------|--------------------|   | $&#123;var##tpl&#125; | 由前面对比删除最长 |    | $&#123;var%tpl&#125;  | 由后面对比删除最短 |    | $&#123;var%%tpl&#125; | 由后面对比删除最长 | + 修改 若不加/str则为删除，替换为空   | 1 | $&#123;var/tpl/str&#125;  | 替换地一个符tpl的  |   |---|-----------------|--------------------|   | 2 | $&#123;var//tpl/str&#125; | 替换地全部符合tpl的|   | 3 | $&#123;var#tpl/str&#125;  | 同1，由开始替换    |   | 4 | $&#123;var#tpl/str&#125;  | 同2，由开始替换    |+ 取变量    1. $&#123;!var@&#125; 或者 `$&#123;!var*&#125;` 去所有一var开头的变量名称    2. $&#123;!arr[@]&#125; 或者 `$&#123;!arr[*]&#125;` 取所有数组索引</code></pre><ol start="2"><li>$(cmd) 或者 <code>cmd</code> 命令扩展</li><li>算术扩展<ol><li>$((exp)) </li><li><code>expr exp</code></li><li>$[exp]</li></ol></li></ol><p>##流程控制</p><ol><li>if cmd1&amp;&amp;cmd2 也可当做if用<ol><li>if-then<pre><code> if condition;then     cmd fi</code></pre></li><li>if-then-else<pre><code> if condition;then     cmd else     cmd fi</code></pre></li><li>if-then-elif-then-else<pre><code> if condition;then     cmd elif condition;then else     cmd fi</code></pre></li></ol></li><li>条件<ol><li>执行命令返回的结果，eg: grep -q ^h2ero$ filename</li><li>[[ ]] eg: [[ str &gt; xyz ]]</li><li>test eg: test “str”&gt;“xyz”</li><li><input disabled="" type="checkbox"> eg:[ “str”&gt;“xyz” ] , [ -f dir/file ]</li></ol></li><li>case 如果shopt -s extglob 则开启高级样式<pre><code> case testitem in     j|k|l) cmd;; esac</code></pre></li><li>for<pre><code> for i in arr do     cmd done for ((i=1;i&lt;10;i++)) do     cmd done</code></pre></li><li>while or until<pre><code> while condition do      cmd done 死循环 while ((1))|true|: for(;1;) do     cmd done</code></pre></li><li>select <pre><code> select s in arr do      $REPLY $f done eg: select i in $(ls ../) do     if [ $REPLY==&#39;q&#39; ];then         kill -INT $$     fi done</code></pre>##转向<br>###默认文件代码(file descriptor)</li></ol><ul><li>stdin 0 stdout 1 stderr 2</li></ul><p>###文件代码操作</p><ul><li>fileDescriptor&lt;&gt;file 打开文件</li><li>fileDescriptor&lt;&amp;- 关闭文件</li><li>fileDescriptor&gt;&amp;- 关闭转向输出文件</li><li>n&lt;&amp;m 复制转向输入的文件代码m存为n,使n连接到m</li><li>n&gt;&amp;m 复制转向输出的文件代码m存为n,使n连接到m</li><li><code>&gt;|</code> 忽略noclobber直接覆盖</li><li>eg:exec 6 &lt; file ;cat &lt;&amp;6</li></ul><p>##系统信号</p><ul><li><code>kill -l/trap -l</code>显示使用系统信号</li><li>kill <ul><li><code>kill -信号id/名 PID</code> 或者 <code>kill -s 信号 PID</code></li><li><code>kill -HUP PID</code> 重启进程，若是daemon就重新读取系统配置。</li><li><kbd>CTRL</kbd>+<kbd>C</kbd> 发出INT信号。</li></ul></li><li>trap<ul><li><code>trap &quot;echo &#39;kill this ?&#39;&quot; INT</code>  注册INT信号</li><li><code>trap - INT</code>  取消注册INT信号</li><li><code>trap &#39;&#39; INT</code> 忽略INT信号</li><li><code>trap -p</code> 显示全部注册信号</li></ul></li></ul><p>##进程</p><ul><li>进程字段|USER|PID|%CUP|%MEN|VSZ|RSS|TTY|STAT|START|TIME|COMMAND|</li><li>进程NI(nice) 值，NI值越大，优先度越小。<ul><li><code>nice -n num runapp</code></li><li><code>renice num -p PID -g GROUP -u USER</code> 为指定进程/群组/用户调整NI值</li></ul></li></ul><p>###工作控制</p><ul><li><kbd>Ctrl</kbd>+<kbd>Z</kbd>暂停执行程序，bg后台执行。</li><li>jobs -l 查看执行程序,%% 或者 %+调用当前程序，%- 调用前一个。%n调用编号为n的程序等同fg %n,后台执行%n&amp;或者bg %n</li></ul><p>##用户管理</p><ul><li>建立帐号<pre><code>  adduser h2ero  useradd -D 显示创建用户时候的默认配置，/etc/default/useradd  deluser/userdle username ~目录保存 </code></pre></li></ul><p>##其他</p><ol><li>添加字符集<pre><code> cat /usr/share/i18n/SUPPORTED vim /var/lib/locales/supported.d/local dpkg-reconfigure --force locales</code></pre></li><li>目录转换<pre><code> export LANG=en_US xdg-user-dirs-gtk-update export LANG=zh_CN</code></pre></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;##基础知识&lt;br&gt;###linux文件分类&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-  一般文件&lt;/li&gt;
+&lt;li&gt;d  目录&lt;/li&gt;
+&lt;li&gt;l  符号链接文件&lt;/li&gt;
+&lt;li&gt;b  磁盘设备文件&lt;/li&gt;
+&lt;li&gt;c  字符设备文件&lt;/li&gt;
+&lt;li&gt;s  Socket文件&lt;</summary>
+      
+    
+    
+    
+    <category term="wiki" scheme="http://example.com/categories/wiki/"/>
+    
+    
+    <category term="shell terminator" scheme="http://example.com/tags/shell-terminator/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux vsftpd添加用户</title>
+    <link href="http://example.com/2012/2012-08-27-ubuntu-vsftp-add-user.html"/>
+    <id>http://example.com/2012/2012-08-27-ubuntu-vsftp-add-user.html</id>
+    <published>2012-08-26T16:00:00.000Z</published>
+    <updated>2021-03-08T07:20:35.613Z</updated>
+    
+    <content type="html"><![CDATA[<p>先修改<code>/etc/vsftpd.conf</code>去掉一下行注释。<code>#local_enable=YES</code>和<code>#write_enable=YES</code>。然后执行一下命令。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd h2ero -d &#x2F;home&#x2F;</span><br><span class="line">sudo passwd h2ero</span><br><span class="line">sudo service vsftpd restart</span><br></pre></td></tr></table></figure><p>参考:<a href="http://cviorel.easyblog.ro/2009/03/05/how-to-setup-vsftpd-ftp-on-ubuntu-linux/">How to setup vsftpd FTP on Ubuntu Linux</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;先修改&lt;code&gt;/etc/vsftpd.conf&lt;/code&gt;去掉一下行注释。&lt;code&gt;#local_enable=YES&lt;/code&gt;和&lt;code&gt;#write_enable=YES&lt;/code&gt;。然后执行一下命令。&lt;/p&gt;
+&lt;figure class=&quot;highli</summary>
+      
+    
+    
+    
+    <category term="linux" scheme="http://example.com/categories/linux/"/>
+    
+    
+    <category term="vsftpd ubuntu ftp" scheme="http://example.com/tags/vsftpd-ubuntu-ftp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>web安全</title>
+    <link href="http://example.com/2012/2012-08-02-hack-website.html"/>
+    <id>http://example.com/2012/2012-08-02-hack-website.html</id>
+    <published>2012-08-01T16:00:00.000Z</published>
+    <updated>2021-03-08T07:20:35.571Z</updated>
+    
+    <content type="html"><![CDATA[<p>###常用查找###</p><ol><li>dede查看<code>/data/mysqli_error_trace.inc</code> <code>/data/mysql_error_trace.inc</code>文件查找关键词index.php,login.php</li><li>dede版本<code>/data/admin/ver.txt</code></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;###常用查找###&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;dede查看&lt;code&gt;/data/mysqli_error_trace.inc&lt;/code&gt; &lt;code&gt;/data/mysql_error_trace.inc&lt;/code&gt;文件查找关键词index.php,login.ph</summary>
+      
+    
+    
+    
+    <category term="hack" scheme="http://example.com/categories/hack/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>拾遗</title>
+    <link href="http://example.com/2012/2012-07-29-php-tip.html"/>
+    <id>http://example.com/2012/2012-07-29-php-tip.html</id>
+    <published>2012-07-28T16:00:00.000Z</published>
+    <updated>2021-03-08T07:20:35.537Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>strip_tags除了用于过滤不要的标签也可用于截取html后过滤掉未闭合的tag</li><li>javascript html_strip <a href="http://stackoverflow.com/questions/822452/strip-html-from-text-javascript">这样</a>实现  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function strip(html)</span><br><span class="line">&#123;</span><br><span class="line">   var tmp &#x3D; document.createElement(&quot;DIV&quot;);</span><br><span class="line">   tmp.innerHTML &#x3D; html;</span><br><span class="line">   return tmp.textContent||tmp.innerText;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li>匹配url正则表达式 <a href="http://regexpal.com/">在线正则表达式测试工具</a>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(https?|ftp|telnet):\&#x2F;\&#x2F;((?:[a-z0-9@:.-]|%[0-9A-F]&#123;2&#125;)&#123;3,&#125;)(?::(\d+))?((?:\&#x2F;(?:[a-z0-9-._~!$&amp;&#39;()*+,;&#x3D;:@]|%[0-9A-F]&#123;2&#125;)*)*)(?:\?((?:[a-z0-9-._~!$&amp;&#39;()*+,;&#x3D;:\&#x2F;?@]|%[0-9A-F]&#123;2&#125;)*))?(?:#((?:[a-z0-9-._~!$&amp;&#39;()*+,;&#x3D;:\&#x2F;?@]|%[0-9A-F]&#123;2&#125;)*))?</span><br></pre></td></tr></table></figure>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">&#x2F;&#x2F;带www和http的生成链接</span><br><span class="line">function text2url($text)&#123;</span><br><span class="line">$pattern&#x3D;&quot;&#x2F;((?:https?):\&#x2F;\&#x2F;)?((?:[a-z0-9@:.-]|%[0-9A-F]&#123;2&#125;)&#123;3,&#125;)(?::(\d+))?((?:\&#x2F;(?:[a-z0-9-._~!$&amp;&#39;()*+,;&#x3D;:@]|%[0-9A-F]&#123;2&#125;)*)*)(?:\?((?:[a-z0-9-._~!$&amp;&#39;()*+,;&#x3D;:\&#x2F;?@]|%[0-9A-F]&#123;2&#125;)*))?(?:#((?:[a-z0-9-._~!$&amp;&#39;()*+,;&#x3D;:\&#x2F;?@]|%[0-9A-F]&#123;2&#125;)*))?&#x2F;iS&quot;;</span><br><span class="line">preg_match_all($pattern, $text, $matches);</span><br><span class="line">foreach ($matches[0] as $url)&#123;</span><br><span class="line">if($url)&#123;</span><br><span class="line">$search[]&#x3D;$url;</span><br><span class="line">$replace[]&#x3D;&#39;&lt;a target&#x3D;&quot;_blank&quot; href&#x3D;http:&#x2F;&#x2F;&#39;.str_replace(&#39;http:&#x2F;&#x2F;&#39;,&#39;&#39;,$url).&#39;&gt;&#39;.$url.&#39;&lt;&#x2F;a&gt;&#39;;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">return str_replace($search, $replace, $text);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;strip_tags除了用于过滤不要的标签也可用于截取html后过滤掉未闭合的tag&lt;/li&gt;
+&lt;li&gt;javascript html_strip &lt;a href=&quot;http://stackoverflow.com/questions/822452/strip-</summary>
+      
+    
+    
+    
+    <category term="php" scheme="http://example.com/categories/php/"/>
+    
+    
+    <category term="php javascript" scheme="http://example.com/tags/php-javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>正则表达式《精通正则表达式》笔记</title>
+    <link href="http://example.com/2012/2012-07-06-regx.html"/>
+    <id>http://example.com/2012/2012-07-06-regx.html</id>
+    <published>2012-07-05T16:00:00.000Z</published>
+    <updated>2021-03-08T07:20:35.492Z</updated>
+    
+    <content type="html"><![CDATA[<p>###概念###</p><ol><li>正则(regex):<ul><li>元字符+普通字符</li></ul></li><li>字符组(Character Class):<ul><li><code>[abc.?]</code>     .?等需要转义的字符可以以字符组方式匹配</li><li>字符组都是匹配一个字符 <blockquote><p><code>g[.?]</code> 并不会匹配 g.?</p></blockquote></li></ul></li><li>字符组元字符(Character-class Metacharacter):<ul><li><code>[^0-5a-z]</code>  匹配大小写<code>[Ss]qr</code></li><li>匹配HTML TAG <code>&lt;H[1-5]&gt;</code></li><li>^不包含</li><li><code>[a|b]</code>和(a|b)不同,前者|只是一个字符,后者则是”或”</li></ul></li><li>单词分界(Word Boundaries)元字符序列(Metasequences):<ul><li><code>&lt;\word word\&gt;</code></li><li>匹配单词word开头的和word结尾的</li><li>\b单词分界 \bcat\b</li></ul></li><li>括号及反向引用(Parentheses and Backreferences):<ul><li>(abc)\1       \1开始引用 多个括号从左至右<ul><li>php 使用引用需要转义，即 <code>preg_match(&#39;/(cat)\\1/&#39;,$str,$res)</code></li></ul></li></ul></li><li>环视(lookaround):<br> 环视和\b ^ $等一样只是匹配特定的位置。<ol><li>肯定顺序环视(lookahead): <ul><li><code>(?=h2ero)love you</code>     从左至右</li></ul></li><li>肯定逆序环视:<ul><li><code>(?&lt;=h2ero)lover you</code>   从右至左<blockquote><p>分隔123456789为123.456.789,可以是<code>preg_replace(&#39;/(?&lt;=\d)(?=(\d\d\d)+$)/&#39;,&#39;.&#39;,&#39;123456789&#39;);</code>也可以是<code>preg_replace(&#39;/(?=\d)(?&lt;=(\d\d\d)+$)/&#39;,&#39;.&#39;,&#39;123456789&#39;);</code>两个环视的先后顺序不重要。只要在相同位置匹配即可。</p></blockquote></li></ul></li><li>否定顺序环视:<ul><li><code>(?!h2ero)love you</code>     从左至右</li></ul></li><li>否定逆序环视:<ul><li><code>(?&lt;!h2ero)lover you</code>   从右至左</li></ul></li></ol></li></ol><p>###拾遗###</p><ol><li><code>^cat$</code>       以字符阅读 第一个c开头 第二个a 第三个t结尾 而不是单词cat</li><li><code>^$</code>          匹配空行</li><li><code>&quot;[^&quot;]*&quot;</code>   匹配<code>[]</code>内的字符串</li></ol><p>###PHP中的正则###</p><ol><li>单引号转移\表示一个\所以\\才表示一个\</li><li>模式修饰符<ul><li>i 忽略大小写</li><li>m 增强的行锚模式</li><li>s 点号通配模式</li><li>x 宽松排列和注释模式</li><li>u 以UTF-8读取正则表达式和目标字符</li><li>X 启用PCRE额外功能</li><li>e 将replacement作为PHP代码<blockquote><p>$metric=preg_replace(‘/(-?\d+(?:.\d+)?)/e’,’floor(($1-32)*5/9+0.5)’,$subject);</p></blockquote></li><li>S 启用PCRE的study优化尝试</li><li>U 交换<em>和</em>?的匹配优先含义</li><li>A 将整个匹配尝试锚定在起始位置</li><li>D $只能匹配锚定在起始位置</li></ul></li><li>preg_match中的RPEG_OFFSET_CAPTURE由于获取每次匹配的偏移量。preg_match_all中的PREG_SET_ORDER每次匹配集中保存。如果要设置多个参数用|连接。</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;###概念###&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;正则(regex):&lt;ul&gt;
+&lt;li&gt;元字符+普通字符&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;字符组(Character Class):&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;[abc.?]&lt;/code&gt;     .?等需要转义的字符可</summary>
+      
+    
+    
+    
+    <category term="note" scheme="http://example.com/categories/note/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>换种写部落格的方式啦。</title>
+    <link href="http://example.com/2012/2012-07-06-h2ero-new-blog-new-life.html"/>
+    <id>http://example.com/2012/2012-07-06-h2ero-new-blog-new-life.html</id>
+    <published>2012-07-05T16:00:00.000Z</published>
+    <updated>2021-03-08T07:20:35.439Z</updated>
+    
+    <content type="html"><![CDATA[<p>换下写部落格的方式，前段时间看了看markdown的语法。而换这种方式一切又要归咎于学习Git开始。也算这学期的收获吧。一来以前就开始用github开始记自己的一些笔记，二来用不惯wordpress主要还是在排版上，而markdown确实很舒服，对于我这种天生就不会排版的人太适用了。以前给某某发的E-mail那叫一个乱字。github全免费，以后多做笔记了。折腾这个主题比较烦暂时不考虑兼容其他浏览器了，毕竟firefox才是最爱。（最后还是换做Luke的主题去了。）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;换下写部落格的方式，前段时间看了看markdown的语法。而换这种方式一切又要归咎于学习Git开始。也算这学期的收获吧。一来以前就开始用github开始记自己的一些笔记，二来用不惯wordpress主要还是在排版上，而markdown确实很舒服，对于我这种天生就不会排版的人</summary>
+      
+    
+    
+    
+    <category term="self" scheme="http://example.com/categories/self/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>IE6 min-height hack 实现</title>
+    <link href="http://example.com/2012/2012-05-06-ie-min-height-css-hack.html"/>
+    <id>http://example.com/2012/2012-05-06-ie-min-height-css-hack.html</id>
+    <published>2012-05-05T16:00:00.000Z</published>
+    <updated>2021-03-08T07:20:35.388Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>css用expression利用js判断设置。</li><li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">selector &#123;</span><br><span class="line">  min-height:500px;</span><br><span class="line">  height:auto !important;</span><br><span class="line">  height:500px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>来源:<a href="http://www.dustindiaz.com/min-height-fast-hack/">http://www.dustindiaz.com/min-height-fast-hack/</a></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;css用expression利用js判断设置。&lt;/li&gt;
+&lt;li&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;</summary>
+      
+    
+    
+    
+    <category term="web" scheme="http://example.com/categories/web/"/>
+    
+    
+    <category term="css" scheme="http://example.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>codeigniter 获取域名</title>
+    <link href="http://example.com/2011/2011-12-17-codeigniter-get-domain.html"/>
+    <id>http://example.com/2011/2011-12-17-codeigniter-get-domain.html</id>
+    <published>2011-12-16T16:00:00.000Z</published>
+    <updated>2021-03-08T07:17:23.629Z</updated>
+    
+    <content type="html"><![CDATA[<p>人懒直接找的网上的，设置cookie的时候需要用到，添加下面的函数到url_helper.php中即可</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">&#x2F;**</span><br><span class="line"> * Get domain</span><br><span class="line"> *</span><br><span class="line"> * Return the domain name only based on the &quot;base_url&quot; item from your config file.</span><br><span class="line"> *</span><br><span class="line"> * @access    public</span><br><span class="line"> * @return    string</span><br><span class="line"> *&#x2F;    </span><br><span class="line"></span><br><span class="line">function getDomain()</span><br><span class="line">&#123;</span><br><span class="line">    $CI &#x3D;&amp; get_instance();</span><br><span class="line">    return preg_replace(&quot;&#x2F;^[\w]&#123;2,6&#125;:\&#x2F;\&#x2F;([\w\d\.\-]+).*$&#x2F;&quot;,&quot;$1&quot;, $CI-&gt;config-&gt;slash_item(&#39;base_url&#39;));</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;人懒直接找的网上的，设置cookie的时候需要用到，添加下面的函数到url_helper.php中即可&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;l</summary>
+      
+    
+    
+    
+    <category term="php" scheme="http://example.com/categories/php/"/>
+    
+    
+    <category term="codeigniter" scheme="http://example.com/tags/codeigniter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IE6下PNG背景图片透明</title>
+    <link href="http://example.com/2011/2011-07-15-ie-png-opacity.html"/>
+    <id>http://example.com/2011/2011-07-15-ie-png-opacity.html</id>
+    <published>2011-07-14T16:00:00.000Z</published>
+    <updated>2021-03-08T07:17:23.581Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#h1&#123;</span><br><span class="line">    width: 500px;</span><br><span class="line">    height: 250px;</span><br><span class="line">    background: url(“images&#x2F;oa.png”);</span><br><span class="line">    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src&#x3D;’style&#x2F;images&#x2F;oa.png’); &#x2F;* IE6 *&#x2F;</span><br><span class="line">    _ background-image: none; &#x2F;* IE6 *&#x2F;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class</summary>
+      
+    
+    
+    
+    <category term="web" scheme="http://example.com/categories/web/"/>
+    
+    
+    <category term="IE6" scheme="http://example.com/tags/IE6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>dedecms模板标签中运行php代码</title>
+    <link href="http://example.com/2011/2011-04-23-DedeCMS-Run-PHP.html"/>
+    <id>http://example.com/2011/2011-04-23-DedeCMS-Run-PHP.html</id>
+    <published>2011-04-22T16:00:00.000Z</published>
+    <updated>2021-03-08T07:17:23.539Z</updated>
+    
+    <content type="html"><![CDATA[<p>大清早爬起来看了看《松药店的儿子们》，然后想弄弄网站，把头像网站给升级为dedecms5.7去了，图片集多了一个描述的编辑框，以前都没有用那个，都是在摘要里面写的描述，现在有了就想用，可是有个问题就是摘要和描述要同时判断下然后在输出，无奈，找了半天的资料终于给解决了。</p><p>dedecms使用php：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">&#123;dede:field name&#x3D;&#39;array&#39; runphp&#x3D;&#39;yes&#39;&#125;</span><br><span class="line">if (@me[&#39;body&#39;]&#x3D;&#x3D;&#39;&#39;)</span><br><span class="line">@me&#x3D;@me[&#39;description&#39;];</span><br><span class="line">else @me&#x3D;@me[&#39;body&#39;];</span><br><span class="line">&#123;&#x2F;dede:field&#125;</span><br><span class="line">&#x2F;&#x2F;其中的＠me为输出的内容，不能直接echo，比如判断有短标题输出短标题，没有则输出完整的标题，</span><br><span class="line">&#123;dede:field name&#x3D;&#39;array&#39; runphp&#x3D;&#39;yes&#39;&#125;</span><br><span class="line">if (@me[&#39;shorttitle&#39;]&#x3D;&#x3D;&#39;&#39;)</span><br><span class="line">@me&#x3D;@me[&#39;title&#39;];</span><br><span class="line">else @me&#x3D;@me[&#39;shorttitle&#39;];</span><br><span class="line">&#123;&#x2F;dede:field&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><p>一看就能明白，找这例子写就行了，</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;大清早爬起来看了看《松药店的儿子们》，然后想弄弄网站，把头像网站给升级为dedecms5.7去了，图片集多了一个描述的编辑框，以前都没有用那个，都是在摘要里面写的描述，现在有了就想用，可是有个问题就是摘要和描述要同时判断下然后在输出，无奈，找了半天的资料终于给解决了。&lt;/p</summary>
+      
+    
+    
+    
+    <category term="php" scheme="http://example.com/categories/php/"/>
+    
+    
+    <category term="dedecms" scheme="http://example.com/tags/dedecms/"/>
+    
+  </entry>
+  
+</feed>

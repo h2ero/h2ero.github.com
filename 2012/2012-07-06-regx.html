@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>正则表达式《精通正则表达式》笔记 | Hexo</title>
+  <meta name="description" content="###概念###  正则(regex): 元字符+普通字符   字符组(Character Class): [abc.?]     .?等需要转义的字符可以以字符组方式匹配 字符组都是匹配一个字符  g[.?] 并不会匹配 g.?     字符组元字符(Character-class Metacharacter): [^0-5a-z]  匹配大小写[Ss]qr 匹配HTML TAG &lt;H[1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式《精通正则表达式》笔记">
+<meta property="og:url" content="http://example.com/2012/2012-07-06-regx.html">
+<meta property="og:site_name" content="73404的博客">
+<meta property="og:description" content="###概念###  正则(regex): 元字符+普通字符   字符组(Character Class): [abc.?]     .?等需要转义的字符可以以字符组方式匹配 字符组都是匹配一个字符  g[.?] 并不会匹配 g.?     字符组元字符(Character-class Metacharacter): [^0-5a-z]  匹配大小写[Ss]qr 匹配HTML TAG &lt;H[1">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2012-07-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-08T07:20:35.492Z">
+<meta property="article:author" content="73404">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2012/2012-07-06-regx.html">
+  
+    <link rel="alternate" href="/atom.xml" title="73404的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/h2ero" target="_blank">
+          <img class="img-circle img-rotate" src="https://avatars.githubusercontent.com/u/1262641?s=460&amp;u=71527bb5543344720602ee48b0a0e32209c12663&amp;v=4" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">h2ero</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Developer &amp; Geek</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Chengdu, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/h2ero" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/h2ero" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/h2eros" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎来到我的世界!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hack/">hack</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac/">mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/plugin/">plugin</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/self/">self</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wiki/">wiki</a><span class="category-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IE6/" rel="tag">IE6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Postfix-Mac-SMTP/" rel="tag">Postfix Mac SMTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Youtube-GoogleAnalytics/" rel="tag">Youtube GoogleAnalytics</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codeigniter/" rel="tag">codeigniter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-compression/" rel="tag">css compression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dedecms/" rel="tag">dedecms</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fuelphp-php-framework/" rel="tag">fuelphp php framework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netbens-jVi-plugin/" rel="tag">netbens jVi plugin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php-javascript/" rel="tag">php javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/search/" rel="tag">search</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-terminator/" rel="tag">shell terminator</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/" rel="tag">vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vsftpd-ubuntu-ftp/" rel="tag">vsftpd ubuntu ftp</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/IE6/" style="font-size: 13px;">IE6</a> <a href="/tags/Postfix-Mac-SMTP/" style="font-size: 13px;">Postfix Mac SMTP</a> <a href="/tags/Youtube-GoogleAnalytics/" style="font-size: 13px;">Youtube GoogleAnalytics</a> <a href="/tags/codeigniter/" style="font-size: 13px;">codeigniter</a> <a href="/tags/css/" style="font-size: 13px;">css</a> <a href="/tags/css-compression/" style="font-size: 13px;">css compression</a> <a href="/tags/dedecms/" style="font-size: 13px;">dedecms</a> <a href="/tags/fuelphp-php-framework/" style="font-size: 13px;">fuelphp php framework</a> <a href="/tags/git/" style="font-size: 13px;">git</a> <a href="/tags/mysql/" style="font-size: 13px;">mysql</a> <a href="/tags/netbens-jVi-plugin/" style="font-size: 13px;">netbens jVi plugin</a> <a href="/tags/php-javascript/" style="font-size: 13px;">php javascript</a> <a href="/tags/search/" style="font-size: 13px;">search</a> <a href="/tags/shell-terminator/" style="font-size: 13px;">shell terminator</a> <a href="/tags/vim/" style="font-size: 14px;">vim</a> <a href="/tags/vsftpd-ubuntu-ftp/" style="font-size: 13px;">vsftpd ubuntu ftp</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/wiki/tpl.html" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-03-08T07:08:51.674Z" itemprop="datePublished">2021-03-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2013/2013-01-24-2012.html" class="title">2012年</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2013-01-23T16:00:00.000Z" itemprop="datePublished">2013-01-24</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/wiki/">wiki</a>
+              </p>
+              <p class="item-title">
+                <a href="/2012/2012-12-18-YouTube_Google_Analytics.html" class="title">为Youtube播放事件添加Google Analytics统计</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2012-12-17T16:00:00.000Z" itemprop="datePublished">2012-12-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/wiki/">wiki</a>
+              </p>
+              <p class="item-title">
+                <a href="/2012/2012-12-09-spider.html" class="title">各搜索引擎header信息</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2012-12-08T16:00:00.000Z" itemprop="datePublished">2012-12-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/plugin/">plugin</a>
+              </p>
+              <p class="item-title">
+                <a href="/2012/2012-11-29-jvi-netbeans.html" class="title">netbeans</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2012-11-28T16:00:00.000Z" itemprop="datePublished">2012-11-29</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-2012/2012-07-06-regx" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      正则表达式《精通正则表达式》笔记
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2012/2012-07-06-regx.html" class="article-date">
+	  <time datetime="2012-07-05T16:00:00.000Z" itemprop="datePublished">2012-07-06</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/note/">note</a>
+  </span>
+
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2012/2012-07-06-regx.html#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>###概念###</p>
+<ol>
+<li>正则(regex):<ul>
+<li>元字符+普通字符</li>
+</ul>
+</li>
+<li>字符组(Character Class):<ul>
+<li><code>[abc.?]</code>     .?等需要转义的字符可以以字符组方式匹配</li>
+<li>字符组都是匹配一个字符 <blockquote>
+<p><code>g[.?]</code> 并不会匹配 g.?</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>字符组元字符(Character-class Metacharacter):<ul>
+<li><code>[^0-5a-z]</code>  匹配大小写<code>[Ss]qr</code></li>
+<li>匹配HTML TAG <code>&lt;H[1-5]&gt;</code></li>
+<li>^不包含</li>
+<li><code>[a|b]</code>和(a|b)不同,前者|只是一个字符,后者则是”或”</li>
+</ul>
+</li>
+<li>单词分界(Word Boundaries)元字符序列(Metasequences):<ul>
+<li><code>&lt;\word word\&gt;</code></li>
+<li>匹配单词word开头的和word结尾的</li>
+<li>\b单词分界 \bcat\b</li>
+</ul>
+</li>
+<li>括号及反向引用(Parentheses and Backreferences):<ul>
+<li>(abc)\1       \1开始引用 多个括号从左至右<ul>
+<li>php 使用引用需要转义，即 <code>preg_match(&#39;/(cat)\\1/&#39;,$str,$res)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>环视(lookaround):<br> 环视和\b ^ $等一样只是匹配特定的位置。<ol>
+<li>肯定顺序环视(lookahead): <ul>
+<li><code>(?=h2ero)love you</code>     从左至右</li>
+</ul>
+</li>
+<li>肯定逆序环视:<ul>
+<li><code>(?&lt;=h2ero)lover you</code>   从右至左<blockquote>
+<p>分隔123456789为123.456.789,可以是<code>preg_replace(&#39;/(?&lt;=\d)(?=(\d\d\d)+$)/&#39;,&#39;.&#39;,&#39;123456789&#39;);</code>也可以是<code>preg_replace(&#39;/(?=\d)(?&lt;=(\d\d\d)+$)/&#39;,&#39;.&#39;,&#39;123456789&#39;);</code>两个环视的先后顺序不重要。只要在相同位置匹配即可。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>否定顺序环视:<ul>
+<li><code>(?!h2ero)love you</code>     从左至右</li>
+</ul>
+</li>
+<li>否定逆序环视:<ul>
+<li><code>(?&lt;!h2ero)lover you</code>   从右至左</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p>###拾遗###</p>
+<ol>
+<li><code>^cat$</code>       以字符阅读 第一个c开头 第二个a 第三个t结尾 而不是单词cat</li>
+<li><code>^$</code>          匹配空行</li>
+<li><code>&quot;[^&quot;]*&quot;</code>   匹配<code>[]</code>内的字符串</li>
+</ol>
+<p>###PHP中的正则###</p>
+<ol>
+<li>单引号转移\表示一个\所以\\才表示一个\</li>
+<li>模式修饰符<ul>
+<li>i 忽略大小写</li>
+<li>m 增强的行锚模式</li>
+<li>s 点号通配模式</li>
+<li>x 宽松排列和注释模式</li>
+<li>u 以UTF-8读取正则表达式和目标字符</li>
+<li>X 启用PCRE额外功能</li>
+<li>e 将replacement作为PHP代码<blockquote>
+<p>$metric=preg_replace(‘/(-?\d+(?:.\d+)?)/e’,’floor(($1-32)*5/9+0.5)’,$subject);</p>
+</blockquote>
+</li>
+<li>S 启用PCRE的study优化尝试</li>
+<li>U 交换<em>和</em>?的匹配优先含义</li>
+<li>A 将整个匹配尝试锚定在起始位置</li>
+<li>D $只能匹配锚定在起始位置</li>
+</ul>
+</li>
+<li>preg_match中的RPEG_OFFSET_CAPTURE由于获取每次匹配的偏移量。preg_match_all中的PREG_SET_ORDER每次匹配集中保存。如果要设置多个参数用|连接。</li>
+</ol>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2012/2012-07-06-regx.html" title="正则表达式《精通正则表达式》笔记" target="_blank" rel="external">http://example.com/2012/2012-07-06-regx.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/h2ero" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://avatars.githubusercontent.com/u/1262641?s=460&amp;u=71527bb5543344720602ee48b0a0e32209c12663&amp;v=4" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/h2ero" target="_blank"><span class="text-dark">h2ero</span><small class="ml-1x">Developer &amp; Geek</small></a></h3>
+        <div>后端程序员，会一点Java,Golang,PHP, Vim党, Geek, 会一点运维，囤了很多域名，做过很多网站。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2012/2012-07-29-php-tip.html" title="拾遗"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2012/2012-07-06-h2ero-new-blog-new-life.html" title="换种写部落格的方式啦。"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/h2ero" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/h2ero" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/h2eros" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>

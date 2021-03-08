@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://example.com/2013/2013-01-24-2012.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2011/2011-04-13-ubuntu-grub-rescue.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2012/2012-12-18-YouTube_Google_Analytics.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2011/2011-04-05-linux-directory.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/2012-11-18-mysql-wiki.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/2012-09-04-vim-wiki.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/2012-09-01-shell-wiki.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2012/2012-12-09-spider.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2012/2012-11-29-jvi-netbeans.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2012/2012-11-25-Mac-SMTP-Postfix-enable.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2012/2012-11-25-fuelphp-multisit.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2012/2012-08-27-ubuntu-vsftp-add-user.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2012/2012-08-02-hack-website.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2012/2012-07-29-php-tip.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2012/2012-07-06-regx.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2012/2012-07-06-h2ero-new-blog-new-life.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2012/2012-05-06-ie-min-height-css-hack.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/2012-09-22-Git-wiki.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2011/2011-12-17-codeigniter-get-domain.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2011/2011-07-15-ie-png-opacity.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2011/2011-04-23-DedeCMS-Run-PHP.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2011/2011-04-12-vim-tip.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2011/2011-02-26-php-compress-css.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/tpl.html</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+
+  <url>
+    <loc>http://example.com/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>http://example.com/tags/vim/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/dedecms/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/IE6/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/css-compression/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/codeigniter/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/shell-terminator/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/git/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/mysql/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/css/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/php-javascript/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Postfix-Mac-SMTP/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/vsftpd-ubuntu-ftp/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/fuelphp-php-framework/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/netbens-jVi-plugin/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Youtube-GoogleAnalytics/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/search/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  
+  <url>
+    <loc>http://example.com/categories/linux/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/php/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/web/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/wiki/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/mysql/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/note/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/hack/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/mac/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/plugin/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/self/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+</urlset>
