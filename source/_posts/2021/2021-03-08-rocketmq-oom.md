@@ -116,6 +116,10 @@ public class ONSConsumerAbstract extends ONSClientAbstract {
 
 和官方SDK研发确认，确实有BUG, 最后走到了pullThresholdForQueue\*队列数这个默认值，不过队列数线上设置的很大，所以最后导致堆积消息量太大，于是业务代码里面手动设置了下该值，上线内存占用500M左右，高峰期没有再出现问题。
 
+```
+properties.put(PropertyKeyConst.MaxCachedMessageAmount, 100);
+```
+
 ## 为什么20000条就OOM
 因为上游系统消息体实在太大了！！！所有东西都给塞了进去，而不是传一个ID。单个消息体达到了32K，线上JVM参数 -Xms1024m,-Xmx1024m, k8s配置也不是太合理，
 
