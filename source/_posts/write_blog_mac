@@ -1,0 +1,27 @@
+#!/bin/bash
+#文章名称
+name=$1
+#今日日期
+date=$(date +"%Y-%m-%d")
+#PATH
+DIR="/Users/apple/jason/github/blog/h2ero.github.com/_posts/"
+echo DIR
+#md文件全名
+blog="${date}-${name}".md
+#文件夹名称
+YEAR=$(date +"%Y")
+#判断文件夹存在否
+if [ -d $DIR$YEAR ];then
+	cp ${DIR}tpl.md $DIR$YEAR/$blog
+else
+	mkdir $DIR$YEAR
+	cp ${DIR}tpl.md $DIR$YEAR/$blog
+fi
+sys_version=$(system_profiler SPSoftwareDataType | grep -E '(System Version|Kernel)');
+date_time=$(date +"%Y-%m-%d %H:%M:%S");
+echo '<i class="os_date">' >> $DIR$YEAR/$blog
+echo $sys_version >> $DIR$YEAR/$blog
+echo $date_time >> $DIR$YEAR/$blog
+echo "</i>" >> $DIR$YEAR/$blog
+echo $blog" have created!"
+/Applications/mou.app/Contents/MacOS/Mou  $DIR$YEAR/$blog
