@@ -1,1 +1,10 @@
 _site/*
+*.sw*
+.DS_Store
+tags
+vendor/*
+.envrc
+*.iml
+.idea/*
+target/*
+node_modules/*
