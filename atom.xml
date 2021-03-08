@@ -37,28 +37,6 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="http://example.com/wiki/tpl.html"/>
-    <id>http://example.com/wiki/tpl.html</id>
-    <published>2021-03-08T07:08:51.674Z</published>
-    <updated>2021-03-08T07:08:51.674Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="time"><a href="#time" class="headerlink" title="time"></a>time</h2><p>layout: post<br>title:<br>tags:<br>categories: </p><hr><p> 保留一模板，以后写东西就在上面了，哈哈～今天又没有白活!<br><a href="http://location/" title="name">Google</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;time&quot;&gt;&lt;a href=&quot;#time&quot; class=&quot;headerlink&quot; title=&quot;time&quot;&gt;&lt;/a&gt;time&lt;/h2&gt;&lt;p&gt;layout: post&lt;br&gt;title:&lt;br&gt;tags:&lt;br&gt;categories: &lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt; 保</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>2014年</title>
     <link href="http://example.com/2015/2015-01-01.html"/>
     <id>http://example.com/2015/2015-01-01.html</id>
@@ -498,6 +476,28 @@
     
     
     <category term="note" scheme="http://example.com/categories/note/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>换种写部落格的方式啦。</title>
+    <link href="http://example.com/2012/2012-07-06-h2ero-new-blog-new-life.html"/>
+    <id>http://example.com/2012/2012-07-06-h2ero-new-blog-new-life.html</id>
+    <published>2012-07-05T16:00:00.000Z</published>
+    <updated>2021-03-08T07:20:35.439Z</updated>
+    
+    <content type="html"><![CDATA[<p>换下写部落格的方式，前段时间看了看markdown的语法。而换这种方式一切又要归咎于学习Git开始。也算这学期的收获吧。一来以前就开始用github开始记自己的一些笔记，二来用不惯wordpress主要还是在排版上，而markdown确实很舒服，对于我这种天生就不会排版的人太适用了。以前给某某发的E-mail那叫一个乱字。github全免费，以后多做笔记了。折腾这个主题比较烦暂时不考虑兼容其他浏览器了，毕竟firefox才是最爱。（最后还是换做Luke的主题去了。）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;换下写部落格的方式，前段时间看了看markdown的语法。而换这种方式一切又要归咎于学习Git开始。也算这学期的收获吧。一来以前就开始用github开始记自己的一些笔记，二来用不惯wordpress主要还是在排版上，而markdown确实很舒服，对于我这种天生就不会排版的人</summary>
+      
+    
+    
+    
+    <category term="self" scheme="http://example.com/categories/self/"/>
     
     
   </entry>

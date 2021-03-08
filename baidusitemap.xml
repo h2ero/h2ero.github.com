@@ -112,8 +112,4 @@
     <loc>http://example.com//2011/2011-04-12-vim-tip.html</loc>
     <lastmod>2021-03-08</lastmod>
   </url>
-  <url>
-    <loc>http://example.com//wiki/tpl.html</loc>
-    <lastmod>2021-03-08</lastmod>
-  </url>
 </urlset> 
