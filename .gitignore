@@ -10,4 +10,3 @@ target/*
 node_modules/*
 public/*
 .deploy_git/*
-themes/pure
